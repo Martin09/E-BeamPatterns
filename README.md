@@ -8,7 +8,7 @@ The design of these chips is not easy, especially if we use (111) wafers which h
 
 Here's an example:
 
-![Basel Membranes Wafer](https://github.com/Martin09/E-BeamPatterns/blob/master/Images/BaselMembranes_4.4.1.JPG "Basel Membranes Wafer v4.41")
+![Basel Membranes Wafer](https://github.com/Martin09/E-BeamPatterns/blob/master/Images/BaselMembranes_4.4.1.png "Basel Membranes Wafer v4.41")
 
 ## Goal
 I put these scripts here to encourage anyone who wants to try their hand at designing wafers using Python. Hopefully these scripts can serve as a starting point for new users that would like to do the same.
