@@ -1,6 +1,7 @@
 AN = 111A Nanowires
+BD = Branched Devices (single branches)
 BM = Basel Membranes
-BR = Branched Membranes
+BR = Branched Membranes (arrays of branches)
 DT = Dose Test
 GS = Growth Shapes
 GT = Growth Theory
