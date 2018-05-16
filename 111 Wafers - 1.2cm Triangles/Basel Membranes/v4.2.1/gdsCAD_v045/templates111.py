@@ -435,7 +435,7 @@ class Wafer_TriangStyle(Cell):
         G = nx.Graph(directed=False)
         G.add_node((0, 0))
         for n in xrange(int(size / min([xgap, ygap]))):
-            for (q, r) in G.nodes():
+            for (q, r) in list(G.nodes()):
                 G.add_edge((q, r), (q - xgap, r - ygap))
                 G.add_edge((q, r), (q + xgap, r + ygap))
                 G.add_edge((q, r), (q - xgap, r + ygap))

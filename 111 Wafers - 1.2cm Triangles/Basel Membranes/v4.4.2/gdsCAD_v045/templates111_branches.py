@@ -23,12 +23,6 @@ from shapely.affinity import rotate as rotateshape
 from shapely.affinity import translate as translateshape
 from shapely.geometry import Polygon, Point, LineString, box
 
-RED = '#F0421D'
-ORANGE = '#F0AC1D'
-GREEN = '#1DF042'
-BLUE = '#1DF0AC'
-BLACK = '#000000'
-
 
 # Helper function:
 # Given two points from a line, returns a cell containing a dashed line connecting the two points
@@ -325,9 +319,9 @@ class Wafer_TriangStyle(Cell):
         block = translateshape(block, xoff=self.blockOffset[0],
                                yoff=self.blockOffset[1])  # TODO: plot output not working properly because of this?
         patch = PolygonPatch(block,
-                             facecolor="#{0:0{1}X}".format(np.random.randint(0, 16777215), 6),
-                             #                             facecolor=RED,
-                             edgecolor=BLACK,
+                             facecolor=np.random.rand(3, 1),
+                             #                             facecolor='r',
+                             edgecolor='k',
                              alpha=0.3,
                              zorder=2)
         ax.add_patch(patch)
@@ -337,7 +331,7 @@ class Wafer_TriangStyle(Cell):
             cell = translateshape(cell, xoff=self.blockOffset[0],
                                   yoff=self.blockOffset[1])  # TODO: plot output not working properly because of this?
             patch = PolygonPatch(cell,
-                                 facecolor="#{0:0{1}X}".format(np.random.randint(0, 16777215), 6),
+                                 facecolor=np.random.rand(3, 1),
                                  edgecolor='k',
                                  alpha=0.3,
                                  zorder=2)
@@ -411,8 +405,8 @@ class Wafer_TriangStyle(Cell):
         circle = Circle(
             (0, 0),
             self.wafer_r,
-            facecolor="#{0:0{1}X}".format(np.random.randint(0, 16777215), 6),
-            edgecolor=BLACK,
+            facecolor=np.random.rand(3, 1),
+            edgecolor='k',
             alpha=1)
         ax.add_patch(circle)
         tricenters = [tri.centroid.xy for tri in tris]
@@ -423,8 +417,8 @@ class Wafer_TriangStyle(Cell):
             x, y = item.exterior.coords.xy
             ax.plot(x, y, 'k-')
             patch = PolygonPatch(item,
-                                 facecolor="#{0:0{1}X}".format(np.random.randint(0, 16777215), 6),
-                                 edgecolor=BLACK,
+                                 facecolor=np.random.rand(3, 1),
+                                 edgecolor='k',
                                  alpha=0.5,
                                  zorder=2)
             ax.add_patch(patch)
@@ -449,7 +443,7 @@ class Wafer_TriangStyle(Cell):
         G = nx.Graph(directed=False)
         G.add_node((0, 0))
         for n in xrange(int(size / min([xgap, ygap]))):
-            for (q, r) in list(G.nodes()):
+            for (q, r) in G.nodes():
                 G.add_edge((q, r), (q - xgap, r - ygap))
                 G.add_edge((q, r), (q + xgap, r + ygap))
                 G.add_edge((q, r), (q - xgap, r + ygap))
@@ -680,18 +674,19 @@ class Wafer_TriangStyle(Cell):
         tri_sub_dMarks.add(mark_cell, rotation=30, origin=(0, offset))
         tri_sub_dMarks.add(mark_cell, rotation=-30, origin=(0, offset))
 
-        tri_sub_dMarks.add(mark_cell, rotation=30, origin=(_w / 4., offset - _h / 2.))
-        tri_sub_dMarks.add(mark_cell, rotation=90, origin=(_w / 4., offset - _h / 2.))
+        tri_sub_dMarks.add(mark_cell, rotation=30, origin=(_w/4., offset-_h/2.))
+        tri_sub_dMarks.add(mark_cell, rotation=90, origin=(_w/4., offset-_h/2.))
 
-        tri_sub_dMarks.add(mark_cell, rotation=-30, origin=(-_w / 4., offset - _h / 2.))
-        tri_sub_dMarks.add(mark_cell, rotation=-90, origin=(-_w / 4., offset - _h / 2.))
+        tri_sub_dMarks.add(mark_cell, rotation=-30, origin=(-_w/4., offset-_h/2.))
+        tri_sub_dMarks.add(mark_cell, rotation=-90, origin=(-_w/4., offset-_h/2.))
+
 
         # Horizontal marks
         # This is a mess... should fix it later. Past Martin says sorry...
-        tri_sub_dMarks.add(mark_cell, rotation=-90, origin=(_w * 3. / 8. - 300., offset - _h / 4. - _h / 20.))
-        tri_sub_dMarks.add(mark_cell, rotation=90, origin=(-_w * 3. / 8. + 300., offset - _h / 4. - _h / 20.))
-        tri_sub_dMarks.add(mark_cell, rotation=-90, origin=(_w * 1. / 8. + 300., offset - _h * 3. / 4. + _h / 20.))
-        tri_sub_dMarks.add(mark_cell, rotation=90, origin=(-_w * 1. / 8. - 300., offset - _h * 3. / 4. + _h / 20.))
+        tri_sub_dMarks.add(mark_cell, rotation=-90, origin=(_w * 3. / 8.-300., offset - _h / 4. - _h / 20.))
+        tri_sub_dMarks.add(mark_cell, rotation=90, origin=(-_w * 3. / 8.+300., offset - _h / 4. - _h / 20.))
+        tri_sub_dMarks.add(mark_cell, rotation=-90, origin=(_w * 1. / 8.+300., offset - _h * 3. / 4. + _h / 20.))
+        tri_sub_dMarks.add(mark_cell, rotation=90, origin=(-_w * 1. / 8.-300., offset - _h * 3. / 4. + _h / 20.))
 
         for tri in self.downTris:
             tri_center = np.array(tri.centroid)
