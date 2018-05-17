@@ -8,6 +8,7 @@ Created on Fri Dec 18 14:11:31 2015
 from datetime import date
 
 import numpy as np
+
 from GrowthTheoryCell import make_theory_cell
 from GrowthTheoryCell_3BranchDevices import make_theory_cell_3br
 from GrowthTheoryCell_4BranchDevices import make_theory_cell_4br
@@ -15,6 +16,8 @@ from gdsCAD_v045.core import Cell, Boundary, CellArray, Layout, Path
 from gdsCAD_v045.shapes import Box, Rectangle, Label
 from gdsCAD_v045.templates import Wafer_GridStyle, dashed_line
 
+WAFER_ID = '900003442151'  # CHANGE THIS FOR EACH DIFFERENT WAFER
+PATTERN = 'SQ1.2'
 putOnWafer = True  # Output full wafer or just a single pattern?
 HighDensity = False  # High density of triangles?
 glbAlignmentMarks = False
@@ -63,6 +66,7 @@ class MBE100Wafer(Wafer_GridStyle):
         self.add_prealignment_markers(layers=[l_lgBeam])
         self.add_tem_membranes([0.08, 0.012, 0.028, 0.044], 2000, 1, l_smBeam)
         self.add_theory_cell()
+        self.add_chip_labels()
 
         # self.add_blockLabels(l_lgBeam)
         # self.add_cellLabels(l_lgBeam)
@@ -194,6 +198,20 @@ class MBE100Wafer(Wafer_GridStyle):
             origin = (pt + np.array([0.5, 0.5])) * self.block_size
             origin += np.array([0, -2000])
             self.add(theory_cells, origin=origin)
+
+    def add_chip_labels(self):
+        wafer_lbl = PATTERN + '\n' + WAFER_ID
+        text = Label(wafer_lbl, 3., layer=l_smBeam)  # CHANGE TO LG BEAM NEXT TIME
+        # text = Label(wafer_lbl, 10., layer=l_lgBeam)
+        text.translate(tuple(np.array(-text.bounding_box.mean(0))))  # Center justify label
+        chip_lbl_cell = Cell('chip_label')
+        chip_lbl_cell.add(text)
+
+        # Add it in all the cells
+        for (i, pt) in enumerate(self.block_pts):
+            origin = (pt + np.array([0.5, 0.5])) * self.block_size
+            origin += np.array([0, -2850])
+            self.add(chip_lbl_cell, origin=origin)
 
 
 class Frame(Cell):
@@ -379,3 +397,7 @@ else:  # Only output a single copy of the pattern (not on a wafer)
 filestring = str(waferVer) + '_' + date.today().strftime("%d%m%Y") + ' dMark' + str(tDicingMarks)
 filename = filestring.replace(' ', '_') + '.gds'
 layout.save(filename)
+
+cell_layout = Layout('LIBRARY')
+cell_layout.add(wafer.cells[0])
+cell_layout.save(filestring.replace(' ', '_') + '_block' + '.gds')

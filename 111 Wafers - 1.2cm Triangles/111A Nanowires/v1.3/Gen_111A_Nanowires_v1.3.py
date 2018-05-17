@@ -4,39 +4,41 @@ Created on Fri Dec 18 14:11:31 2015
 
 @author: Martin Friedl
 
+wrt v1.0:
+- Pitches are smaller 200, 400, 600, 800nm
+- Changed holes to only include larger ones
 
-Changes:
-- updated to only have 3 membrane widths, as requested by Kris from Basel
--
+wrt v1.2:
+- Fixed pitch to only 750nm
+- Added skews, which stretch the shapes in the x direction by various amounts to see if this helps
+- Added vertical array of lines for Corentin's etching optimization and re-flow
+- Added wafer label to the chip
+
 """
 
 # TODO: Finish cleaning up code warnings
 
-from datetime import timedelta, date
-
 import numpy as np
-from gdsCAD_v045.core import Cell, Boundary, CellArray, Layout, Path
-from gdsCAD_v045.shapes import Box, Rectangle, Label
 from shapely.affinity import rotate as rotateshape
 from shapely.geometry import LineString
 
 from GrowthTheoryCell import make_theory_cell, make_shape_array
 from GrowthTheoryCell_Branches import make_theory_cell_br
-from gdsCAD_v045.templates111 import Wafer_TriangStyle, dashed_line
+from gdsCAD_v045.core import Cell, Boundary, CellArray, Layout, Path
+from gdsCAD_v045.shapes import Box, Rectangle, Label, Disk, RegPolygon
+from gdsCAD_v045.templates111 import Wafer_TriangStyle
+from gdsCAD_v045.utils import scale
 
-WAFER_ID = 'XXXXXX'  # CHANGE THIS FOR EACH DIFFERENT WAFER
-PATTERN = 'BM4.8'
+WAFER_ID = '800002890574'  # CHANGE THIS FOR EACH DIFFERENT WAFER
 CELL_GAP = 3000
-putOnWafer = True  # Output full wafer or just a single pattern?
-HighDensity = False  # High density of triangles?
 glbAlignmentMarks = False
 tDicingMarks = 10.  # Dicing mark line thickness (um)
 rotAngle = 0.  # Rotation angle of the membranes
 wafer_r = 25e3
-waferVer = 'Membranes Wafer v4.42 r{:d}'.format(int(wafer_r / 1000))
+waferVer = '111A NWs Wafer v1.3 r{:d}'.format(int(wafer_r / 1000))
+waferLabel = waferVer
 mkWidthMinor = 3  # Width of minor (Basel) markers within each triangular chip
 
-waferLabel = waferVer + '\n' + density
 # Layers
 l_smBeam = 0
 l_lgBeam = 1
@@ -61,7 +63,8 @@ class MBEWafer(Wafer_TriangStyle):
                  doMCBlockSearch=True,
                  MCBlockIterations=100,
                  mkWidth=10,
-                 cellsAtEdges=False):
+                 cellsAtEdges=False,
+                 symmetric_chips=True):
 
         Wafer_TriangStyle.__init__(self,
                                    name,
@@ -76,9 +79,11 @@ class MBEWafer(Wafer_TriangStyle):
                                    doMCBlockSearch=doMCBlockSearch,
                                    MCBlockIterations=MCBlockIterations,
                                    mkWidth=mkWidth,
-                                   cellsAtEdges=cellsAtEdges)
+                                   cellsAtEdges=cellsAtEdges,
+                                   symmetric_chips=symmetric_chips)
 
         self.align_markers = None
+        self.symmetric_chips = False
         # The placement of the wafer alignment markers
         am_x = 1.5e4
         am_y = 1.5e4
@@ -100,19 +105,20 @@ class MBEWafer(Wafer_TriangStyle):
         points = self.add_dicing_marks(l_lgBeam, mkWidth=mkWidth)  # Width of dicing marks
         self.make_basel_align_marks(points, l_lgBeam, mk_width=mkWidthMinor)
         self.add_wafer_outline(100)
-        self.add_blocks()
+        self.build_and_add_blocks()
         self.add_blockLabels(l_lgBeam, center=True)
         self.add_cellLabels(l_lgBeam, center=True)  # Put cell labels ('A','B','C'...) in center of each cell
         self.add_sub_dicing_ticks(300, 10, l_lgBeam)
         self.add_theory_cell()
-        self.add_tem_membranes([0.08, 0.012, 0.028, 0.044], 2000, 1, l_smBeam)
+        self.add_tem_membranes([0.020, 0.030, 0.040, 0.050], 1000, 1, l_smBeam)
+        self.add_chip_labels()
         # self.add_tem_nanowires()
         bottom = np.array([0, -self.wafer_r * 0.90])
         # Write label on layer 100 to avoid writing (and saving writing time)
         self.add_waferLabel(waferLabel, 100, pos=bottom)
 
     def add_chip_labels(self):
-        wafer_lbl = PATTERN + '\n' + WAFER_ID
+        wafer_lbl = "AN1.3\n" + WAFER_ID
         text = Label(wafer_lbl, 10., layer=l_lgBeam)
         text.translate(tuple(np.array(-text.bounding_box.mean(0))))  # Center justify label
         chip_lbl_cell = Cell('chip_label')
@@ -157,14 +163,16 @@ class MBEWafer(Wafer_TriangStyle):
 
         for x, y in self.upCenters:
             self.add(tem_membranes2, origin=(x, y - 2000))
+            self.add(tem_membranes2, origin=(x, y - 1400), rotation=90)
         for x, y in self.downCenters:
             self.add(tem_membranes2, origin=(x, y + 2000), rotation=180)
+            self.add(tem_membranes2, origin=(x, y + 1400), rotation=90)
 
     def add_tem_nanowires(self):
         size = 500
         y_offset = 1300
-        shapes_big = make_shape_array(size, 0.02, 0.75, 'hexagons', l_smBeam, labels=False)
-        shapes_small = make_shape_array(size, 0.005, 0.75, 'hexagons', l_smBeam, labels=False)  # Changed this wrt BM4.4
+        shapes_big = make_shape_array(size, 0.02, 0.5, 'Tris_right', l_smBeam, labels=False)
+        shapes_small = make_shape_array(size, 0.005, 0.5, 'Tris_right', l_smBeam, labels=False)
         tem_shapes = Cell('TEMShapes')
         # tem_shapes.add(shapes_big, origin=(2200 - size / 2., y_offset - size / 2.))
         tem_shapes.add(shapes_small, origin=(-2200 - size / 2., y_offset - size / 2.))
@@ -234,6 +242,15 @@ class Frame(Cell):
 
         self.align_markers = None
 
+    def frame_label(self, label_txt, size, beam):
+        text = Label(label_txt, size, layer=beam)
+        lblVertOffset = 0.4
+        text.translate(
+            tuple(np.array(-text.bounding_box.mean(0))))  # Center justify label
+        lbl_cell = Cell('frame_label')
+        lbl_cell.add(text)
+        self.add(lbl_cell, origin=(0, self.size_y * lblVertOffset / 2.))
+
     def make_align_markers(self, t, w, position, layers, cross=False):
         if not (type(layers) == list):
             layers = [layers]
@@ -261,107 +278,124 @@ class Frame(Cell):
             self.align_markers.add([am1, am2, am3, am4])
             self.add(self.align_markers)
 
-    def make_slit_array(self, _pitches, spacing, _widths, _lengths, rot_angle,
-                        array_height, array_width, array_spacing, layers):
-        if not (type(layers) == list):
-            layers = [layers]
-        if not (type(_pitches) == list):
-            _pitches = [_pitches]
-        if not (type(_lengths) == list):
-            _lengths = [_lengths]
-        if not (type(_widths) == list):
-            _widths = [_widths]
-        manyslits = i = j = None
-        for l in layers:
-            i = -1
-            j = -1
-            manyslits = Cell("SlitArray")
-            pitch = _pitches[0]
-            for length in _lengths:
-                j += 1
-                i = -1
+    # TODO: Center array around the origin
+    def make_shape_array(self, array_size, shape_area, shape_pitch, type, layer, skew, toplabels=False,
+                         sidelabels=False):
+        num_of_shapes = int(np.ceil(array_size / shape_pitch))
+        base_cell = Cell('Base')
 
-                for width in _widths:
-                    # for pitch in pitches:
-                    i += 1
-                    if i % 3 == 0:
-                        j += 1  # Move to array to next line
-                        i = 0  # Restart at left
+        if 'tris' in type.lower():
+            triangle_side = np.sqrt(shape_area / np.sqrt(3) * 4)
+            tri_shape = scale(RegPolygon([0, 0], triangle_side, 3, layer=layer), [skew, 1.0])
+            tri_cell = Cell('Tri')
+            tri_cell.add(tri_shape)
+            if 'right' in type.lower():
+                base_cell.add(tri_cell, rotation=0)
+            elif 'left' in type.lower():
+                base_cell.add(tri_cell, rotation=-180)
+            elif 'down' in type.lower():
+                base_cell.add(tri_cell, rotation=30)  # not working for skew yet
+            elif 'up' in type.lower():
+                base_cell.add(tri_cell, rotation=-30)  # not working for skew yet
+        elif type.lower() == "circles":
+            circ_radius = np.sqrt(shape_area / np.pi)
+            circ = scale(Disk([0, 0], circ_radius, layer=layer), [skew, 1.0])
+            base_cell.add(circ)
+        elif type.lower() == 'hexagons':
+            hex_side = np.sqrt(shape_area / 6. / np.sqrt(3) * 4)
+            hex_shape = scale(RegPolygon([0, 0], hex_side, 6, layer=layer), [skew, 1.0])
+            hex_cell = Cell('Hex')
+            hex_cell.add(hex_shape)
+            base_cell.add(hex_cell, rotation=0)
 
-                    pitch_v = pitch / np.cos(np.deg2rad(rot_angle))
-                    #                    widthV = width / np.cos(np.deg2rad(rotAngle))
-                    nx = int(array_width / (length + spacing))
-                    ny = int(array_height / pitch_v)
-                    # Define the slits
-                    slit = Cell("Slits")
-                    rect = Rectangle(
-                        (-length / 2., -width / 2.),
-                        (length / 2., width / 2.),
-                        layer=l)
-                    rect = rect.copy().rotate(rot_angle)
-                    slit.add(rect)
-                    slits = CellArray(slit, nx, ny,
-                                      (length + spacing, pitch_v))
-                    slits.translate((-(nx - 1) * (length + spacing) / 2., -(ny - 1) * pitch_v / 2.))
-                    slit_array = Cell("SlitArray")
-                    slit_array.add(slits)
-                    text = Label('w/p/l\n%i/%i/%i' %
-                                 (width * 1000, pitch, length), 5)
-                    lbl_vertical_offset = 1.35
-                    if j % 2 == 0:
-                        text.translate(
-                            tuple(np.array(-text.bounding_box.mean(0)) + np.array((
-                                0, -array_height / lbl_vertical_offset))))  # Center justify label
-                    else:
-                        text.translate(
-                            tuple(np.array(-text.bounding_box.mean(0)) + np.array((
-                                0, array_height / lbl_vertical_offset))))  # Center justify label
-                    slit_array.add(text)
-                    manyslits.add(slit_array,
-                                  origin=((array_width + array_spacing) * i, (
-                                      array_height + 2. * array_spacing) * j - array_spacing / 2.))
+        shape_array = CellArray(base_cell, num_of_shapes, num_of_shapes, [shape_pitch, shape_pitch])
+        shape_array_cell = Cell('Shape Array')
+        shape_array_cell.add(shape_array)
 
-        self.add(manyslits,
-                 origin=(-i * (array_width + array_spacing) / 2, -(j + 1.5) * (
-                     array_height + array_spacing) / 2))
+        lbl_dict = {'hexagons': 'hex', 'circles': 'circ', 'tris_right': 'triR', 'tris_left': 'triL'}
+
+        if toplabels:
+            text = Label('{}'.format(lbl_dict[type.lower()]), 2)
+            lblVertOffset = 0.8
+            text.translate(
+                tuple(np.array(-text.bounding_box.mean(0)) + np.array((
+                    array_size / 2., array_size / lblVertOffset))))  # Center justify label
+            shape_array_cell.add(text)
+        if sidelabels:
+            text = Label('a={:.0f}knm2'.format(shape_area * 1000), 2)
+            lblHorizOffset = 1.5
+            text.translate(
+                tuple(np.array(-text.bounding_box.mean(0)) + np.array((
+                    -array_size / lblHorizOffset, array_size / 2.))))  # Center justify label
+            shape_array_cell.add(text)
+
+        return shape_array_cell
+
+    def make_many_shapes(self, array_size, shape_areas, pitch, shapes, skew, layer):
+        offset_x = array_size * 1.25
+        offset_y = array_size * 1.25
+        cur_y = 0
+        many_shape_cell = Cell('ManyShapes')
+        for area in shape_areas:
+            cur_x = 0
+            for shape in shapes:
+                write_top_labels = cur_y == 0
+                write_side_labels = cur_x == 0
+                s_array = self.make_shape_array(array_size, area, pitch, shape, layer, skew, toplabels=write_top_labels,
+                                                sidelabels=write_side_labels)
+                many_shape_cell.add(s_array, origin=(cur_x - array_size / 2., cur_y - array_size / 2.))
+                cur_x += offset_x
+            cur_y -= offset_y
+        self.add(many_shape_cell, origin=(-offset_x * (len(shapes) - 1) / 2., offset_y * (len(skews) - 1) / 2.))
 
 
 # %%Create the pattern that we want to write
-
 lgField = Frame("LargeField", (2000., 2000.), [])  # Create the large write field
-lgField.make_align_markers(20., 200., (850., 850.), l_lgBeam, cross=True)
+# lgField.make_align_markers(20., 200., (850., 850.), l_lgBeam, cross=True)
 
 # Define parameters that we will use for the slits
-widths = [0.016, 0.028, 0.044, 0.016, 0.028, 0.044]
-pitches = [1.0, 2.0]
-lengths = [10., 20.]
+widths = [0.004, 0.008, 0.012, 0.016, 0.028, 0.044]
+pitch = 0.75
+areas = [0.00125, 0.00250, 0.005, 0.010]
+shapes = ['Circles', 'Tris_left', 'Tris_right']
+skews = [1., 1.5, 2., 3.]
 
 smFrameSize = 400
 slitColumnSpacing = 3.
-
 # Create the smaller write field and corresponding markers
-smField1 = Frame("SmallField1", (smFrameSize, smFrameSize), [])
+skew = skews[0]
+lbl = "Skew={:.1f}x".format(skew)
+smField1 = Frame(lbl, (smFrameSize, smFrameSize), [])
+smField1.frame_label(lbl, 3, l_lgBeam)
 smField1.make_align_markers(2., 20., (180., 180.), l_lgBeam, cross=True)
-smField1.make_slit_array(pitches[0], slitColumnSpacing, widths, lengths[0], rotAngle, 100, 100, 30, l_smBeam)
+smField1.make_many_shapes(25, areas, pitch, shapes, skew, l_smBeam)
 
-smField2 = Frame("SmallField2", (smFrameSize, smFrameSize), [])
+skew = skews[1]
+lbl = "S={:.1f}x".format(skew)
+smField2 = Frame(lbl, (smFrameSize, smFrameSize), [])
+smField2.frame_label(lbl, 3, l_lgBeam)
 smField2.make_align_markers(2., 20., (180., 180.), l_lgBeam, cross=True)
-smField2.make_slit_array(pitches[0], slitColumnSpacing, widths, lengths[1], rotAngle, 100, 100, 30, l_smBeam)
+smField2.make_many_shapes(25, areas, pitch, shapes, skew, l_smBeam)
 
-smField3 = Frame("SmallField3", (smFrameSize, smFrameSize), [])
+skew = skews[2]
+lbl = "S={:.1f}x".format(skew)
+smField3 = Frame(lbl, (smFrameSize, smFrameSize), [])
+smField3.frame_label(lbl, 3, l_lgBeam)
 smField3.make_align_markers(2., 20., (180., 180.), l_lgBeam, cross=True)
-smField3.make_slit_array(pitches[1], slitColumnSpacing, widths, lengths[0], rotAngle, 100, 100, 30, l_smBeam)
+smField3.make_many_shapes(25, areas, pitch, shapes, skew, l_smBeam)
 
-smField4 = Frame("SmallField4", (smFrameSize, smFrameSize), [])
+skew = skews[3]
+lbl = "S={:.1f}x".format(skew)
+smField4 = Frame(lbl, (smFrameSize, smFrameSize), [])
+smField4.frame_label(lbl, 3, l_lgBeam)
 smField4.make_align_markers(2., 20., (180., 180.), l_lgBeam, cross=True)
-smField4.make_slit_array(pitches[1], slitColumnSpacing, widths, lengths[1], rotAngle, 100, 100, 30, l_smBeam)
+smField4.make_many_shapes(25, areas, pitch, shapes, skew, l_smBeam)
 
 centerAlignField = Frame("CenterAlignField", (smFrameSize, smFrameSize), [])
-centerAlignField.make_align_markers(2., 20., (180., 180.), l_lgBeam, cross=True)
 
 # Add everything together to a top cell
 topCell = Cell("TopCell")
-topCell.add(lgField)
+# topCell.add(lgField)
 smFrameSpacing = 400  # Spacing between the three small frames
 dx = smFrameSpacing + smFrameSize
 dy = smFrameSpacing + smFrameSize
@@ -369,30 +403,15 @@ topCell.add(smField1, origin=(-dx / 2., dy / 2.))
 topCell.add(smField2, origin=(dx / 2., dy / 2.))
 topCell.add(smField3, origin=(-dx / 2., -dy / 2.))
 topCell.add(smField4, origin=(dx / 2., -dy / 2.))
-topCell.add(centerAlignField, origin=(0., 0.))
+# topCell.add(centerAlignField, origin=(0., 0.))
 
 # %%Create the layout and output GDS file
 layout = Layout('LIBRARY', precision=1e-10)
-if putOnWafer:  # Fit as many patterns on a wafer as possible
-    wafer = MBEWafer('MembranesWafer', wafer_r=wafer_r, cells=[topCell], cell_gap=CELL_GAP, mkWidth=tDicingMarks,
-                     cellsAtEdges=False)
-    layout.add(wafer)
 
-    # Try to poorly calculate the write time
-    freq = 20E6  # 20 GHz
-    spotsize = 100E-9  # 100nm beam
-    gridsize = np.sqrt(2) / 2. * spotsize
-    spotarea = gridsize ** 2.
-    waferarea = wafer.area() / 1E6 ** 2.
-    writetime = waferarea / spotarea / freq
-    time = timedelta(seconds=writetime)
-    print '\nEstimated write time: \n' + str(time)
+wafer = MBEWafer('MembranesWafer', wafer_r=wafer_r, cells=[topCell], cell_gap=CELL_GAP, mkWidth=tDicingMarks,
+                 cellsAtEdges=False)
+layout.add(wafer)
 
-# layout.show()
-else:  # Only output a single copy of the pattern (not on a wafer)
-    layout.add(topCell)
-    layout.show()
-
-file_string = str(waferVer) + '_' + str(density) + ' dMark' + str(tDicingMarks)
+file_string = str(waferVer)
 filename = file_string.replace(' ', '_') + '.gds'
 layout.save(filename)
