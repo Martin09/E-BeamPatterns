@@ -17,19 +17,20 @@ from shapely.geometry import LineString
 
 from GrowthTheoryCell import make_theory_cell, make_shape_array
 from GrowthTheoryCell_Branches import make_theory_cell_br
+from QuantumPlayground_v1 import make_qp
 from gdsCAD_v045.core import Cell, Boundary, CellArray, Layout, Path
 from gdsCAD_v045.shapes import Box, Rectangle, Label, Disk, RegPolygon
 from gdsCAD_v045.templates111 import Wafer_TriangStyle
 from gdsCAD_v045.utils import scale
 
-WAFER_ID = 'XXXXX'  # CHANGE THIS FOR EACH DIFFERENT WAFER
-PATTERN = 'BM4.8'
+WAFER_ID = 'XXXXXXXXXXX'  # CHANGE THIS FOR EACH DIFFERENT WAFER
+PATTERN = 'BM4.8.1'
 CELL_GAP = 3000
 glbAlignmentMarks = False
 tDicingMarks = 8.  # Dicing mark line thickness (um)
 rotAngle = 0.  # Rotation angle of the membranes
 wafer_r = 25e3
-waferVer = 'Basel Membranes v4.8 r{:d}'.format(int(wafer_r / 1000))
+waferVer = 'Basel Membranes v4.8.1 r{:d}'.format(int(wafer_r / 1000))
 waferLabel = waferVer
 mkWidthMinor = 3  # Width of minor (Basel) markers within each triangular chip
 
@@ -427,7 +428,6 @@ class Frame(Cell):
             self.add(manydevices,
                      origin=(-i * (array_width + array_spacing) / 2, -(j + 1.5) * (array_height + array_spacing) / 2))
 
-
     def make_slit_array(self, _pitches, spacing, _widths, _lengths, rot_angle,
                         array_height, array_width, array_spacing, layers):
         if not (type(layers) == list):
@@ -486,12 +486,11 @@ class Frame(Cell):
                     slit_array.add(text)
                     manyslits.add(slit_array,
                                   origin=((array_width + array_spacing) * i, (
-                                      array_height + 2. * array_spacing) * j - array_spacing / 2.))
+                                          array_height + 2. * array_spacing) * j - array_spacing / 2.))
 
         self.add(manyslits,
                  origin=(-i * (array_width + array_spacing) / 2, -(j + 1.5) * (
-                     array_height + array_spacing) / 2))
-
+                         array_height + array_spacing) / 2))
 
 
 # %%Create the pattern that we want to write
@@ -527,6 +526,8 @@ smField4.make_branch_device_array(pitches[0], widths, 115., 115., 30., lengths[1
 centerAlignField = Frame("CenterAlignField", (smFrameSize, smFrameSize), [])
 centerAlignField.make_align_markers(2., 20., (180., 180.), l_lgBeam, cross=True)
 
+qp_cell = make_qp()
+
 # Add everything together to a top cell
 topCell = Cell("TopCell")
 topCell.add(lgField)
@@ -537,7 +538,8 @@ topCell.add(smField1, origin=(-dx / 2., dy / 2.))
 topCell.add(smField2, origin=(dx / 2., dy / 2.))
 topCell.add(smField3, origin=(-dx / 2., -dy / 2.))
 topCell.add(smField4, origin=(dx / 2., -dy / 2.))
-topCell.add(centerAlignField, origin=(0., 0.))
+topCell.add(centerAlignField, origin=(dx / 2., 0.))
+topCell.add(qp_cell, origin=(dx / 2., 0.))
 
 # Create the layout and output GDS file
 layout = Layout('LIBRARY', precision=1e-10)
@@ -554,7 +556,7 @@ rectCell = Cell('EtchCheckSquare')
 rectCell.add(rect)
 rect_layout = Layout('LIBRARY')
 rect_layout.add(rectCell)
-rect_layout.save(filename+'_etchCheck.gds')
+rect_layout.save(filename + '_etchCheck.gds')
 rect_layout.add(rectCell)
 
 layout.add(wafer)

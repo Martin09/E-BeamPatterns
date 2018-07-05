@@ -8,9 +8,9 @@ Created on Tue Sep 20 10:04:48 2016
 # TODO: Add arrays of intersecting growth shapes
 
 import numpy as np
+
 from gdsCAD_v045.core import Cell, Boundary, CellArray, Layout, Path
 from gdsCAD_v045.shapes import Box, Rectangle, Label, LineLabel, Disk, RegPolygon
-
 from gdsCAD_v045.templates111_branches import dashed_line
 
 # Layers
@@ -712,51 +712,78 @@ def makeShape_ABHexagon(pitch, length, width, contactlength, n_outer_buf, layer)
     return hexagonshape
 
 
-def make_theory_cell():
+def make_qp():
     ''' Makes the theory cell and returns it as a cell'''
-    # Growth Theory Slit Elongation
-    pitch = [0.500]
-    lengths = list(np.logspace(-3, 0, 20) * 8.0)  # Logarithmic
-    widths = [0.044, 0.028, 0.016, 0.012, 0.008]
-    arrayHeight = 20.
-    arraySpacing = 30.
-    spacing = 10.
-
-    cell_XShape = makeShape_X(1.0, 10, 0.04, 3, l_smBeam)
-    cell_XShapeNoBuffer = makeShape_X(1.0, 10, 0.04, 0, l_smBeam)
-    cell_StarShape = makeShape_Star(1.0, 10, 0.04, 3, l_smBeam)
-    cell_StarShapeNoBuffer = makeShape_Star(1.0, 10, 0.04, 0, l_smBeam)
-    cell_HashTag = makeShape_HashTag(3.0, 1.0, 5, 0.04, l_smBeam)
-    cell_HashTagNoBuffer = makeShape_HashTag(3.0, 10.0, 5, 0.04, l_smBeam)
-    cell_Window = makeShape_Window(3.0, 1.0, 12, 0.04, l_smBeam)
-    cell_WindowNoBuffer = makeShape_Window(3.0, 100.0, 12, 0.04, l_smBeam)
-    cell_Triangle = makeShape_Triangle(1.0, 5, 0.04, 1.0, 3, l_smBeam)
-    cell_TriangleNoBuffer = makeShape_Triangle(10.0, 5, 0.04, 1.0, 0, l_smBeam)
-    cell_AB_Diamond = makeShape_ABDiamond(1.0, 5, 0.04, 1.0, 3, l_smBeam)
-    cell_AB_DiamondNoBuffer = makeShape_ABDiamond(10.0, 5, 0.04, 1.0, 0, l_smBeam)
-    cell_AB_Hexagon = makeShape_ABHexagon(1.0, 3, 0.04, 2.0, 3, l_smBeam)
-    cell_AB_HexagonNoBuffer = makeShape_ABHexagon(10.0, 3, 0.04, 2.0, 0, l_smBeam)
+    widths = [0.028, 0.044]
+    qp_spacing = 60
 
     TopCell = Cell('QuantumPlayground_TopCell')
-    TopCell.add(cell_XShape, origin=(0, -10))
-    TopCell.add(cell_XShapeNoBuffer, origin=(0, 10))
-    TopCell.add(cell_StarShape, origin=(20, -10))
-    TopCell.add(cell_StarShapeNoBuffer, origin=(20, 10))
-    TopCell.add(cell_HashTag, origin=(40, -10))
-    TopCell.add(cell_HashTagNoBuffer, origin=(40, 10))
-    TopCell.add(cell_Window, origin=(60, -10))
-    TopCell.add(cell_WindowNoBuffer, origin=(60, 10))
-    TopCell.add(cell_Triangle, origin=(80, -10))
-    TopCell.add(cell_TriangleNoBuffer, origin=(80, 10))
-    TopCell.add(cell_AB_Diamond, origin=(100, -10))
-    TopCell.add(cell_AB_DiamondNoBuffer, origin=(100, 10))
-    TopCell.add(cell_AB_Hexagon, origin=(120, -10))
-    TopCell.add(cell_AB_HexagonNoBuffer, origin=(120, 10))
+
+    for i, nm_width in enumerate(widths):
+        cell_XShape = makeShape_X(1.0, 10, nm_width, 3, l_smBeam)
+        cell_XShapeNoBuffer = makeShape_X(1.0, 10, nm_width, 0, l_smBeam)
+        cell_StarShape = makeShape_Star(1.0, 10, nm_width, 3, l_smBeam)
+        cell_StarShapeNoBuffer = makeShape_Star(1.0, 10, nm_width, 0, l_smBeam)
+        cell_HashTag = makeShape_HashTag(3.0, 1.0, 5, nm_width, l_smBeam)
+        cell_HashTagNoBuffer = makeShape_HashTag(3.0, 10.0, 5, nm_width, l_smBeam)
+        cell_Window = makeShape_Window(3.0, 1.0, 12, nm_width, l_smBeam)
+        cell_WindowNoBuffer = makeShape_Window(3.0, 100.0, 12, nm_width, l_smBeam)
+        cell_Triangle = makeShape_Triangle(1.0, 5, nm_width, 1.0, 3, l_smBeam)
+        cell_TriangleNoBuffer = makeShape_Triangle(10.0, 5, nm_width, 1.0, 0, l_smBeam)
+        cell_AB_Diamond = makeShape_ABDiamond(1.0, 3, nm_width, 1.0, 3, l_smBeam)
+        cell_AB_DiamondNoBuffer = makeShape_ABDiamond(10.0, 3, nm_width, 1.0, 0, l_smBeam)
+        cell_AB_Hexagon = makeShape_ABHexagon(1.0, 2, nm_width, 2.0, 3, l_smBeam)
+        cell_AB_HexagonNoBuffer = makeShape_ABHexagon(10.0, 2, nm_width, 2.0, 0, l_smBeam)
+
+        QP = Cell('QuantumPlayground_W{:.0f}'.format(nm_width * 1000))
+        QP.add(cell_AB_Diamond, origin=(-30, 30))
+        QP.add(cell_AB_DiamondNoBuffer, origin=(-10, 30))
+        QP.add(cell_XShape, origin=(-30, 10))
+        QP.add(cell_XShapeNoBuffer, origin=(-10, 10))
+        QP.add(cell_HashTag, origin=(-30, -10))
+        QP.add(cell_HashTagNoBuffer, origin=(-10, -10))
+        QP.add(cell_Triangle, origin=(-30, -30))
+        QP.add(cell_TriangleNoBuffer, origin=(-10, -30))
+        QP.add(cell_AB_Hexagon, origin=(10, 30))
+        QP.add(cell_AB_HexagonNoBuffer, origin=(30, 30))
+        QP.add(cell_StarShape, origin=(10, 10))
+        QP.add(cell_StarShapeNoBuffer, origin=(30, 10))
+        QP.add(cell_Window, origin=(10, -10))
+        QP.add(cell_WindowNoBuffer, origin=(30, -10))
+
+        TopCell.add(QP, origin=(-qp_spacing + 2 * i * qp_spacing, qp_spacing))
+
+        # SMALL Aharonov Bohm devices
+        cell_Triangle_sm = makeShape_Triangle(1.0, 1, nm_width, 1.0, 5, l_smBeam)
+        cell_TriangleNoBuffer_sm = makeShape_Triangle(10.0, 1, nm_width, 1.0, 0, l_smBeam)
+        cell_AB_Diamond_sm = makeShape_ABDiamond(1.0, 1, nm_width, 1.0, 5, l_smBeam)
+        cell_AB_DiamondNoBuffer_sm = makeShape_ABDiamond(10.0, 1, nm_width, 1.0, 0, l_smBeam)
+        cell_AB_Hexagon_sm = makeShape_ABHexagon(1.0, 1, nm_width, 1.0, 5, l_smBeam)
+        cell_AB_HexagonNoBuffer_sm = makeShape_ABHexagon(10.0, 1, nm_width, 1.0, 0, l_smBeam)
+
+        QP_sm = Cell('QuantumPlayground_W{:.0f}'.format(nm_width * 1000))
+        QP_sm.add(cell_AB_Diamond_sm, origin=(-30, 30))
+        QP_sm.add(cell_AB_DiamondNoBuffer_sm, origin=(-10, 30))
+        QP_sm.add(cell_XShape, origin=(-30, 10))
+        QP_sm.add(cell_XShapeNoBuffer, origin=(-10, 10))
+        QP_sm.add(cell_HashTag, origin=(-30, -10))
+        QP_sm.add(cell_HashTagNoBuffer, origin=(-10, -10))
+        QP_sm.add(cell_Triangle_sm, origin=(-30, -30))
+        QP_sm.add(cell_TriangleNoBuffer_sm, origin=(-10, -30))
+        QP_sm.add(cell_AB_Hexagon_sm, origin=(10, 30))
+        QP_sm.add(cell_AB_HexagonNoBuffer_sm, origin=(30, 30))
+        QP_sm.add(cell_StarShape, origin=(10, 10))
+        QP_sm.add(cell_StarShapeNoBuffer, origin=(30, 10))
+        QP_sm.add(cell_Window, origin=(10, -10))
+        QP_sm.add(cell_WindowNoBuffer, origin=(30, -10))
+
+        TopCell.add(QP_sm, origin=(-qp_spacing + 2 * i * qp_spacing, -qp_spacing))
+
     return TopCell
 
 
 if __name__ == "__main__":
-    TopCell = make_theory_cell()
+    TopCell = make_qp()
     # Add the copied cell to a Layout and save
     layout = Layout('LIBRARY')
     layout.add(TopCell)
