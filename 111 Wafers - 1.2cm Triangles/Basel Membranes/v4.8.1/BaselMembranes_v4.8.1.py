@@ -534,6 +534,7 @@ topCell.add(lgField)
 smFrameSpacing = 400  # Spacing between the three small frames
 dx = smFrameSpacing + smFrameSize
 dy = smFrameSpacing + smFrameSize
+
 topCell.add(smField1, origin=(-dx / 2., dy / 2.))
 topCell.add(smField2, origin=(dx / 2., dy / 2.))
 topCell.add(smField3, origin=(-dx / 2., -dy / 2.))
