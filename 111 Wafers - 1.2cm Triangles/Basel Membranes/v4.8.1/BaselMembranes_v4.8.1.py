@@ -15,13 +15,13 @@ import numpy as np
 from shapely.affinity import rotate as rotateshape
 from shapely.geometry import LineString
 
-from GrowthTheoryCell import make_theory_cell, make_shape_array
-from GrowthTheoryCell_Branches import make_theory_cell_br
-from QuantumPlayground_v1 import make_qp
-from gdsCAD_v045.core import Cell, Boundary, CellArray, Layout, Path
-from gdsCAD_v045.shapes import Box, Rectangle, Label, Disk, RegPolygon
-from gdsCAD_v045.templates111 import Wafer_TriangStyle
-from gdsCAD_v045.utils import scale
+from Patterns.GrowthTheoryCell import make_theory_cell, make_shape_array
+from Patterns.GrowthTheoryCell_Branches import make_theory_cell_br
+from Patterns.QuantumPlayground_v1 import make_qp
+from gdsCAD_py3.core import Cell, Boundary, CellArray, Layout, Path
+from gdsCAD_py3.shapes import Box, Rectangle, Label, Disk, RegPolygon
+from gdsCAD_py3.templates111 import Wafer_TriangStyle
+from gdsCAD_py3.utils import scale
 
 WAFER_ID = 'XXXXXXXXXXX'  # CHANGE THIS FOR EACH DIFFERENT WAFER
 PATTERN = 'BM4.8.1'

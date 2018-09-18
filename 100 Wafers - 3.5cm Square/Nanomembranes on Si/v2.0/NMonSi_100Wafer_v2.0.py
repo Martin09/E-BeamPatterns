@@ -5,25 +5,26 @@ Created on Fri Dec 18 14:11:31 2015
 @author: Martin Friedl
 """
 
-import numpy as np
 from datetime import date
 
-from Patterns.GrowthTheoryCell import make_theory_cell
+import numpy as np
+
+from Patterns.GrowthTheoryCell_100_Large import make_theory_cell
 from Patterns.GrowthTheoryCell_100_3BranchDevices import make_theory_cell_3br
 from Patterns.GrowthTheoryCell_100_4BranchDevices import make_theory_cell_4br
 from gdsCAD_py3.core import Cell, Boundary, CellArray, Layout, Path
 from gdsCAD_py3.shapes import Box, Rectangle, Label
 from gdsCAD_py3.templates100 import Wafer_GridStyle, dashed_line
 
-WAFER_ID = '000045672818'  # CHANGE THIS FOR EACH DIFFERENT WAFER
-PATTERN = 'SQ1.2'
+WAFER_ID = 'XXXX'  # CHANGE THIS FOR EACH DIFFERENT WAFER
+PATTERN = 'MS2.0'
 putOnWafer = True  # Output full wafer or just a single pattern?
 HighDensity = False  # High density of triangles?
 glbAlignmentMarks = False
 tDicingMarks = 10.  # Dicing mark line thickness (um)
 rotAngle = 0.  # Rotation angle of the membranes
-wafer_r = 25e3
-waferVer = '100 Membranes Multi-Use v1.2'.format(int(wafer_r / 1000))
+wafer_r = 50e3
+waferVer = '100 NMs on Si v2.0'.format(int(wafer_r / 1000))
 
 waferLabel = waferVer + '\n' + date.today().strftime("%d%m%Y")
 # Layers
@@ -50,43 +51,36 @@ class MBE100Wafer(Wafer_GridStyle):
         self.align_pts = np.vstack((self.align_pts, self.align_pts *
                                     (1, -1)))  # Reflect about x-axis
 
-        self.wafer_r = 25e3
-        self.block_size = np.array([10e3, 10e3])
-        self._place_blocks()
-        # if glbAlignmentMarks:
-        #     self.add_aligment_marks(l_lgBeam)
-        #     self.add_orientation_text(l_lgBeam)
-        # self.add_dicing_marks()  # l_lgBeam, mkWidth=mkWidth Width of dicing marks
+        self.wafer_r = wafer_r
+        self.block_size = np.array([35e3, 35e3])
+        self._place_blocks(radius=self.wafer_r + 5e3)
 
         self.add_blocks()
         self.add_wafer_outline(layers=l_drawing)
         self.add_dashed_dicing_marks(layers=[l_lgBeam])
         self.add_block_labels(layers=[l_lgBeam])
-        self.add_prealignment_markers(layers=[l_lgBeam])
+        # self.add_prealignment_markers(layers=[l_lgBeam])
         self.add_tem_membranes([0.08, 0.012, 0.028, 0.044], 2000, 1, l_smBeam)
-        self.add_theory_cell()
+        self.add_theory_cells()
         self.add_chip_labels()
-
-        # self.add_blockLabels(l_lgBeam)
-        # self.add_cellLabels(l_lgBeam)
 
         bottom = np.array([0, -self.wafer_r * 0.9])
         # top = np.array([0, -1]) * bottom
         self.add_waferLabel(waferLabel, l_drawing, pos=bottom)
 
     def add_block_labels(self, layers):
-        txtSize = 800
+        txtSize = 2000
         for (i, pt) in enumerate(self.block_pts):
             origin = (pt + np.array([0.5, 0.5])) * self.block_size
             blk_lbl = self.blockcols[pt[0]] + self.blockrows[pt[1]]
             for l in layers:
-                txt = Label(blk_lbl, txtSize, layer=l_lgBeam)
+                txt = Label(blk_lbl, txtSize, layer=l)
             bbox = txt.bounding_box
             offset = np.array(pt)
             txt.translate(-np.mean(bbox, 0))  # Center text around origin
             lbl_cell = Cell("lbl_" + blk_lbl)
             lbl_cell.add(txt)
-            origin += np.array([0, 2000])  # Translate it up by 2mm
+            origin += np.array([0, 0])
             self.add(lbl_cell, origin=origin)
 
     def add_dashed_dicing_marks(self, layers):
@@ -109,7 +103,7 @@ class MBE100Wafer(Wafer_GridStyle):
                 dmarks.add(hm)
         self.add(dmarks)
 
-    def add_prealignment_markers(self, layers, mrkr_size=9):
+    def add_prealignment_markers(self, layers, mrkr_size=7):
         if mrkr_size % 2 == 0:  # Number is even, but we need odd numbers
             mrkr_size += 1
         if type(layers) is not list:
@@ -153,14 +147,10 @@ class MBE100Wafer(Wafer_GridStyle):
             pamm_cell.add(tick_mrk_cell, origin=[0, pos], rotation=90)
             pamm_cell.add(tick_mrk_cell, origin=[0, -pos], rotation=90)
 
-        all_pamms = Cell('AllPAMMs')
-        all_pamms.add(pamm_cell, origin=[2000, 0])
-        all_pamms.add(pamm_cell, origin=[-2000, 0])
-
-        # Add it in all the cells
-        for (i, pt) in enumerate(self.block_pts):
-            origin = (pt + np.array([0.5, 0.5])) * self.block_size
-            self.add(all_pamms, origin=origin)
+        center_x, center_y = (5000, 5000)
+        for block in self.blocks:
+            block.add(pamm_cell, origin=(center_x + 2000, center_y))
+            block.add(pamm_cell, origin=(center_x - 2000, center_y))
 
     def add_tem_membranes(self, widths, length, pitch, layer):
         tem_membranes = Cell('TEM_Membranes')
@@ -180,36 +170,31 @@ class MBE100Wafer(Wafer_GridStyle):
         tem_membranes2 = Cell('Many_TEM_Membranes')
         tem_membranes2.add(CellArray(tem_membranes, 1, n2, (0, n * len(widths) * pitch)))
 
-        # Add it in all the cells
-        for (i, pt) in enumerate(self.block_pts):
-            origin = (pt + np.array([0.5, 0.5])) * self.block_size
-            self.add(tem_membranes2, origin=origin)
+        center_x, center_y = (self.block_size[0] / 2., self.block_size[1] / 2.)
+        for block in self.blocks:
+            block.add(tem_membranes2, origin=(center_x, center_y + 4000))
 
-    def add_theory_cell(self):
+    def add_theory_cells(self):
 
         theory_cells = Cell('TheoryCells')
-        theory_cells.add(make_theory_cell(), origin=(-400, 0))
+        theory_cells.add(make_theory_cell(wafer_orient='100'), origin=(-400, 0))
         theory_cells.add(make_theory_cell_3br(), origin=(0, 0))
         theory_cells.add(make_theory_cell_4br(), origin=(400, 0))
 
-        # Add it in all the cells
-        for (i, pt) in enumerate(self.block_pts):
-            origin = (pt + np.array([0.5, 0.5])) * self.block_size
-            origin += np.array([0, -2000])
-            self.add(theory_cells, origin=origin)
+        center_x, center_y = (self.block_size[0] / 2., self.block_size[1] / 2.)
+        for block in self.blocks:
+            block.add(theory_cells, origin=(center_x, center_y - 4000))
 
     def add_chip_labels(self):
         wafer_lbl = PATTERN + '\n' + WAFER_ID
-        text = Label(wafer_lbl, 3., layer=l_smBeam)
+        text = Label(wafer_lbl, 10., layer=l_lgBeam)
         text.translate(tuple(np.array(-text.bounding_box.mean(0))))  # Center justify label
         chip_lbl_cell = Cell('chip_label')
         chip_lbl_cell.add(text)
 
-        # Add it in all the cells
-        for (i, pt) in enumerate(self.block_pts):
-            origin = (pt + np.array([0.5, 0.5])) * self.block_size
-            origin += np.array([0, -2850])
-            self.add(chip_lbl_cell, origin=origin)
+        center_x, center_y = (self.block_size[0]/2., self.block_size[1]/2.)
+        for block in self.blocks:
+            block.add(chip_lbl_cell, origin=(center_x, center_y - 4850))
 
 
 class Frame(Cell):
@@ -304,18 +289,14 @@ class Frame(Cell):
                     ny = int(array_height / pitch_v)
                     # Define the slits
                     slit = Cell("Slits")
-                    rect = Rectangle(
-                        (-length / 2., -width / 2.),
-                        (length / 2., width / 2.),
-                        layer=l)
+                    rect = Rectangle((-length / 2., -width / 2.), (length / 2., width / 2.), layer=l)
                     rect = rect.copy().rotate(rot_angle)
                     slit.add(rect)
-                    slits = CellArray(slit, nx, ny,
-                                      (length + spacing, pitch_v))
+                    slits = CellArray(slit, nx, ny, (length + spacing, pitch_v))
                     slits.translate((-(nx - 1) * (length + spacing) / 2., -(ny - 1) * pitch_v / 2.))
                     slit_array = Cell("SlitArray")
                     slit_array.add(slits)
-                    text = Label('w/p/l\n%i/%i/%i' % (width * 1000, pitch, length), 5, layer=l_smBeam)
+                    text = Label('w/p/l\n%i/%i/%i' % (width * 1000, pitch, length), 5, layer=l)
                     lbl_vertical_offset = 1.35
                     if j % 2 == 0:
                         text.translate(
@@ -379,7 +360,7 @@ topCell.add(smField2, origin=(dx / 2., dy / 2.))
 topCell.add(smField3, origin=(-dx / 2., -dy / 2.))
 topCell.add(smField4, origin=(dx / 2., -dy / 2.))
 topCell.add(centerAlignField, origin=(0., 0.))
-topCell.spacing = np.array([4000., 4000.])
+topCell.spacing = np.array([12000., 12000.])
 
 # %%Create the layout and output GDS file
 layout = Layout('LIBRARY')
@@ -396,5 +377,5 @@ filename = filestring.replace(' ', '_') + '.gds'
 layout.save(filename)
 
 cell_layout = Layout('LIBRARY')
-cell_layout.add(wafer.cells[0])
+cell_layout.add(wafer.blocks[0])
 cell_layout.save(filestring.replace(' ', '_') + '_block' + '.gds')

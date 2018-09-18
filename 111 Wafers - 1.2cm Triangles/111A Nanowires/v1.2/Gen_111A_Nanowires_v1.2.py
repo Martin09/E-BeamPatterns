@@ -396,7 +396,7 @@ spotarea = gridsize ** 2.
 waferarea = wafer.area() / 1E6 ** 2.
 writetime = waferarea / spotarea / freq
 time = timedelta(seconds=writetime)
-print '\nEstimated write time: \n' + str(time)
+print(('\nEstimated write time: \n' + str(time)))
 
 file_string = str(waferVer)
 filename = file_string.replace(' ', '_') + '.gds'

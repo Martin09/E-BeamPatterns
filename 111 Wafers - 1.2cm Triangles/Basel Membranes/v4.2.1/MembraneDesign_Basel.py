@@ -10,13 +10,13 @@ Created on Fri Dec 18 14:11:31 2015
 from datetime import timedelta, date
 
 import numpy as np
-from gdsCAD_v045.core import Cell, Boundary, CellArray, Layout
-from gdsCAD_v045.shapes import Box, Rectangle, Label
+from gdsCAD_py3.core import Cell, Boundary, CellArray, Layout
+from gdsCAD_py3.shapes import Box, Rectangle, Label
 from shapely.affinity import rotate as rotateshape
 from shapely.geometry import LineString
 
-from GrowthTheoryCell import make_theory_cell
-from gdsCAD_v045.templates111 import Wafer_TriangStyle, dashed_line
+from Patterns.GrowthTheoryCell import make_theory_cell
+from gdsCAD_py3.templates111 import Wafer_TriangStyle, dashed_line
 
 putOnWafer = True  # Output full wafer or just a single pattern?
 HighDensity = False  # High density of triangles?
@@ -94,12 +94,12 @@ class MBEWafer(Wafer_TriangStyle):
         if glbAlignmentMarks:
             self.add_aligment_marks(l_lgBeam)
             self.add_orientation_text(l_lgBeam)
-        points = self.add_dicing_marks(l_lgBeam, mkWidth=mkWidth)  # Width of dicing marks
-        self.make_basel_align_marks(points, l_lgBeam, mk_width=mkWidthMinor)
         self.add_wafer_outline(100)
-        self.add_blocks()
+        self.build_and_add_blocks()
         self.add_blockLabels(l_lgBeam, center=True)
         self.add_cellLabels(l_lgBeam, center=True)  # Put cell labels ('A','B','C'...) in center of each cell
+        self.add_dicing_marks(l_lgBeam, mkWidth=mkWidth)  # Width of dicing marks
+        self.add_sub_dicing_ticks(300, mkWidth, l_lgBeam)
         self.add_theory_cell()
         bottom = np.array([0, -self.wafer_r * 0.90])
         # Write label on layer 100 to avoid writing (and saving writing time)
@@ -347,7 +347,7 @@ if putOnWafer:  # Fit as many patterns on a wafer as possible
     waferarea = wafer.area() / 1E6 ** 2.
     writetime = waferarea / spotarea / freq
     time = timedelta(seconds=writetime)
-    print '\nEstimated write time: \n' + str(time)
+    print(('\nEstimated write time: \n' + str(time)))
 
 # layout.show()
 else:  # Only output a single copy of the pattern (not on a wafer)

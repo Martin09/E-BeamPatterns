@@ -15,12 +15,12 @@ import numpy as np
 from shapely.affinity import rotate as rotateshape
 from shapely.geometry import LineString
 
-from GrowthTheoryCell import make_theory_cell, make_shape_array
-from GrowthTheoryCell_Branches import make_theory_cell_br
-from gdsCAD_v045.core import Cell, Boundary, CellArray, Layout, Path
-from gdsCAD_v045.shapes import Box, Rectangle, Label, Disk, RegPolygon
-from gdsCAD_v045.templates111 import Wafer_TriangStyle
-from gdsCAD_v045.utils import scale
+from Patterns.GrowthTheoryCell import make_theory_cell, make_shape_array
+from Patterns.GrowthTheoryCell_Branches import make_theory_cell_br
+from gdsCAD_py3.core import Cell, Boundary, CellArray, Layout, Path
+from gdsCAD_py3.shapes import Box, Rectangle, Label, Disk, RegPolygon
+from gdsCAD_py3.templates111 import Wafer_TriangStyle
+from gdsCAD_py3.utils import scale
 
 WAFER_ID = 'XXXXX'  # CHANGE THIS FOR EACH DIFFERENT WAFER
 PATTERN = 'BM4.8'
@@ -96,8 +96,6 @@ class MBEWafer(Wafer_TriangStyle):
         if glbAlignmentMarks:
             self.add_aligment_marks(l_lgBeam)
             self.add_orientation_text(l_lgBeam)
-        # points = self.add_dicing_marks(l_lgBeam, mkWidth=mkWidth)  # Width of dicing marks
-        # self.make_basel_align_marks(points, l_lgBeam, mk_width=mkWidthMinor)
         self.add_wafer_outline(100)
         self.build_and_add_blocks()
         self.add_blockLabels(l_lgBeam, center=True)

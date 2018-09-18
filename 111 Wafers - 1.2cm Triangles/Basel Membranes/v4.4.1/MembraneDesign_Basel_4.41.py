@@ -11,14 +11,14 @@ Created on Fri Dec 18 14:11:31 2015
 from datetime import timedelta, date
 
 import numpy as np
-from gdsCAD_v045.core import Cell, Boundary, CellArray, Layout, Path
-from gdsCAD_v045.shapes import Box, Rectangle, Label
+from gdsCAD_py3.core import Cell, Boundary, CellArray, Layout, Path
+from gdsCAD_py3.shapes import Box, Rectangle, Label
 from shapely.affinity import rotate as rotateshape
 from shapely.geometry import LineString
 
-from GrowthTheoryCell import make_theory_cell, make_shape_array
-from GrowthTheoryCell_Branches import make_theory_cell_br
-from gdsCAD_v045.templates111 import Wafer_TriangStyle, dashed_line
+from Patterns.GrowthTheoryCell import make_theory_cell, make_shape_array
+from Patterns.GrowthTheoryCell_Branches import make_theory_cell_br
+from gdsCAD_py3.templates111 import Wafer_TriangStyle, dashed_line
 
 putOnWafer = True  # Output full wafer or just a single pattern?
 HighDensity = False  # High density of triangles?
@@ -60,7 +60,8 @@ class MBEWafer(Wafer_TriangStyle):
                  doMCBlockSearch=True,
                  MCBlockIterations=100,
                  mkWidth=10,
-                 cellsAtEdges=False):
+                 cellsAtEdges=False,
+                 symmetric_chips=True):
 
         Wafer_TriangStyle.__init__(self,
                                    name,
@@ -75,7 +76,8 @@ class MBEWafer(Wafer_TriangStyle):
                                    doMCBlockSearch=doMCBlockSearch,
                                    MCBlockIterations=MCBlockIterations,
                                    mkWidth=mkWidth,
-                                   cellsAtEdges=cellsAtEdges)
+                                   cellsAtEdges=cellsAtEdges,
+                                   symmetric_chips=symmetric_chips)
 
         self.align_markers = None
         # The placement of the wafer alignment markers
@@ -96,13 +98,12 @@ class MBEWafer(Wafer_TriangStyle):
         if glbAlignmentMarks:
             self.add_aligment_marks(l_lgBeam)
             self.add_orientation_text(l_lgBeam)
-        points = self.add_dicing_marks(l_lgBeam, mkWidth=mkWidth)  # Width of dicing marks
-        self.make_basel_align_marks(points, l_lgBeam, mk_width=mkWidthMinor)
         self.add_wafer_outline(100)
-        self.add_blocks()
+        self.build_and_add_blocks()
         self.add_blockLabels(l_lgBeam, center=True)
         self.add_cellLabels(l_lgBeam, center=True)  # Put cell labels ('A','B','C'...) in center of each cell
-        self.add_sub_dicing_ticks(300, 10, l_lgBeam)
+        self.add_dicing_marks(l_lgBeam, mkWidth=mkWidth)  # Width of dicing marks
+        self.add_sub_dicing_ticks(300, mkWidth, l_lgBeam)
         self.add_theory_cell()
         self.add_tem_membranes([0.08, 0.012, 0.028, 0.044], 2000, 1, l_smBeam)
         self.add_tem_nanowires()
@@ -362,7 +363,7 @@ topCell.add(centerAlignField, origin=(0., 0.))
 layout = Layout('LIBRARY', precision=1e-10)
 if putOnWafer:  # Fit as many patterns on a wafer as possible
     wafer = MBEWafer('MembranesWafer', wafer_r=wafer_r, cells=[topCell], cell_gap=CELL_GAP, mkWidth=tDicingMarks,
-                     cellsAtEdges=False)
+                     cellsAtEdges=False, symmetric_chips=True)
     layout.add(wafer)
 
     # Try to poorly calculate the write time
@@ -373,7 +374,7 @@ if putOnWafer:  # Fit as many patterns on a wafer as possible
     waferarea = wafer.area() / 1E6 ** 2.
     writetime = waferarea / spotarea / freq
     time = timedelta(seconds=writetime)
-    print '\nEstimated write time: \n' + str(time)
+    print(('\nEstimated write time: \n' + str(time)))
 
 # layout.show()
 else:  # Only output a single copy of the pattern (not on a wafer)

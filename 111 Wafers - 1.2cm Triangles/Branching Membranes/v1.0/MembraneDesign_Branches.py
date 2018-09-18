@@ -13,20 +13,20 @@ Created on Fri Dec 18 14:11:31 2015
 from datetime import timedelta, date
 
 import numpy as np
-from gdsCAD_v045.core import Cell, Boundary, CellArray, Layout
-from gdsCAD_v045.shapes import Box, Rectangle, Label
+from gdsCAD_py3.core import Cell, Boundary, CellArray, Layout
+from gdsCAD_py3.shapes import Box, Rectangle, Label
 from shapely.affinity import rotate as rotateshape
 from shapely.geometry import LineString
 
-from GrowthTheoryCell_Branches import make_theory_cell
-from gdsCAD_v045.templates111_branches import Wafer_TriangStyle, dashed_line
+from Patterns.GrowthTheoryCell_Branches import make_theory_cell_br
+from gdsCAD_py3.templates111 import Wafer_TriangStyle, dashed_line
 
 putOnWafer = True  # Output full wafer or just a single pattern?
 HighDensity = False  # High density of triangles?
 glbAlignmentMarks = False
 tDicingMarks = 10.  # Dicing mark line thickness (um)
 rotAngle = 0.  # Rotation angle of the membranes
-wafer_r = 20e3
+wafer_r = 25e3
 waferVer = 'Branching Membranes v1.0 r{:d}'.format(int(wafer_r / 1000))
 mkWidthMinor = 3  # Width of minor (Basel) markers within each triangular chip
 
@@ -51,7 +51,7 @@ class MBEWafer(Wafer_TriangStyle):
     def __init__(self,
                  name,
                  cells=None,
-                 wafer_r=20e3,
+                 wafer_r=25e3,
                  trisize=12e3,
                  cellsize=2e3,
                  block_gap=0.,  # 1200
@@ -100,12 +100,11 @@ class MBEWafer(Wafer_TriangStyle):
         if glbAlignmentMarks:
             self.add_aligment_marks(l_lgBeam)
             self.add_orientation_text(l_lgBeam)
-        points = self.add_dicing_marks(l_lgBeam, mkWidth=mkWidth)  # Width of dicing marks
-        self.make_basel_align_marks(points, l_lgBeam, mk_width=mkWidthMinor)
         self.add_wafer_outline(100)
         self.build_and_add_blocks()
         self.add_blockLabels(l_lgBeam, center=True)
         self.add_cellLabels(l_lgBeam, center=True)  # Put cell labels ('A','B','C'...) in center of each cell
+        self.add_dicing_marks(l_lgBeam, mkWidth=mkWidth)  # Width of dicing marks
         self.add_theory_cell()
         bottom = np.array([0, -self.wafer_r * 0.85])
         # Write label on layer 100 to saving writing time
@@ -113,7 +112,7 @@ class MBEWafer(Wafer_TriangStyle):
 
     def add_theory_cell(self):
 
-        theory_cell = make_theory_cell()
+        theory_cell = make_theory_cell_br()
         for x, y in self.upCenters:
             self.add(theory_cell, origin=(x, y - 1500))
         for x, y in self.downCenters:
@@ -384,7 +383,7 @@ if putOnWafer:  # Fit as many patterns on a wafer as possible
     waferarea = wafer.area() / 1E6 ** 2.
     writetime = waferarea / spotarea / freq
     time = timedelta(seconds=writetime)
-    print '\nEstimated write time: \n' + str(time)
+    print(('\nEstimated write time: \n' + str(time)))
 
 # layout.show()
 else:  # Only output a single copy of the pattern (not on a wafer)

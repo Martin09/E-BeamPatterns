@@ -9,12 +9,12 @@ from datetime import date
 
 import numpy as np
 
-from GrowthTheoryCell import make_theory_cell
-from GrowthTheoryCell_3BranchDevices import make_theory_cell_3br
-from GrowthTheoryCell_4BranchDevices import make_theory_cell_4br
-from gdsCAD_v045.core import Cell, Boundary, CellArray, Layout, Path
-from gdsCAD_v045.shapes import Box, Rectangle, Label
-from gdsCAD_v045.templates import Wafer_GridStyle, dashed_line
+from Patterns.GrowthTheoryCell import make_theory_cell
+from Patterns.GrowthTheoryCell_100_3BranchDevices import make_theory_cell_3br
+from Patterns.GrowthTheoryCell_100_4BranchDevices import make_theory_cell_4br
+from gdsCAD_py3.core import Cell, Boundary, CellArray, Layout, Path
+from gdsCAD_py3.shapes import Box, Rectangle, Label
+from gdsCAD_py3.templates100 import Wafer_GridStyle, dashed_line
 
 WAFER_ID = 'XXXX'  # CHANGE THIS FOR EACH DIFFERENT WAFER
 PATTERN = 'SQ1.2'
@@ -65,7 +65,7 @@ class MBE100Wafer(Wafer_GridStyle):
         self.add_block_labels(layers=[l_lgBeam])
         self.add_prealignment_markers(layers=[l_lgBeam])
         self.add_tem_membranes([0.08, 0.012, 0.028, 0.044], 2000, 1, l_smBeam)
-        self.add_theory_cell()
+        self.add_theory_cells()
         self.add_chip_labels()
 
         # self.add_blockLabels(l_lgBeam)
@@ -125,7 +125,7 @@ class MBE100Wafer(Wafer_GridStyle):
             # Make one arm of the PAMM array
             marker_arm = Cell('PAMM_Arm')
             # Define the positions of the markers, they increase in spacing by 1 um each time:
-            mrkr_positions = [75 * n + (n - 1) * n / 2 for n in xrange(1, (mrkr_size - 1) / 2 + 1)]
+            mrkr_positions = [75 * n + (n - 1) * n // 2 for n in range(1, (mrkr_size - 1) // 2 + 1)]
             for pos in mrkr_positions:
                 marker_arm.add(marker, origin=[pos, 0])
 
@@ -181,10 +181,10 @@ class MBE100Wafer(Wafer_GridStyle):
         for block in self.blocks:
             block.add(tem_membranes2, origin=(center_x, center_y + 2000))
 
-    def add_theory_cell(self):
+    def add_theory_cells(self):
 
         theory_cells = Cell('TheoryCells')
-        theory_cells.add(make_theory_cell(), origin=(-400, 0))
+        theory_cells.add(make_theory_cell(wafer_orient='100'), origin=(-400, 0))
         theory_cells.add(make_theory_cell_3br(), origin=(0, 0))
         theory_cells.add(make_theory_cell_4br(), origin=(400, 0))
 

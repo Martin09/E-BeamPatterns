@@ -37,7 +37,7 @@ Unfilled Objects
 import os
 import numpy as np
 
-import core
+from . import core
 
 
 class Rectangle(core.Boundary):
@@ -320,7 +320,7 @@ class Label(core.Elements):
         text.show()
         myCell.add(text)
     """
-    from font import _font
+    from .font import _font
 
     def __init__(self, text, size, position=(0, 0), horizontal=True, angle=0, layer=None, datatype=None) :
 
@@ -346,7 +346,7 @@ class Label(core.Elements):
                 else:
                     posY = posY - 11 - (posY - 22) % 44
             else:
-                if Label._font.has_key(text[jj]):
+                if text[jj] in Label._font:
                     for p in Label._font[text[jj]]:
                         polygon = p[:]
                         for ii in range(len(polygon)):
@@ -644,7 +644,7 @@ class LineLabel(core.Elements):
         text = ''
         for symbol in self._symbols:
             ascii_found = False
-            for table in self._hershey_ascii_lookup_table.values():
+            for table in list(self._hershey_ascii_lookup_table.values()):
                 if symbol in table['to_ascii']:
                     ascii_found = True
                     text += chr(table['to_ascii'][symbol])
