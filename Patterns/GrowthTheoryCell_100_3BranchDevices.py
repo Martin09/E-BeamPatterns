@@ -430,11 +430,22 @@ def make_branch_array(x_vars, y_vars, stat_vars, var_names, spacing, rot_angle,
     return manybranches
 
 
-def make_rotating_slits(length, width, N, radius, layers, angle_sweep=360, angle_ref=False):
+def make_rotating_slits(length, width, N, radius, layers, angle_ref=None, angle_sweep=360):
+    """
+
+    :param length: Length of the slits in the circle
+    :param width: Width of the slits in the circle
+    :param N: Number of slits going around the circle
+    :param radius: Radius of the circle
+    :param layers: Layers to write the slits in
+    :param angle_ref: if None, no angle reference lines are added. If '111' then add reference lines at 30/60 degrees. If '100' then add reference lines at 45/90 degrees.
+    :return:
+    """
     cell = Cell('RotatingSlits')
     if not (type(layers) == list): layers = [layers]
     allslits = Cell('All Slits')
     angles = np.linspace(0, angle_sweep, N)
+    #        radius = length*12.
     translation = (radius, 0)
     pt1 = np.array((-length / 2., -width / 2.)) + translation
     pt2 = np.array((length / 2., width / 2.)) + translation
@@ -446,27 +457,30 @@ def make_rotating_slits(length, width, N, radius, layers, angle_sweep=360, angle
             allslits.add(slit.copy(), rotation=angle)
         cell.add(allslits)
 
-    for l in layers:
         if angle_ref:
-            label_cell = Cell('AngleLabels')
-            line_cell = Cell('Line')
-            pt1 = (0, 0)
+            labelCell = Cell('AngleLabels')
+            lineCell = Cell('Line')
+            pt1 = (-radius * 0.9, 0)
             pt2 = (radius * 0.9, 0)
             line = Path([pt1, pt2], width=width, layer=l)
-            d_line = dashed_line(pt1, pt2, 2, width, l)
-            line_cell.add(line)
+            dLine = dashed_line(pt1, pt2, 2, width, l)
+            lineCell.add(line)
+            labelCell.add(lineCell, rotation=0)
+            if angle_ref == '111':
+                labelCell.add(lineCell, rotation=60)
+                labelCell.add(lineCell, rotation=-60)
+                labelCell.add(dLine, rotation=30)
+                labelCell.add(dLine, rotation=90)
+                labelCell.add(dLine, rotation=-30)
+            elif angle_ref == '100':
+                labelCell.add(lineCell, rotation=0)
+                labelCell.add(lineCell, rotation=90)
+                labelCell.add(dLine, rotation=45)
+                labelCell.add(dLine, rotation=135)
+            cell.add(labelCell)
 
-            rot_angle = 0
-            while True:
-                if abs(rot_angle) > abs(angle_sweep):
-                    break
-                if abs(rot_angle) % 60 == 0:
-                    label_cell.add(line_cell, rotation=rot_angle)
-                if (abs(rot_angle) - 30) % 60 == 0:
-                    label_cell.add(d_line, rotation=rot_angle)
-                rot_angle += np.sign(angle_sweep) * 15
-            cell.add(label_cell)
-    return cell
+        return cell
+
 
 
 def make_arm(width, length, layer, cell_name='branch'):

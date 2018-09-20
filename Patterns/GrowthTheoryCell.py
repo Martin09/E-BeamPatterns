@@ -393,7 +393,7 @@ def makeSlitArray3(pitches, spacing, widths, lengths, rotAngle,
 #                 arrayHeight + arraySpacing) / 2))
 
 
-def make_rotating_slits(length, width, N, radius, layers, angleRef=None):
+def make_rotating_slits(length, width, N, radius, layers, angle_ref=None):
     """
 
     :param length: Length of the slits in the circle
@@ -401,7 +401,7 @@ def make_rotating_slits(length, width, N, radius, layers, angleRef=None):
     :param N: Number of slits going around the circle
     :param radius: Radius of the circle
     :param layers: Layers to write the slits in
-    :param angleRef: if None, no angle reference lines are added. If '111' then add reference lines at 30/60 degrees. If '100' then add reference lines at 45/90 degrees.
+    :param angle_ref: if None, no angle reference lines are added. If '111' then add reference lines at 30/60 degrees. If '100' then add reference lines at 45/90 degrees.
     :return:
     """
     cell = Cell('RotatingSlits')
@@ -420,7 +420,7 @@ def make_rotating_slits(length, width, N, radius, layers, angleRef=None):
             allslits.add(slit.copy(), rotation=angle)
         cell.add(allslits)
 
-        if angleRef:
+        if angle_ref:
             labelCell = Cell('AngleLabels')
             lineCell = Cell('Line')
             pt1 = (-radius * 0.9, 0)
@@ -429,13 +429,13 @@ def make_rotating_slits(length, width, N, radius, layers, angleRef=None):
             dLine = dashed_line(pt1, pt2, 2, width, l)
             lineCell.add(line)
             labelCell.add(lineCell, rotation=0)
-            if angleRef == '111':
+            if angle_ref == '111':
                 labelCell.add(lineCell, rotation=60)
                 labelCell.add(lineCell, rotation=-60)
                 labelCell.add(dLine, rotation=30)
                 labelCell.add(dLine, rotation=90)
                 labelCell.add(dLine, rotation=-30)
-            elif angleRef == '100':
+            elif angle_ref == '100':
                 labelCell.add(lineCell, rotation=0)
                 labelCell.add(lineCell, rotation=90)
                 labelCell.add(dLine, rotation=45)
@@ -545,12 +545,12 @@ def make_theory_cell(wafer_orient = '111'):
 
     # Make rotating slits
     wheel1 = Cell('RotDependence_LongSlits')
-    wheel1.add(make_rotating_slits(5, 0.044, 361, 6. * 5, l_smBeam, angleRef=wafer_orient))
+    wheel1.add(make_rotating_slits(5, 0.044, 361, 6. * 5, l_smBeam, angle_ref=wafer_orient))
     wheel1.add(make_rotating_slits(5, 0.044, 433, 7.2 * 5, l_smBeam))
     wheel1.add(make_rotating_slits(5, 0.044, 505, 8.4 * 5, l_smBeam))
 
     wheel2 = Cell('RotDependence_ShortSlits')
-    wheel2.add(make_rotating_slits(2, 0.044, 201, 6. * 2, l_smBeam, angleRef=wafer_orient))
+    wheel2.add(make_rotating_slits(2, 0.044, 201, 6. * 2, l_smBeam, angle_ref=wafer_orient))
     for i in range(10):  # number of concentric rings to make
         wheel2.add(make_rotating_slits(2, 0.044, 201, (7.2 + i * 1.2) * 2, l_smBeam))
 

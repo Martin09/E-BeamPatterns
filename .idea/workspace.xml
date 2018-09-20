@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="53569c8c-5f1e-4c19-aedb-f025c4926e74" name="Default" comment="-Converted whole project to Python 3.6!&#10;-Simplified the file structure so that it now only uses a single gdsCAD project.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Patterns/GrowthTheoryCell.py" beforeDir="false" afterPath="$PROJECT_DIR$/Patterns/GrowthTheoryCell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_3BranchDevices.py" beforeDir="false" afterPath="$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_3BranchDevices.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_4BranchDevices.py" beforeDir="false" afterPath="$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_4BranchDevices.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_Large.py" beforeDir="false" afterPath="$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_Large.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,47 +56,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/100 Wafers - 3.5cm Square/Nanomembranes on Si/v1.0/MembraneDesign_Grid.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3468">
-              <caret line="212" column="29" selection-start-line="212" selection-start-column="29" selection-end-line="212" selection-end-column="29" />
-              <folding>
-                <element signature="e#93#129#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="MembraneDesign_100Wafer_v1.1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.2/MembraneDesign_100Wafer_v1.1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="42" column="67" selection-start-line="42" selection-start-column="67" selection-end-line="42" selection-end-column="67" />
+            <state relative-caret-position="187">
+              <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GrowthTheoryCell_100_Large.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_Large.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="403" column="39" selection-start-line="403" selection-start-column="39" selection-end-line="403" selection-end-column="39" />
               <folding>
-                <element signature="e#93#118#0" expanded="true" />
+                <element signature="e#92#110#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="NMonSi_100Wafer_v2.0.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/100 Wafers - 3.5cm Square/Nanomembranes on Si/v2.0/NMonSi_100Wafer_v2.0.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="48" column="15" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
+            <state relative-caret-position="204">
+              <caret line="12" column="69" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GrowthTheoryCell_100_3BranchDevices.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_3BranchDevices.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="432" column="85" selection-start-line="432" selection-start-column="74" selection-end-line="432" selection-end-column="85" />
               <folding>
-                <element signature="e#93#118#0" expanded="true" />
+                <element signature="e#93#111#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gdsCAD_py3/templates100.py">
+      <file leaf-file-name="GrowthTheoryCell_100_4BranchDevices.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_4BranchDevices.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1547">
-              <caret line="101" column="38" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="38" />
+            <state relative-caret-position="128">
+              <caret line="714" column="34" lean-forward="true" selection-start-line="714" selection-start-column="34" selection-end-line="714" selection-end-column="34" />
+              <folding>
+                <element signature="e#93#111#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GrowthTheoryCell.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Patterns/GrowthTheoryCell.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="445" selection-start-line="395" selection-end-line="445" />
             </state>
           </provider>
         </entry>
@@ -177,16 +200,16 @@
         <option value="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Branched Devices/v1.0/MembraneDesign_BranchDevices.py" />
         <option value="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Branching Membranes/v1.0/MembraneDesign_Branches.py" />
         <option value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.0/GrowthTheoryCell.py" />
-        <option value="$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_3BranchDevices.py" />
-        <option value="$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_4BranchDevices.py" />
         <option value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.2/MembraneDesign_100Wafer_v1.1.py" />
-        <option value="$PROJECT_DIR$/Patterns/GrowthTheoryCell.py" />
         <option value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.0/MembraneDesign_100Wafer_v1.0.py" />
-        <option value="$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_Large.py" />
         <option value="$PROJECT_DIR$/100 Wafers - 3.5cm Square/Nanomembranes on Si/gdsCAD_v045/templates_onSi.py" />
         <option value="$PROJECT_DIR$/100 Wafers - 3.5cm Square/Nanomembranes on Si/MembraneDesign_Grid.py" />
         <option value="$PROJECT_DIR$/gdsCAD_py3/templates100.py" />
         <option value="$PROJECT_DIR$/100 Wafers - 3.5cm Square/Nanomembranes on Si/v2.0/NMonSi_100Wafer_v2.0.py" />
+        <option value="$PROJECT_DIR$/Patterns/GrowthTheoryCell.py" />
+        <option value="$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_3BranchDevices.py" />
+        <option value="$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_Large.py" />
+        <option value="$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_4BranchDevices.py" />
       </list>
     </option>
   </component>
@@ -230,6 +253,16 @@
               <item name="Nanomembranes on Si" type="462c0819:PsiDirectoryNode" />
               <item name="v2.0" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="E-BeamPatterns" type="b2602c69:ProjectViewProjectNode" />
+              <item name="E-BeamPatterns" type="462c0819:PsiDirectoryNode" />
+              <item name="Images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="E-BeamPatterns" type="b2602c69:ProjectViewProjectNode" />
+              <item name="E-BeamPatterns" type="462c0819:PsiDirectoryNode" />
+              <item name="Patterns" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -239,7 +272,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -254,6 +287,241 @@
       <recent name="C:\Users\marti\PycharmProjects\E-BeamPatterns\Patterns" />
       <recent name="C:\Users\Martin Friedl\Dropbox\Github\E-BeamPatterns\111 Wafers - 1.2cm Triangles\Basel Membranes\v4.8" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.0/100_Membranes_Multi-Use_v1.2_000045672818_13092018_dMark10.0.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.0/100_Membranes_Multi-Use_v1.2_000045672818_13092018_dMark10.0_block.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.2/100_Membranes_Multi-Use_v1.2_XXXX_13092018_dMark10.0.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.2/100_Membranes_Multi-Use_v1.2_XXXX_13092018_dMark10.0_block.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/100 Wafers - 3.5cm Square/Nanomembranes on Si/v1.0/Membranes_on_Si_v1.1_r50_LowDensity_Basel_Wafer_-_13092018_dMark10.0.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/100 Wafers - 3.5cm Square/Nanomembranes on Si/v2.0/100_NMs_on_Si_v2.0_XXXX_13092018_dMark10.0.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/100 Wafers - 3.5cm Square/Nanomembranes on Si/v2.0/100_NMs_on_Si_v2.0_XXXX_13092018_dMark10.0_block.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.0/Gen_111A_Nanowires_v1.0.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.0/gdsCAD_v045/__init__.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.0/gdsCAD_v045/core.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.0/gdsCAD_v045/shapes.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.0/gdsCAD_v045/templates.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.0/gdsCAD_v045/templates111.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.0/gdsCAD_v045/utils.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.0/templates111.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.2/Gen_111A_Nanowires_v1.2.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.2/gdsCAD_v045/__init__.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.2/gdsCAD_v045/core.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.2/gdsCAD_v045/shapes.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.2/gdsCAD_v045/templates.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.2/gdsCAD_v045/templates111.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.2/gdsCAD_v045/utils.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/__init__.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/core.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/shapes.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/templates.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/templates111.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/utils.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/__init__.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/core.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/shapes.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/templates.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/templates111.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/utils.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.2.1/Membranes_Wafer_v4.2.1_r25_LowDensity_Basel_Wafer_-_12092018_dMark10.0.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.1/Membranes_Wafer_v4.41_r25_LowDensity_Basel_Wafer_-_12092018_dMark10.0.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8.1/Basel_Membranes_v4.8.1_r25.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8.1/Basel_Membranes_v4.8.1_r25_downblock.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8.1/Basel_Membranes_v4.8.1_r25_etchCheck.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8.1/Basel_Membranes_v4.8.1_r25_upblock.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/BaselMembranes_v4.9.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Branched Devices/v1.0/Membrane_Branch_Devices_v1.0_r25_LowDensity_Basel_Wafer_-_12092018_dMark10.0.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Branching Membranes/v1.0/Branching_Membranes_v1.0_r25_LowDensity_Basel_Wafer_-_12092018_dMark10.0.gds</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Patterns/GrowthTheoryCell.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Patterns/GrowthTheoryCell_BranchDevices.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Patterns/GrowthTheoryCell_Branches.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Patterns/QuantumPlayground_v1.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Patterns/__init__.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/.idea/gdsCAD.iml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/.idea/misc.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/.idea/modules.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/.idea/workspace.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/__init__.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/_version.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/core.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/core.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/font.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/ALIGNMENT.GDS</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/LICENSE</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/cyrilc.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/gothgbt.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/gothgrt.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/gothitt.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/greekc.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/greekcs.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/greekp.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/greeks.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/hershey</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/italicc.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/italiccs.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/italict.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/romanc.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/romancs.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/romand.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/romanp.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/romans.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/romant.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/scriptc.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/resources/hershey/scripts.hmp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/shapes.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/templates.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/templates.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/templates111.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/templates111.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/utils.py</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/utils.py.bak</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Lib/tcl8.6/init.tcl</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/Activate.ps1</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_asyncio.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_bz2.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_ctypes.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_ctypes_test.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_decimal.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_distutils_findvs.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_elementtree.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_hashlib.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_lzma.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_msi.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_multiprocessing.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_overlapped.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_socket.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_sqlite3.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_ssl.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_testbuffer.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_testcapi.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_testconsole.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_testimportmultiple.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_testmultiphase.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/_tkinter.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/activate</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/activate.bat</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/deactivate.bat</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/pyexpat.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/python.exe</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/python3.dll</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/python36.dll</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/pythonw.exe</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/select.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/sqlite3.dll</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/tcl86t.dll</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/tk86t.dll</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/unicodedata.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/vcruntime140.dll</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/Scripts/winsound.pyd</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/gdsCAD_py3/venv/pyvenv.cfg</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -285,9 +553,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="MembraneDesign_100Wafer_v1.0" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="E-BeamPatterns" />
@@ -306,9 +571,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="MembraneDesign_100Wafer_v1.1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="E-BeamPatterns" />
@@ -327,9 +589,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="MembraneDesign_Grid" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="E-BeamPatterns" />
@@ -348,9 +607,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="NMonSi_100Wafer_v2.0" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="E-BeamPatterns" />
@@ -369,9 +625,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <module name="E-BeamPatterns" />
@@ -385,7 +638,6 @@
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Python.BaselMembranes_v4.9" />
@@ -397,9 +649,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.NMonSi_100Wafer_v2.0" />
+        <item itemvalue="Python.MembraneDesign_100Wafer_v1.1" />
         <item itemvalue="Python.MembraneDesign_Grid" />
         <item itemvalue="Python.MembraneDesign_100Wafer_v1.0" />
-        <item itemvalue="Python.MembraneDesign_100Wafer_v1.1" />
         <item itemvalue="Python.BaselMembranes_v4.9" />
       </list>
     </recent_temporary>
@@ -468,49 +720,40 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19020021" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50074404" side_tool="true" weight="0.32838285" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49925596" weight="0.32838285" />
+      <window_info anchor="bottom" id="Python Console" order="8" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.1949891" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23731588" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26860118" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32897604" />
+      <window_info anchor="right" id="Data View" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
+      <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Python Console" order="8" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23731588" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Python Console" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32897604" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Data View" order="3" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16294643" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23747277" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Python Console" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32897604" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Data View" order="3" />
-    </layout-to-restore>
+    </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -590,20 +833,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/matplotlib/cbook/deprecation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="106" selection-start-line="106" selection-end-line="106" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/matplotlib/cbook/deprecation.py" />
     <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/BaselMembranes_v4.8.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="130" selection-start-line="130" selection-end-line="130" />
-          <folding>
-            <element signature="e#231#249#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -611,9 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="104" selection-start-line="104" selection-end-line="105" selection-end-column="57" />
-          <folding>
-            <element signature="e#258#294#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -629,9 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
           <caret line="107" column="25" lean-forward="true" selection-start-line="107" selection-start-column="25" selection-end-line="107" selection-end-column="25" />
-          <folding>
-            <element signature="e#333#369#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -639,9 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
-          <folding>
-            <element signature="e#269#305#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -649,40 +874,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1023">
           <caret line="100" column="28" selection-start-line="100" selection-end-line="101" />
-          <folding>
-            <element signature="e#135#171#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.0/GrowthTheoryCell.py" />
-    <entry file="file://$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_4BranchDevices.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="710" column="38" lean-forward="true" selection-start-line="710" selection-start-column="38" selection-end-line="710" selection-end-column="38" />
-          <folding>
-            <element signature="e#93#111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Patterns/GrowthTheoryCell.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="547" column="91" selection-start-line="547" selection-start-column="91" selection-end-line="547" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_3BranchDevices.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="711" column="19" selection-start-line="711" selection-start-column="19" selection-end-line="711" selection-end-column="19" />
-          <folding>
-            <element signature="e#93#111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gdsCAD_py3/templates111.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6">
@@ -690,16 +885,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_Large.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.0/MembraneDesign_100Wafer_v1.0.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
           <caret line="81" column="28" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
-          <folding>
-            <element signature="e#93#111#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -715,19 +904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3468">
           <caret line="212" column="29" selection-start-line="212" selection-start-column="29" selection-end-line="212" selection-end-column="29" />
-          <folding>
-            <element signature="e#93#129#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.2/MembraneDesign_100Wafer_v1.1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="42" column="67" selection-start-line="42" selection-start-column="67" selection-end-line="42" selection-end-column="67" />
-          <folding>
-            <element signature="e#93#118#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -738,12 +914,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.2/MembraneDesign_100Wafer_v1.1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Patterns/GrowthTheoryCell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="445" selection-start-line="395" selection-end-line="445" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/100 Wafers - 3.5cm Square/Nanomembranes on Si/v2.0/NMonSi_100Wafer_v2.0.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="48" column="15" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
+        <state relative-caret-position="204">
+          <caret line="12" column="69" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_3BranchDevices.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="432" column="85" selection-start-line="432" selection-start-column="74" selection-end-line="432" selection-end-column="85" />
           <folding>
-            <element signature="e#93#118#0" expanded="true" />
+            <element signature="e#93#111#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_Large.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="403" column="39" selection-start-line="403" selection-start-column="39" selection-end-line="403" selection-end-column="39" />
+          <folding>
+            <element signature="e#92#110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Patterns/GrowthTheoryCell_100_4BranchDevices.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="714" column="34" lean-forward="true" selection-start-line="714" selection-start-column="34" selection-end-line="714" selection-end-column="34" />
+          <folding>
+            <element signature="e#93#111#0" expanded="true" />
           </folding>
         </state>
       </provider>
