@@ -5,18 +5,17 @@ Created on Fri Dec 18 14:11:31 2015
 @author: Martin Friedl
 """
 
+import numpy as np
 from datetime import date
 
-import numpy as np
+from Patterns.GrowthTheoryCell import make_theory_cell
+from Patterns.GrowthTheoryCell_100_3BranchDevices import make_theory_cell_3br
+from Patterns.GrowthTheoryCell_100_4BranchDevices import make_theory_cell_4br
+from gdsCAD_py3.core import Cell, Boundary, CellArray, Layout, Path
+from gdsCAD_py3.shapes import Box, Rectangle, Label
+from gdsCAD_py3.templates100 import Wafer_GridStyle, dashed_line
 
-from GrowthTheoryCell import make_theory_cell
-from GrowthTheoryCell_3BranchDevices import make_theory_cell_3br
-from GrowthTheoryCell_4BranchDevices import make_theory_cell_4br
-from gdsCAD_v045.core import Cell, Boundary, CellArray, Layout, Path
-from gdsCAD_v045.shapes import Box, Rectangle, Label
-from gdsCAD_v045.templates import Wafer_GridStyle, dashed_line
-
-WAFER_ID = '900003442151'  # CHANGE THIS FOR EACH DIFFERENT WAFER
+WAFER_ID = '000045672818'  # CHANGE THIS FOR EACH DIFFERENT WAFER
 PATTERN = 'SQ1.2'
 putOnWafer = True  # Output full wafer or just a single pattern?
 HighDensity = False  # High density of triangles?
@@ -24,7 +23,7 @@ glbAlignmentMarks = False
 tDicingMarks = 10.  # Dicing mark line thickness (um)
 rotAngle = 0.  # Rotation angle of the membranes
 wafer_r = 25e3
-waferVer = '100 Membranes Multi-Use v1.0 r{:d}'.format(int(wafer_r / 1000))
+waferVer = '100 Membranes Multi-Use v1.2'.format(int(wafer_r / 1000))
 
 waferLabel = waferVer + '\n' + date.today().strftime("%d%m%Y")
 # Layers
@@ -81,7 +80,7 @@ class MBE100Wafer(Wafer_GridStyle):
             origin = (pt + np.array([0.5, 0.5])) * self.block_size
             blk_lbl = self.blockcols[pt[0]] + self.blockrows[pt[1]]
             for l in layers:
-                txt = Label(blk_lbl, txtSize, layer=l)
+                txt = Label(blk_lbl, txtSize, layer=l_lgBeam)
             bbox = txt.bounding_box
             offset = np.array(pt)
             txt.translate(-np.mean(bbox, 0))  # Center text around origin
@@ -125,7 +124,7 @@ class MBE100Wafer(Wafer_GridStyle):
             # Make one arm of the PAMM array
             marker_arm = Cell('PAMM_Arm')
             # Define the positions of the markers, they increase in spacing by 1 um each time:
-            mrkr_positions = [75 * n + (n - 1) * n / 2 for n in xrange(1, (mrkr_size - 1) / 2 + 1)]
+            mrkr_positions = [75 * n + (n - 1) * n // 2 for n in range(1, (mrkr_size - 1) // 2 + 1)]
             for pos in mrkr_positions:
                 marker_arm.add(marker, origin=[pos, 0])
 
@@ -201,8 +200,7 @@ class MBE100Wafer(Wafer_GridStyle):
 
     def add_chip_labels(self):
         wafer_lbl = PATTERN + '\n' + WAFER_ID
-        text = Label(wafer_lbl, 3., layer=l_smBeam)  # CHANGE TO LG BEAM NEXT TIME
-        # text = Label(wafer_lbl, 10., layer=l_lgBeam)
+        text = Label(wafer_lbl, 3., layer=l_smBeam)
         text.translate(tuple(np.array(-text.bounding_box.mean(0))))  # Center justify label
         chip_lbl_cell = Cell('chip_label')
         chip_lbl_cell.add(text)
@@ -317,8 +315,7 @@ class Frame(Cell):
                     slits.translate((-(nx - 1) * (length + spacing) / 2., -(ny - 1) * pitch_v / 2.))
                     slit_array = Cell("SlitArray")
                     slit_array.add(slits)
-                    text = Label('w/p/l\n%i/%i/%i' %
-                                 (width * 1000, pitch, length), 5)
+                    text = Label('w/p/l\n%i/%i/%i' % (width * 1000, pitch, length), 5, layer=l_smBeam)
                     lbl_vertical_offset = 1.35
                     if j % 2 == 0:
                         text.translate(
@@ -331,11 +328,11 @@ class Frame(Cell):
                     slit_array.add(text)
                     manyslits.add(slit_array,
                                   origin=((array_width + array_spacing) * i, (
-                                      array_height + 2. * array_spacing) * j - array_spacing / 2.))
+                                          array_height + 2. * array_spacing) * j - array_spacing / 2.))
 
         self.add(manyslits,
                  origin=(-i * (array_width + array_spacing) / 2, -(j + 1.5) * (
-                     array_height + array_spacing) / 2))
+                         array_height + array_spacing) / 2))
 
 
 # %%Create the pattern that we want to write
@@ -394,7 +391,7 @@ else:  # Only output a single copy of the pattern (not on a wafer)
     layout.add(topCell)
     layout.show()
 
-filestring = str(waferVer) + '_' + date.today().strftime("%d%m%Y") + ' dMark' + str(tDicingMarks)
+filestring = str(waferVer) + '_' + WAFER_ID + '_' + date.today().strftime("%d%m%Y") + ' dMark' + str(tDicingMarks)
 filename = filestring.replace(' ', '_') + '.gds'
 layout.save(filename)
 

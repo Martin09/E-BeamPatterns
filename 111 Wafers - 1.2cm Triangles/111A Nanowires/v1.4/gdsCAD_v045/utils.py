@@ -14,7 +14,7 @@ Utility functions for geometric transformations and layer manipulation.
 
 
 import numpy as np
-from core import (Cell, CellReference, CellArray,
+from .core import (Cell, CellReference, CellArray,
                   ElementBase, Elements, ReferenceBase)
 
 def translate(obj, displacement):
@@ -151,7 +151,7 @@ def split_layers(cell, old_layers):
     #identify all art in subA that should be removed        
     blacklist=set()
     deps=subA.get_dependencies(True)
-    print 'DEPENDENCY LIST HAS LENGTH: ',len(deps)
+    print(('DEPENDENCY LIST HAS LENGTH: ',len(deps)))
     for e in deps:
         if not isinstance(e, (Cell, CellReference, CellArray)):
             if e.layer in old_layers:

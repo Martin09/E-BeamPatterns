@@ -17,8 +17,8 @@ from operator import itemgetter
 import networkx as nx
 import numpy as np
 from descartes.patch import PolygonPatch
-from core import Cell, Path, Boundary
-from shapes import Circle, Label, LineLabel
+from .core import Cell, Path, Boundary
+from .shapes import Circle, Label, LineLabel
 from shapely.affinity import rotate as rotateshape
 from shapely.affinity import translate as translateshape
 from shapely.geometry import Polygon, Point, LineString, box
@@ -37,7 +37,7 @@ def dashed_line(pt1, pt2, dashlength, width, layer):
     dash_pts = np.arange(0, line.length, dashlength).tolist()
     if len(dash_pts) % 2 == 1:  # Odd number
         dash_pts.append(line.length)  # Add last point on line
-    dash_pts = map(line.interpolate, dash_pts)  # Interpolate points along this line to make dashes
+    dash_pts = list(map(line.interpolate, dash_pts))  # Interpolate points along this line to make dashes
     dash_pts = [pt.xy for pt in dash_pts]
     dash_pts = np.reshape(dash_pts, (-1, 2, 2))
     lines = [Path(list(linepts), width=width, layer=layer) for linepts in dash_pts]
@@ -161,7 +161,7 @@ class Wafer_TriangStyle(Cell):
                         tri):
                     # If conflict is detected, remove that triangular block
                     i_del.append(i)
-                    print 'up:' + str(self.upTris[i].centroid.xy)
+                    print(('up:' + str(self.upTris[i].centroid.xy)))
 
         self.upTris = [tri for i, tri in enumerate(self.upTris) if i not in i_del]
 
@@ -173,7 +173,7 @@ class Wafer_TriangStyle(Cell):
                         tri):
                     # If conflict is detected, remove that triangular block
                     i_del.append(i)
-                    print 'down:' + str(self.downTris[i].centroid.xy)
+                    print(('down:' + str(self.downTris[i].centroid.xy)))
 
         self.downTris = [tri for i, tri in enumerate(self.downTris) if i not in i_del]
         # Refresh the centers of the remaining triangles
@@ -197,7 +197,7 @@ class Wafer_TriangStyle(Cell):
         if not (type(layers) == list): layers = [layers]
         tblock = Cell('WAF_ORI_TEXT')
         for l in layers:
-            for (t, pt) in self.o_text.iteritems():
+            for (t, pt) in list(self.o_text.items()):
                 txt = Label(t, 1000, layer=l)
                 bbox = txt.bounding_box
                 txt.translate(-np.mean(bbox, 0))  # Center text around origin
@@ -229,7 +229,7 @@ class Wafer_TriangStyle(Cell):
             ]
         import pylab as plt
         # Plot points
-        x, y = zip(*points)
+        x, y = list(zip(*points))
         plt.plot(x, y, 'ko')
         # Create a lineshape of the boundary of the circle
         c = self.waferShape.boundary
@@ -343,7 +343,7 @@ class Wafer_TriangStyle(Cell):
                                  zorder=2)
             ax.add_patch(patch)
         # Convert cells to lattice of points
-        cellLattice = np.array([zip(*cell.centroid.xy)[0] for cell in cells])
+        cellLattice = np.array([list(zip(*cell.centroid.xy))[0] for cell in cells])
         cellLattice = cellLattice + np.array([0, ycelloffset])
         return cellLattice
 
@@ -416,7 +416,7 @@ class Wafer_TriangStyle(Cell):
             alpha=1)
         ax.add_patch(circle)
         tricenters = [tri.centroid.xy for tri in tris]
-        x, y = zip(*tricenters)
+        x, y = list(zip(*tricenters))
         ax.plot(x, y, 'bo')
         # Draw all the triangles
         for i, item in enumerate(tris):
@@ -448,14 +448,14 @@ class Wafer_TriangStyle(Cell):
     def createPtLattice(self, size, xgap, ygap):
         G = nx.Graph(directed=False)
         G.add_node((0, 0))
-        for n in xrange(int(size / min([xgap, ygap]))):
+        for n in range(int(size / min([xgap, ygap]))):
             for (q, r) in list(G.nodes()):
                 G.add_edge((q, r), (q - xgap, r - ygap))
                 G.add_edge((q, r), (q + xgap, r + ygap))
                 G.add_edge((q, r), (q - xgap, r + ygap))
                 G.add_edge((q, r), (q + xgap, r - ygap))
-        uniquepts = set(tuple(map(tuple, np.round(G.node.keys(), 10))))
-        return map(np.array, uniquepts)  # Return only unique points
+        uniquepts = set(tuple(map(tuple, np.round(list(G.node.keys()), 10))))
+        return list(map(np.array, uniquepts))  # Return only unique points
 
     def makeBlocks(self, trisize, startpt=(0, 0)):
         gap = self.block_gap
@@ -476,8 +476,8 @@ class Wafer_TriangStyle(Cell):
         # Create the lattice of "down" facing triangles by shifting previous lattice
         points2 = points + np.array([sl_lattice / 2., h_lattice / 3])
 
-        x, y = zip(*points)
-        x2, y2 = zip(*points2)
+        x, y = list(zip(*points))
+        x2, y2 = list(zip(*points2))
 
         tris1 = self.makeTriang(np.array(x), np.array(y), sl_tri, "up")
         tris2 = self.makeTriang(np.array(x2), np.array(y2), sl_tri, "down")
@@ -544,23 +544,23 @@ class Wafer_TriangStyle(Cell):
             )  # In x use centroid as reference, in y use lower bound so up and down triangles give almost the same value
             y1s.add(base * round(float(tri.bounds[1]) / base))
         # Create dictionary of up and down triangles
-        self.orientrows = dict(zip(y1s, ["up" for i, y in enumerate(y1s)]))
+        self.orientrows = dict(list(zip(y1s, ["up" for i, y in enumerate(y1s)])))
         # Create dictionary of up and down triangles
         x2s, y2s = set(), set()
         for tri in self.downTris:
             x2s.add(np.round(tri.centroid.x, 8))
             y2s.add(base * round(float(tri.bounds[1]) / base))
-        self.orientrows.update(dict(zip(y2s, ["down" for i, y in enumerate(y2s)
-                                              ])))
+        self.orientrows.update(dict(list(zip(y2s, ["down" for i, y in enumerate(y2s)
+                                              ]))))
 
         x1s.update(x2s)
         xs = sorted(list(x1s))
-        self.blockcols = dict(zip(xs, [
+        self.blockcols = dict(list(zip(xs, [
             string.uppercase[i] for i, x in enumerate(xs)
-            ]))
+            ])))
         y1s.update(y2s)
         ys = sorted(list(y1s))
-        self.blockrows = dict(zip(ys, [str(i) for i, y in enumerate(ys)]))
+        self.blockrows = dict(list(zip(ys, [str(i) for i, y in enumerate(ys)])))
 
     # Square cell labels ex: "A", "B", "C"...
     def add_cellLabels(self, layers, center=False):
