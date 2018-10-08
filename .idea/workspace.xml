@@ -2,39 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53569c8c-5f1e-4c19-aedb-f025c4926e74" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/QuantumPlayground_v1.0.gds" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/QuantumPlayground_v1.0.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/_version.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/core.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/font.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/ALIGNMENT.GDS" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/LICENSE" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/cyrilc.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/gothgbt.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/gothgrt.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/gothitt.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/greekc.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/greekcs.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/greekp.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/greeks.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/hershey" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/italicc.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/italiccs.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/italict.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/romanc.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/romancs.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/romand.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/romanp.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/romans.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/romant.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/scriptc.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/resources/hershey/scripts.hmp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/shapes.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/templates.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/templates111.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/templates111_branches.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/utils.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,11 +16,10 @@
       <file leaf-file-name="QuantumPlayground_v1.0.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/QuantumPlayground_v1.0.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="737" column="47" lean-forward="false" selection-start-line="737" selection-start-column="47" selection-end-line="737" selection-end-column="47" />
+            <state relative-caret-position="121">
+              <caret line="742" column="34" lean-forward="true" selection-start-line="742" selection-start-column="34" selection-end-line="742" selection-end-column="34" />
               <folding>
                 <element signature="e#143#161#0" expanded="true" />
-                <marker date="1530772927376" expanded="true" signature="27093:27374" ph="..." />
               </folding>
             </state>
           </provider>
@@ -103,7 +69,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="y" value="2" />
     <option name="width" value="980" />
@@ -185,238 +151,6 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.0/MembraneDesign_100Wafer_v1.0.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.1/MembraneDesign_Basel_4.41.py</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/111A_NWs_Wafer_v1.3.gds</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/111A_NWs_Wafer_v1.3_r25_smaller.gds</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/111A_NWs_Wafer_v1.3_r25_smallest.gds</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/Gen_111A_Nanowires_v1.3.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/GrowthTheoryCell.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/GrowthTheoryCell_BranchDevices.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/GrowthTheoryCell_Branches.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/__init__.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/_version.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/core.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/font.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/ALIGNMENT.GDS</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/LICENSE</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/cyrilc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/gothgbt.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/gothgrt.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/gothitt.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/greekc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/greekcs.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/greekp.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/greeks.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/hershey</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/italicc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/italiccs.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/italict.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/romanc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/romancs.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/romand.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/romanp.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/romans.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/romant.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/scriptc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/resources/hershey/scripts.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/shapes.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/templates.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/templates111.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.3/gdsCAD_v045/utils.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/111A_NWs_Wafer_v1.4_r25.gds</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/111A_NWs_Wafer_v1.4_r25_downblock.gds</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/111A_NWs_Wafer_v1.4_r25_upblock.gds</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/Gen_111A_Nanowires_v1.4.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/GrowthTheoryCell.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/GrowthTheoryCell_BranchDevices.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/GrowthTheoryCell_Branches.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/__init__.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/_version.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/core.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/font.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/ALIGNMENT.GDS</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/LICENSE</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/cyrilc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/gothgbt.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/gothgrt.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/gothitt.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/greekc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/greekcs.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/greekp.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/greeks.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/hershey</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/italicc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/italiccs.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/italict.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/romanc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/romancs.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/romand.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/romanp.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/romans.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/romant.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/scriptc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/resources/hershey/scripts.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/shapes.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/templates.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/templates111.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.4/gdsCAD_v045/utils.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/BaselMembranes_v4.8.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/Basel_Membranes_v4.8_r25.gds</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/Basel_Membranes_v4.8_r25_downblock.gds</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/Basel_Membranes_v4.8_r25_etchCheck.gds</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/Basel_Membranes_v4.8_r25_upblock.gds</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/GrowthTheoryCell.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/GrowthTheoryCell_BranchDevices.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/GrowthTheoryCell_Branches.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/__init__.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/__init__.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/_version.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/core.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/font.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/ALIGNMENT.GDS</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/LICENSE</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/cyrilc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/gothgbt.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/gothgrt.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/gothitt.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/greekc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/greekcs.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/greekp.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/greeks.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/hershey</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/italicc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/italiccs.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/italict.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/romanc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/romancs.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/romand.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/romanp.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/romans.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/romant.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/scriptc.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/resources/hershey/scripts.hmp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/shapes.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/templates.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/templates111.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/gdsCAD_v045/utils.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Branched Devices/v1.0/GrowthTheoryCell_BranchDevices.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Branched Devices/v1.0/MembraneDesign_BranchDevices.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Branched Devices/v1.0/Membrane_Branch_Devices_v1.0_r20_LowDensity_Basel_Wafer_-_17052018_dMark10.0.gds</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Branched Devices/v1.0/MembranesFlow.ftxt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Branched Devices/v1.0/templates111_branches.py</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.2/MembraneDesign_Basel_4.42.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.2/Membranes_Wafer_v4.42_r25_LowDensity_Basel_Wafer_-_09052018_dMark10.0.gds</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -589,41 +323,37 @@
       <option name="project" value="LOCAL" />
       <updated>1508861579465</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added quantum playground patterns">
+      <created>1530772985496</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1530772985496</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25036603" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35431919" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18449612" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3547718" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -633,21 +363,41 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added image for readme" />
     <MESSAGE value="Updated image for readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated image for readme" />
+    <MESSAGE value="Added quantum playground patterns" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added quantum playground patterns" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.2/MembraneDesign_Basel_4.42.py">
+    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/QuantumPlayground_v1.0.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#143#161#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20859">
+          <caret line="1227" column="0" lean-forward="false" selection-start-line="1227" selection-start-column="0" selection-end-line="1227" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/shapes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.2/MembraneDesign_Basel_4.42.py" />
     <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/core.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20859">
@@ -670,19 +420,11 @@
           <caret line="481" column="36" lean-forward="false" selection-start-line="481" selection-start-column="36" selection-end-line="481" selection-end-column="36" />
           <folding>
             <element signature="e#143#161#0" expanded="true" />
-            <marker date="1530772927376" expanded="true" signature="27093:27374" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.2/MembraneDesign_Basel_4.42.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.2/MembraneDesign_Basel_4.42.py" />
     <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/gdsCAD_v045/core.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20859">
@@ -705,27 +447,12 @@
           <caret line="481" column="36" lean-forward="true" selection-start-line="481" selection-start-column="36" selection-end-line="481" selection-end-column="36" />
           <folding>
             <element signature="e#143#161#0" expanded="true" />
-            <marker date="1530772927376" expanded="true" signature="27093:27374" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.2/MembraneDesign_Basel_4.42.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.2/MembraneDesign_Basel_4.42.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.2/MembraneDesign_Basel_4.42.py" />
+    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.2/MembraneDesign_Basel_4.42.py" />
     <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.0/MembraneDesign_100Wafer_v1.0.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -798,21 +525,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.2/MembraneDesign_Basel_4.42.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.2/MembraneDesign_Basel_4.42.py" />
     <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/QuantumPlayground_v1.0.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="737" column="47" lean-forward="false" selection-start-line="737" selection-start-column="47" selection-end-line="737" selection-end-column="47" />
+        <state relative-caret-position="121">
+          <caret line="742" column="34" lean-forward="true" selection-start-line="742" selection-start-column="34" selection-end-line="742" selection-end-column="34" />
           <folding>
             <element signature="e#143#161#0" expanded="true" />
-            <marker date="1530772927376" expanded="true" signature="27093:27374" ph="..." />
           </folding>
         </state>
       </provider>
