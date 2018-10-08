@@ -1,0 +1,3 @@
+BM4.6: Added branched membrane devices in bottom two fields instead of 2um spaced linear membranes.
+BM4.5: Added alignment marks to be deposited first by 60nm of sputtered tungsten
+BM4.4: Added arrays of holes for testing 111A nanowire growth, and added TEM NM peeling strip at bottom.
