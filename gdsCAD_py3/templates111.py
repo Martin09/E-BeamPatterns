@@ -630,7 +630,7 @@ class Wafer_TriangStyle(Cell):
                 blockid = str(lbl_col) + str(lbl_row)
             blocklabel = Cell('LBL_B_' + blockid)
             for l in layers:
-                txt = Label(blockid, 1000, layer=l)
+                txt = Label(blockid, 800, layer=l)
                 bbox = txt.bounding_box
                 offset = np.array(tri.centroid)
                 txt.translate(-np.mean(bbox, 0))  # Center text around origin

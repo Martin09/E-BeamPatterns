@@ -8,9 +8,9 @@ Created on Tue Sep 20 10:04:48 2016
 # TODO: Add arrays of intersecting growth shapes
 
 import numpy as np
+
 from gdsCAD_py3.core import Cell, Boundary, CellArray, Layout, Path
 from gdsCAD_py3.shapes import Box, Rectangle, Label, Disk, RegPolygon
-
 from gdsCAD_py3.templates111 import dashed_line
 
 # Layers
@@ -263,8 +263,7 @@ def makeSlitArray(pitches, spacing, widths, lengths, rotAngle,
     return manyslits
 
 
-def makeSlitArray2(pitches, spacing, widths, lengths, rotAngle,
-                   arrayHeight, arrayWidth, arraySpacing, layers):
+def makeSlitArray2(pitches, spacing, widths, lengths, rotAngle, arrayHeight, arrayWidth, arraySpacing, layers):
     '''
     Give it a single pitch and lengths/widths and it will generate an array for all the combinations
     Makes seperate frame for each length value
@@ -295,18 +294,19 @@ def makeSlitArray2(pitches, spacing, widths, lengths, rotAngle,
                 Ny = int(arrayHeight / (pitchV))
                 # Define the slits
                 slit = Cell("Slits")
-                rect = Rectangle(
-                    (-length / 2., -width / 2.),
-                    (length / 2., width / 2.),
-                    layer=l)
+                rect = Rectangle((-length / 2., -width / 2.), (length / 2., width / 2.), layer=l)
                 rect = rect.copy().rotate(rotAngle)
                 slit.add(rect)
-                slits = CellArray(slit, Nx, Ny,
-                                  (length + spacing, pitchV))
-                slits.translate((-(Nx - 1) * (length + spacing) / 2., -(Ny - 1) * (pitchV) / 2.))
+                if Nx <= 1:
+                    slits = CellArray(slit, Nx, Ny, (length, pitchV))
+                    slits.translate((0, -(Ny - 1) * (pitchV) / 2.))
+                else:
+                    slits = CellArray(slit, Nx, Ny, (length + spacing, pitchV))
+                    slits.translate((-(Nx - 1) * (length + spacing) / 2., -(Ny - 1) * (pitchV) / 2.))
+
                 slitarray = Cell("SlitArray")
                 slitarray.add(slits)
-                text = Label('w/p/l\n%i/%i/%i' % (width * 1000, pitch * 1000, length * 1000), 2, layer=l_smBeam)
+                text = Label('w/p/l\n%i/%i/%i' % (width * 1000, pitch * 1000, length), 2, layer=l_smBeam)
                 lblVertOffset = 1.35
                 if j % 2 == 0:
                     text.translate(
@@ -506,7 +506,7 @@ def make_many_shapes(array_size, shape_areas, pitch, shapes, layer):
     return many_shape_cell
 
 
-def make_theory_cell(wafer_orient = '111'):
+def make_theory_cell(wafer_orient='111'):
     ''' Makes the theory cell and returns ir as a cell'''
     # Growth Theory Slit Elongation
     pitch = [0.500]
@@ -556,29 +556,29 @@ def make_theory_cell(wafer_orient = '111'):
 
     # Pitch Dependence
     PitchDep = Cell('PitchDependence')
-    pitches = list(np.round(np.logspace(-1, 1, 10), 1))  # Logarithmic
-    length = [3.]
-    widths = [0.044, 0.016, 0.008]
+    # pitches = list(np.round(np.logspace(-1, 1, 10), 1))  # Logarithmic
+    pitches = [0.250, 0.500, 1.000, 2.000, 4.000]
+    widths = [0.020, 0.040, 0.060, 0.080, 0.100]
+    length = [20.]
     arrayHeight = 20.
     arrayWidth = arrayHeight
     arraySpacing = 30.
     spacing = 0.5
 
     for j, width in enumerate(widths):
-        for i, pitch in enumerate(pitches):
+        for i, pitch in enumerate(reversed(pitches)):
             PitchDep.add(
                 makeSlitArray2(pitch, spacing, width, length, 0, arrayHeight, arrayWidth, arraySpacing, l_smBeam),
-                origin=(i * 30, j * 30))
+                origin=(j * 30, i * 30))
 
     # Make arrays of various shapes
     manyshapes = make_many_shapes(20, [0.005, 0.01, 0.015, 0.02], 0.75,
-                                  ['Hexagons', 'Circles', 'Tris_left', 'Tris_right'],
-                                  l_smBeam)
+                                  ['Hexagons', 'Circles', 'Tris_left', 'Tris_right'], l_smBeam)
 
     TopCell = Cell('GrowthTheoryTopCell')
     TopCell.add(wheel1, origin=(-170., -50.))
     TopCell.add(wheel2, origin=(-70., -50.))
-    TopCell.add(PitchDep, origin=(-200., -250.))
+    TopCell.add(PitchDep, origin=(-200., -310.))
     TopCell.add(TheorySlitElong, origin=(-250., 75.))
     TopCell.add(LenWidDep, origin=(-200., -50.))
     TopCell.add(manyshapes, origin=(0, -30))

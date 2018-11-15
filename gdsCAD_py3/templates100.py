@@ -11,10 +11,12 @@ Templates for automating the design of different wafer styles.
     
 """
 
+import itertools
 import math
 import numbers
 import os.path
 import string
+from random import choice as random_choice
 
 import numpy as np
 from shapely.geometry import LineString
@@ -372,7 +374,7 @@ class Block(Cell):
         self.N = 0
 
         if spacing is None:
-            spacing = [10000,10000]
+            spacing = [10000, 10000]
 
         # upper area
         cols = np.floor((size[0] - 2 * edge_gap) / spacing[0])

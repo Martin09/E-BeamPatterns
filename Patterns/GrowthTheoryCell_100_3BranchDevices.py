@@ -685,7 +685,7 @@ def make_theory_cell_3br():
     LenWidDep = Cell('LenWidDependence')
     pitch = [0.5]
     lengths = list(np.logspace(-2, 0, 9) * 4.0)  # Logarithmic
-    widths = [0.044, 0.016, 0.008]
+    widths = [0.060, 0.040, 0.020]
     arrayHeight = 20.
     arrayWidth = arrayHeight
     arraySpacing = 30.
@@ -701,7 +701,7 @@ def make_theory_cell_3br():
 
     # Make rotating slits
     shape_len = 3.
-    shape_wid = 0.044
+    shape_wid = 0.040
     N = 13  # number of shapes in the 120 degree arc
     N_rows = 2
     angle_sweep = 180
@@ -721,27 +721,28 @@ def make_theory_cell_3br():
 
     wheel2 = Cell('RotDependence_ShortSlits')
     angle_sweep = -180
-    wheel2.add(make_rotating_slits(2, 0.044, 91, 6. * 2, l_smBeam, angle_ref='100', angle_sweep=angle_sweep))
+    wheel2.add(make_rotating_slits(2, 0.040, 91, 6. * 2, l_smBeam, angle_ref='100', angle_sweep=angle_sweep))
     for i in range(10):  # number of concentric rings to make
-        wheel2.add(make_rotating_slits(2, 0.044, 91, (7.2 + i * 1.2) * 2, l_smBeam, angle_sweep=angle_sweep))
+        wheel2.add(make_rotating_slits(2, 0.040, 91, (7.2 + i * 1.2) * 2, l_smBeam, angle_sweep=angle_sweep))
 
     # Pitch Dependence
     PitchDep = Cell('PitchDependence')
-    pitches = list(np.round(np.logspace(-1, 0, 9), 2) * 4)  # Logarithmic
+    # pitches = list(np.round(np.logspace(-1, 1, 10), 1))  # Logarithmic
+    pitches = [0.250, 0.500, 1.000, 2.000, 4.000]
+    widths = [0.020, 0.040, 0.060, 0.080, 0.100]
     length = [2.]
-    widths = [0.044, 0.016, 0.008]
     arrayHeight = 20.
     arrayWidth = arrayHeight
     arraySpacing = 30.
     spacing = 0.5
 
     for j, width in enumerate(widths):
-        for i, pitch in enumerate(pitches):
+        for i, pitch in enumerate(reversed(pitches)):
             PitchDep.add(
                 make_branch_array(pitch, width, length, ['pitch', 'width', 'length'], spacing, 0, arrayHeight,
                                   arrayWidth,
                                   arraySpacing, l_smBeam),
-                origin=(i * 30, j * 30))
+                origin=(j * 30, i * 30))
     # # Make arrays of various shapes
     # hexagon_array = make_shape_array(20, 0.02, 0.75, 'Hexagons', l_smBeam)
     # circles_array = make_shape_array(20, 0.02, 0.75, 'Circles', l_smBeam)
@@ -765,7 +766,7 @@ def make_theory_cell_3br():
     TopCell = Cell('GrowthTheoryTopCell')
     TopCell.add(wheel1, origin=(-100., -60.))
     TopCell.add(wheel2, origin=(-100., -65.))
-    TopCell.add(PitchDep, origin=(-200., -250.))
+    TopCell.add(PitchDep, origin=(-200., -310.))
     # TopCell.add3(TheorySlitElong, origin=(-250., -50))
     TopCell.add(LenWidDep, origin=(-200., -50.))
     # TopCell.add(hexagon_array, origin=(-100., -50))

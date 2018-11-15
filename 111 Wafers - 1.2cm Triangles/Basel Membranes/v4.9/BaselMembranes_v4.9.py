@@ -13,6 +13,7 @@ TODO: Add serial number of wafers that I will expose
 
 import os
 import sys
+from datetime import date
 
 PACKAGE_PARENT = 'gdsCAD_v045'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
@@ -30,14 +31,14 @@ from gdsCAD_py3.shapes import Box, Rectangle, Label, Disk, RegPolygon
 from gdsCAD_py3.templates111 import Wafer_TriangStyle
 from gdsCAD_py3.utils import scale
 
-WAFER_ID = 'XXXXXXXXXXX'  # CHANGE THIS FOR EACH DIFFERENT WAFER
+WAFER_ID = '800002890577'  # CHANGE THIS FOR EACH DIFFERENT WAFER
 PATTERN = 'BM4.9'
 CELL_GAP = 3000
 glbAlignmentMarks = False
 tDicingMarks = 8.  # Dicing mark line thickness (um)
 rotAngle = 0.  # Rotation angle of the membranes
 wafer_r = 25e3
-waferVer = 'Basel Membranes v4.8.1 r{:d}'.format(int(wafer_r / 1000))
+waferVer = 'Basel Membranes v4.9 r{:d}'.format(int(wafer_r / 1000))
 waferLabel = waferVer
 mkWidthMinor = 3  # Width of minor (Basel) markers within each triangular chip
 
@@ -601,8 +602,9 @@ layout = Layout('LIBRARY', precision=1e-10)
 
 wafer = MBEWafer('MembranesWafer', wafer_r=wafer_r, cells=[topCell], cell_gap=CELL_GAP, mkWidth=tDicingMarks,
                  cellsAtEdges=False)
-file_string = str(waferVer)
-filename = file_string.replace(' ', '_')
+
+filestring = str(waferVer) + '_' + WAFER_ID + '_' + date.today().strftime("%d%m%Y") + ' dMark' + str(tDicingMarks)
+filename = filestring.replace(' ', '_')
 
 # Add pattern for ellipsometry check of SiO2 etching
 size = 2000
@@ -626,3 +628,8 @@ layout_down.save(filename + '_downblock.gds')
 layout_up = Layout('LIBRARY')
 layout_up.add(wafer.block_up)
 layout_up.save(filename + '_upblock.gds')
+
+# Output up chip for doing aligned jobs
+layout_field = Layout('LIBRARY')
+layout_field.add(topCell)
+layout_field.save(filename + '_2mmField.gds')

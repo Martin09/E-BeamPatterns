@@ -386,3 +386,8 @@ layout.save(filename)
 cell_layout = Layout('LIBRARY')
 cell_layout.add(wafer.blocks[0])
 cell_layout.save(filestring.replace(' ', '_') + '_block' + '.gds')
+
+# Output up chip for doing aligned jobs
+layout_field = Layout('LIBRARY')
+layout_field.add(topCell)
+layout_field.save(filestring.replace(' ', '_') + '_2mmField.gds')

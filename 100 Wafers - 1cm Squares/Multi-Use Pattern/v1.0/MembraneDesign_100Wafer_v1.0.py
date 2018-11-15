@@ -81,13 +81,13 @@ class MBE100Wafer(Wafer_GridStyle):
             blk_lbl = self.blockcols[pt[0]] + self.blockrows[pt[1]]
             for l in layers:
                 txt = Label(blk_lbl, txtSize, layer=l_lgBeam)
-            bbox = txt.bounding_box
-            offset = np.array(pt)
-            txt.translate(-np.mean(bbox, 0))  # Center text around origin
-            lbl_cell = Cell("lbl_" + blk_lbl)
-            lbl_cell.add(txt)
-            origin += np.array([0, 2000])  # Translate it up by 2mm
-            self.add(lbl_cell, origin=origin)
+                bbox = txt.bounding_box
+                offset = np.array(pt)
+                txt.translate(-np.mean(bbox, 0))  # Center text around origin
+                lbl_cell = Cell("lbl_" + blk_lbl)
+                lbl_cell.add(txt)
+                origin += np.array([0, 2000])  # Translate it up by 2mm
+                self.add(lbl_cell, origin=origin)
 
     def add_dashed_dicing_marks(self, layers):
         if type(layers) is not list:
