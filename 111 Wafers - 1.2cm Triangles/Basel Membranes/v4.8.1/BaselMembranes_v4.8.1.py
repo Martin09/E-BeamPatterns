@@ -572,3 +572,8 @@ layout_down.save(filename + '_downblock.gds')
 layout_up = Layout('LIBRARY')
 layout_up.add(wafer.block_up)
 layout_up.save(filename + '_upblock.gds')
+
+# Output up chip for doing aligned jobs
+layout_up = Layout('LIBRARY')
+layout_up.add(lgField)
+layout_up.save(filename + '_2mmfield.gds')

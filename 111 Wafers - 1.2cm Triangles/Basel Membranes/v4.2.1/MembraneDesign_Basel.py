@@ -357,3 +357,8 @@ else:  # Only output a single copy of the pattern (not on a wafer)
 file_string = str(waferVer) + '_' + str(density) + ' dMark' + str(tDicingMarks)
 filename = file_string.replace(' ', '_') + '.gds'
 layout.save(filename)
+
+# Output up chip for doing aligned jobs
+layout_up = Layout('LIBRARY')
+layout_up.add(lgField)
+layout_up.save(filename + '_2mmfield.gds')
