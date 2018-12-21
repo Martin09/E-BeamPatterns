@@ -20,15 +20,15 @@ from gdsCAD_py3.core import Cell, Boundary, CellArray, Layout, Path
 from gdsCAD_py3.shapes import Box, Rectangle, Label
 from gdsCAD_py3.templates100 import Wafer_GridStyle, dashed_line
 
-WAFER_ID = '000045672826'  # CHANGE THIS FOR EACH DIFFERENT WAFER
-PATTERN = 'SQBR1.0'
+WAFER_ID = '000045672827'  # CHANGE THIS FOR EACH DIFFERENT WAFER
+PATTERN = 'SQBR1.0B'
 putOnWafer = True  # Output full wafer or just a single pattern?
 HighDensity = False  # High density of triangles?
 glbAlignmentMarks = False
 tDicingMarks = 10.  # Dicing mark line thickness (um)
 rotAngle = 0.  # Rotation angle of the membranes
 wafer_r = 25e3
-waferVer = '100 Membrane Branches v1.0'.format(int(wafer_r / 1000))
+waferVer = '100 Membrane Branches v1.0B'.format(int(wafer_r / 1000))
 
 waferLabel = waferVer + '\n' + date.today().strftime("%d%m%Y")
 # Layers

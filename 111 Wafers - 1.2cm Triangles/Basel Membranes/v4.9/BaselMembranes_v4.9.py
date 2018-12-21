@@ -14,11 +14,13 @@ TODO: Add serial number of wafers that I will expose
 import os
 import sys
 
+
 PACKAGE_PARENT = 'gdsCAD_v045'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
 
 import numpy as np
+from datetime import date
 from shapely.affinity import rotate as rotateshape
 from shapely.geometry import LineString
 
@@ -30,14 +32,14 @@ from gdsCAD_py3.shapes import Box, Rectangle, Label, Disk, RegPolygon
 from gdsCAD_py3.templates111 import Wafer_TriangStyle
 from gdsCAD_py3.utils import scale
 
-WAFER_ID = 'XXXXXXXXXXX'  # CHANGE THIS FOR EACH DIFFERENT WAFER
-PATTERN = 'BM4.9'
+WAFER_ID = '800002879883'  # CHANGE THIS FOR EACH DIFFERENT WAFER
+PATTERN = 'BM4.91'
 CELL_GAP = 3000
 glbAlignmentMarks = False
 tDicingMarks = 8.  # Dicing mark line thickness (um)
 rotAngle = 0.  # Rotation angle of the membranes
 wafer_r = 25e3
-waferVer = 'Basel Membranes v4.8.1 r{:d}'.format(int(wafer_r / 1000))
+waferVer = 'Basel Membranes v4.9.1 r{:d}'.format(int(wafer_r / 1000))
 waferLabel = waferVer
 mkWidthMinor = 3  # Width of minor (Basel) markers within each triangular chip
 
@@ -592,6 +594,7 @@ emptyAlignField.make_align_markers(2., 20., (180., 180.), l_lgBeam, cross=True)
 lgField.add(emptyAlignField, origin=(-dx / 2., 0))
 lgField.add(emptyAlignField, origin=(0, dy / 2.))
 lgField.add(emptyAlignField, origin=(0, -dy / 2.))
+# lgField.add(emptyAlignField, origin=(0, 0))
 
 topCell = Cell("TopCell")
 topCell.add(lgField)
@@ -601,8 +604,9 @@ layout = Layout('LIBRARY', precision=1e-10)
 
 wafer = MBEWafer('MembranesWafer', wafer_r=wafer_r, cells=[topCell], cell_gap=CELL_GAP, mkWidth=tDicingMarks,
                  cellsAtEdges=False)
-file_string = str(waferVer)
-filename = file_string.replace(' ', '_')
+
+filestring = str(waferVer) + '_' + WAFER_ID + '_' + date.today().strftime("%d%m%Y") + ' dMark' + str(tDicingMarks)
+filename = filestring.replace(' ', '_') + '.gds'
 
 # Add pattern for ellipsometry check of SiO2 etching
 size = 2000

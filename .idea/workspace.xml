@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.0B/MembraneDesign_100BranchesWafer_v1.0B.py" line="550" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="53569c8c-5f1e-4c19-aedb-f025c4926e74" name="Default" comment="-Converted whole project to Python 3.6!&#10;-Simplified the file structure so that it now only uses a single gdsCAD project.">
-      <change afterPath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/100 Branches 1.1 Tmp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/100_Membrane_Branches_v1.1_XXXX_15112018_dMark10.0.gds_2mmfield.gds" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.0B/MembraneDesign_100BranchesWafer_v1.0B.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.1/MembraneDesign_100BranchesWafer_v1.1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.5/MembraneDesign_100Wafer_v1.5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9.1/BaselMembranes_v4.9.1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.2/MembraneDesign_100Wafer_v1.1.py" beforeDir="false" afterPath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.2/MembraneDesign_100Wafer_v1.1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.2.1/MembraneDesign_Basel.py" beforeDir="false" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.2.1/MembraneDesign_Basel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.1/MembraneDesign_Basel_4.41.py" beforeDir="false" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.4.1/MembraneDesign_Basel_4.41.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8.1/BaselMembranes_v4.8.1.py" beforeDir="false" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8.1/BaselMembranes_v4.8.1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/BaselMembranes_v4.8.py" beforeDir="false" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8/BaselMembranes_v4.8.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.0/100_Membrane_Branches_v1.0_XXX_08112018_dMark10.0.gds" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.0/100_Membrane_Branches_v1.0_XXX_08112018_dMark10.0_2mmField.gds" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.0/100_Membrane_Branches_v1.0_XXX_08112018_dMark10.0_block.gds" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.0/MembraneDesign_100BranchesWafer_v1.0.py" beforeDir="false" afterPath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.0/MembraneDesign_100BranchesWafer_v1.0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/100 Branches 1.1 Tmp.py" beforeDir="false" afterPath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Blank Chips/MembraneDesign_100Blank_v1.0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/100_Membrane_Branches_v1.1_XXXX_15112018_dMark10.0.gds_2mmfield.gds" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/BaselMembranes_v4.9.py" beforeDir="false" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/BaselMembranes_v4.9.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/Basel_Membranes_v4.8.1_r25.gds" beforeDir="false" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/Basel_Membranes_v4.8.1_r25.gds" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/Basel_Membranes_v4.8.1_r25_downblock.gds" beforeDir="false" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/Basel_Membranes_v4.8.1_r25_downblock.gds" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/Basel_Membranes_v4.8.1_r25_etchCheck.gds" beforeDir="false" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/Basel_Membranes_v4.8.1_r25_etchCheck.gds" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/Basel_Membranes_v4.8.1_r25_upblock.gds" beforeDir="false" afterPath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/Basel_Membranes_v4.8.1_r25_upblock.gds" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/Basel_Membranes_v4.8.1_r25.gds" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/Basel_Membranes_v4.8.1_r25_downblock.gds" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/Basel_Membranes_v4.8.1_r25_etchCheck.gds" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/Basel_Membranes_v4.8.1_r25_upblock.gds" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoseTests/NMs_DoseTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/DoseTests/NMs_DoseTest.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
+    <ignored path="C:\Users\Martin Friedl\Dropbox\Github\E-BeamPatterns\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,11 +64,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/100 Branches 1.1 Tmp.py">
+      <file leaf-file-name="ContactDoseTest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DoseTests/ContactDoseTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="373" column="103" selection-start-line="373" selection-start-column="103" selection-end-line="373" selection-end-column="103" />
+            <state relative-caret-position="4335">
+              <caret line="258" column="4" selection-start-line="258" selection-start-column="4" selection-end-line="258" selection-end-column="4" />
+              <folding>
+                <element signature="e#92#110#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NMs_DoseTest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DoseTests/NMs_DoseTest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5457">
+              <caret line="324" column="53" selection-start-line="324" selection-start-column="53" selection-end-line="324" selection-end-column="53" />
+              <folding>
+                <element signature="e#92#110#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GaAs.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Documents/LMSC/Nanomembranes/Selectivity Mapping/GaAs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MembraneDesign_100Blank_v1.0.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Blank Chips/MembraneDesign_100Blank_v1.0.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="446" column="5" selection-start-line="446" selection-end-line="447" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaselMembranes_v4.9.1.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9.1/BaselMembranes_v4.9.1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="templates111.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gdsCAD_py3/templates111.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="632" column="40" selection-start-line="632" selection-start-column="37" selection-end-line="632" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MembraneDesign_100Wafer_v1.5.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.5/MembraneDesign_100Wafer_v1.5.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MembraneDesign_100BranchesWafer_v1.1.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.1/MembraneDesign_100BranchesWafer_v1.1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="templates100.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gdsCAD_py3/templates100.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="241" column="35" selection-start-line="241" selection-start-column="31" selection-end-line="241" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MembraneDesign_100Wafer_v1.4.1.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.4.1/MembraneDesign_100Wafer_v1.4.1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="37" selection-start-line="18" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -86,14 +185,25 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/100 Branches 1.1 Tmp.py" />
+        <option value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.0/MembraneDesign_100BranchesWafer_v1.0.py" />
+        <option value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.0B/MembraneDesign_100BranchesWafer_v1.0B.py" />
+        <option value="$PROJECT_DIR$/DoseTests/NMs_DoseTest.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py" />
+        <option value="$USER_HOME$/Documents/LMSC/Nanomembranes/Selectivity Mapping/GaAs.py" />
+        <option value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Blank Chips/MembraneDesign_100Blank_v1.0.py" />
+        <option value="$PROJECT_DIR$/gdsCAD_py3/templates100.py" />
+        <option value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.1/MembraneDesign_100BranchesWafer_v1.1.py" />
+        <option value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.5/MembraneDesign_100Wafer_v1.5.py" />
+        <option value="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/BaselMembranes_v4.9.py" />
+        <option value="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9.1/BaselMembranes_v4.9.1.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
@@ -120,8 +230,13 @@
             <path>
               <item name="E-BeamPatterns" type="b2602c69:ProjectViewProjectNode" />
               <item name="E-BeamPatterns" type="462c0819:PsiDirectoryNode" />
-              <item name="100 Wafers - 1cm Squares" type="462c0819:PsiDirectoryNode" />
-              <item name="Multi-Use Pattern" type="462c0819:PsiDirectoryNode" />
+              <item name="111 Wafers - 1.2cm Triangles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="E-BeamPatterns" type="b2602c69:ProjectViewProjectNode" />
+              <item name="E-BeamPatterns" type="462c0819:PsiDirectoryNode" />
+              <item name="111 Wafers - 1.2cm Triangles" type="462c0819:PsiDirectoryNode" />
+              <item name="Basel Membranes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="E-BeamPatterns" type="b2602c69:ProjectViewProjectNode" />
@@ -133,6 +248,22 @@
         </subPane>
       </pane>
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.0B" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Martin Friedl\Dropbox\Github\E-BeamPatterns\100 Wafers - 1cm Squares\Branches\v1.0B" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Martin Friedl\Dropbox\Github\E-BeamPatterns\111 Wafers - 1.2cm Triangles\Basel Membranes\v4.9.1" />
+      <recent name="C:\Users\Martin Friedl\Dropbox\Github\E-BeamPatterns\100 Wafers - 1cm Squares\Branches\v1.1" />
+      <recent name="C:\Users\Martin Friedl\Dropbox\Github\E-BeamPatterns\100 Wafers - 1cm Squares\Multi-Use Pattern\v1.5" />
+      <recent name="C:\Users\Martin Friedl\Dropbox\Github\E-BeamPatterns\100 Wafers - 1cm Squares\Blank Chips" />
+      <recent name="C:\Users\Martin Friedl\Dropbox\Github\E-BeamPatterns\100 Wafers - 1cm Squares\Branches\v1.0B" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -146,8 +277,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.100 Branches 1.1 Tmp">
-    <configuration name="100 Branches 1.1 Tmp" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.BaselMembranes_v4.9.1">
+    <configuration name="BaselMembranes_v4.9" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="E-BeamPatterns" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -155,20 +286,17 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/100 Branches 1.1 Tmp.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/BaselMembranes_v4.9.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
-    <configuration name="MembraneDesign_100Wafer_v1.1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="BaselMembranes_v4.9.1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="E-BeamPatterns" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -176,27 +304,84 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.2" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9.1" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.2/MembraneDesign_100Wafer_v1.1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9.1/BaselMembranes_v4.9.1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
+    </configuration>
+    <configuration name="MembraneDesign_100Blank_v1.0" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="E-BeamPatterns" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Blank Chips" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Blank Chips/MembraneDesign_100Blank_v1.0.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="MembraneDesign_100BranchesWafer_v1.1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="E-BeamPatterns" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.1" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.1/MembraneDesign_100BranchesWafer_v1.1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="MembraneDesign_100Wafer_v1.5" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="E-BeamPatterns" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.5" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.5/MembraneDesign_100Wafer_v1.5.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.MembraneDesign_100Wafer_v1.1" />
-      <item itemvalue="Python.100 Branches 1.1 Tmp" />
+      <item itemvalue="Python.MembraneDesign_100Blank_v1.0" />
+      <item itemvalue="Python.BaselMembranes_v4.9" />
+      <item itemvalue="Python.MembraneDesign_100Wafer_v1.5" />
+      <item itemvalue="Python.MembraneDesign_100BranchesWafer_v1.1" />
+      <item itemvalue="Python.BaselMembranes_v4.9.1" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.100 Branches 1.1 Tmp" />
-        <item itemvalue="Python.MembraneDesign_100Wafer_v1.1" />
+        <item itemvalue="Python.BaselMembranes_v4.9.1" />
+        <item itemvalue="Python.MembraneDesign_100BranchesWafer_v1.1" />
+        <item itemvalue="Python.MembraneDesign_100Wafer_v1.5" />
+        <item itemvalue="Python.BaselMembranes_v4.9" />
+        <item itemvalue="Python.MembraneDesign_100Blank_v1.0" />
       </list>
     </recent_temporary>
   </component>
@@ -263,49 +448,76 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49892932" visible="true" weight="0.26860118" />
-      <window_info id="Structure" order="1" sideWeight="0.5010707" side_tool="true" weight="0.26860118" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23567921" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49787837" visible="true" weight="0.26817703" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Python Console" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.5302782" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.5302782" />
+      <window_info anchor="bottom" id="Python Console" order="8" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23484848" />
+      <window_info id="Structure" order="1" sideWeight="0.5021216" side_tool="true" weight="0.26817703" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16294643" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23747277" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Python Console" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32897604" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="right" id="Data View" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Data View" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32897604" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Python Console" order="8" />
     </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -321,27 +533,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="-Converted whole project to Python 3.6!&#10;-Simplified the file structure so that it now only uses a single gdsCAD project." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Branched Devices/v1.0/templates111_branches.py" />
-    <entry file="file://$USER_HOME$/Documents/LMSC/Programming/GDS Patterning/111 Wafers - 1.2cm Triangles/111A Nanowires/v1.2/gdsCAD_v045/templates111.py" />
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8.1/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8.1/gdsCAD_v045/templates111_branches.py" />
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8.1/QuantumPlayground_v1.py" />
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/QuantumPlayground/v1.0/QuantumPlayground_v1.py" />
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8.1/gdsCAD_v045/core.py" />
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8.1/gdsCAD_v045/templates111.py" />
-    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.1/gdsCAD_v045/core.py" />
-    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.1/GrowthTheoryCell.py" />
-    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.1/GrowthTheoryCell_3BranchDevices.py" />
-    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.1/GrowthTheoryCell_4BranchDevices.py" />
-    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.1/gdsCAD_v045/templates.py" />
-    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.1/MembraneDesign_100Wafer_v1.1.py" />
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.2/gdsCAD_v045/core.py" />
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/GrowthTheoryCell_BranchDevices.py" />
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/GrowthTheoryCell_Branches.py" />
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/QuantumPlayground_v1.py" />
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/GrowthTheoryCell.py" />
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/4.9_python3/BaselMembranes_v4.8.1_python3.py" />
     <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/gdsCAD_v045/templates111.py" />
     <entry file="file://$PROJECT_DIR$/venv/Lib/warnings.py" />
     <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/BaselMembranes_v4.8.1.py" />
@@ -374,13 +565,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.0/GrowthTheoryCell.py" />
-    <entry file="file://$PROJECT_DIR$/gdsCAD_py3/templates111.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="561" column="21" selection-start-line="561" selection-start-column="21" selection-end-line="561" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.0/MembraneDesign_100Wafer_v1.0.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -438,13 +622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/BaselMembranes_v4.9.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10676">
-          <caret line="629" selection-start-line="629" selection-end-line="632" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.8.1/BaselMembranes_v4.8.1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9656">
@@ -473,13 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gdsCAD_py3/templates100.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="101" column="38" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gdsCAD_py3/core.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -501,10 +671,186 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/100 Branches 1.1 Tmp.py">
+    <entry file="file://$USER_HOME$/Documents/LMSC/Conferences, Meetings, Schools, Classes/2018-11-15 - QSIT Site Visit/PlotTransmissionLineData.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="373" column="103" selection-start-line="373" selection-start-column="103" selection-end-line="373" selection-end-column="103" />
+        <state relative-caret-position="748">
+          <caret line="47" column="47" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/LMSC/Conferences, Meetings, Schools, Classes/2018-11-15 - QSIT Site Visit/PlotLineScanData.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/TEM Testing/hyperspy_testing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/LMSC/Conferences, Meetings, Schools, Classes/2018-05-28 - QSIT Monte Verita 2018/Poster/PlotLinescan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="25" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/LMSC/Conferences, Meetings, Schools, Classes/2018-11-15 - QSIT Site Visit/PlotLinescan_111.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/LMSC/Conferences, Meetings, Schools, Classes/2018-11-15 - QSIT Site Visit/PlotLatticeConstantVsBandGapMap.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/pandas/io/parsers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28288">
+          <caret line="1707" selection-start-line="1707" selection-end-line="1707" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.0B/100 Branches 1.0B Tmp.py" />
+    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.0/MembraneDesign_100BranchesWafer_v1.0.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+          <folding>
+            <element signature="e#203#219#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.0B/MembraneDesign_100BranchesWafer_v1.0B.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+          <folding>
+            <element signature="e#203#219#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DoseTests/ContactDoseTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4335">
+          <caret line="258" column="4" selection-start-line="258" selection-start-column="4" selection-end-line="258" selection-end-column="4" />
+          <folding>
+            <element signature="e#92#110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/matplotlib/axes/_axes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="412" selection-start-line="412" selection-end-line="412" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="2659" selection-start-line="2659" selection-end-line="2659" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/tkinter/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="1701" selection-start-line="1701" selection-end-line="1701" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="55" column="54" lean-forward="true" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DoseTests/NMs_DoseTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5457">
+          <caret line="324" column="53" selection-start-line="324" selection-start-column="53" selection-end-line="324" selection-end-column="53" />
+          <folding>
+            <element signature="e#92#110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/LMSC/Nanomembranes/Selectivity Mapping/GaAs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.4.1/MembraneDesign_100Wafer_v1.4.1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="37" selection-start-line="18" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gdsCAD_py3/templates111.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="632" column="40" selection-start-line="632" selection-start-column="37" selection-end-line="632" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gdsCAD_py3/templates100.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="241" column="35" selection-start-line="241" selection-start-column="31" selection-end-line="241" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Branches/v1.1/MembraneDesign_100BranchesWafer_v1.1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Multi-Use Pattern/v1.5/MembraneDesign_100Wafer_v1.5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9/BaselMembranes_v4.9.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="580" column="72" lean-forward="true" selection-start-line="580" selection-start-column="72" selection-end-line="580" selection-end-column="72" />
+          <folding>
+            <element signature="e#231#240#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/100 Wafers - 1cm Squares/Blank Chips/MembraneDesign_100Blank_v1.0.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="446" column="5" selection-start-line="446" selection-end-line="447" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/111 Wafers - 1.2cm Triangles/Basel Membranes/v4.9.1/BaselMembranes_v4.9.1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
         </state>
       </provider>
     </entry>

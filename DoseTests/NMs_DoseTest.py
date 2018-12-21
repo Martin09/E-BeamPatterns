@@ -322,14 +322,15 @@ def make_theory_cell(wafer_orient='111'):
     spacing = 0.5
 
     length = [arrayWidth]
-    widths = [0.010, 0.015, 0.020]
+    widths = [0.01, 0.015, 0.020, 0.030, 0.040, 0.050]
+    #widths = [0.008, 0.016, 0.024, 0.032, 0.040, 0.048]
     pitches = [1.0, 2.0, 4.0]
 
     for j, width in enumerate(widths):
         for i, pitch in enumerate(pitches):
             PitchDep.add(
                 makeSlitArray2(pitch, spacing, width, length, 0, arrayHeight, arrayWidth, arraySpacing, l_smBeam),
-                origin=(i * 1.5 * arrayWidth, j * 2 * arrayHeight))
+                origin=(i * 1.5 * arrayWidth, j * 1.5 * arrayHeight))
 
     TopCell = Cell('GrowthTheoryTopCell')
     TopCell.add(PitchDep, origin=(0., 0.))
