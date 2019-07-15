@@ -288,18 +288,14 @@ def makeSlitArray2(pitches, spacing, widths, lengths, rotAngle,
                 Ny = int(arrayHeight / (pitchV))
                 # Define the slits
                 slit = Cell("Slits")
-                rect = Rectangle(
-                    (-length / 2., -width / 2.),
-                    (length / 2., width / 2.),
-                    layer=l)
-                rect = rect.copy().rotate(rotAngle)
-                slit.add(rect)
+                line = Path([[-length / 2., 0], [length / 2., 0]], width=width, layer=l)
+                slit.add(line)
                 slits = CellArray(slit, Nx, Ny, (length + spacing, pitchV))
                 slits.translate((-(Nx - 1) * (length + spacing) / 2., -(Ny - 1) * (pitchV) / 2.))
                 slitarray = Cell("SlitArray")
                 slitarray.add(slits)
                 text = Label('w/p/l\n%i/%i/%i' % (width * 1000, pitch * 1000, length), 1, layer=l_smBeam)
-                lblVertOffset = 1
+                lblVertOffset = 1.5
                 if j % 2 == 0:
                     text.translate(
                         tuple(np.array(-text.bounding_box.mean(0)) + np.array((
@@ -320,22 +316,21 @@ def make_theory_cell(wafer_orient='111'):
 
     # Pitch Dependence
     PitchDep = Cell('PitchDependence')
-    arrayHeight = 5.
-    arrayWidth = arrayHeight * 2.
+    arrayHeight = 20.
+    arrayWidth = 20.
     arraySpacing = 10.
     spacing = 0.5
 
     length = [arrayWidth]
-    widths = [0.050, 0.100, 0.150, 0.200, 0.250]
-    wire_spacings = [0.100, 0.200, 0.400]
+    widths = [0.020, 0.040, 0.080, 0.140, 0.220, 0.320]
+    #widths = [0.008, 0.016, 0.024, 0.032, 0.040, 0.048]
+    pitches = [1.0, 2.0, 4.0]
 
     for j, width in enumerate(widths):
-        for i, wire_spacing in enumerate(wire_spacings):
+        for i, pitch in enumerate(pitches):
             PitchDep.add(
-                makeSlitArray2(wire_spacing + width, spacing, width, length, 0, arrayHeight, arrayWidth, arraySpacing,
-                               l_smBeam),
-                origin=(i * 30
-                        , j * 20))
+                makeSlitArray2(pitch, spacing, width, length, 0, arrayHeight, arrayWidth, arraySpacing, l_smBeam),
+                origin=(i * 1.5 * arrayWidth, j * 1.5 * arrayHeight))
 
     TopCell = Cell('GrowthTheoryTopCell')
     TopCell.add(PitchDep, origin=(0., 0.))
@@ -349,4 +344,4 @@ if __name__ == "__main__":
     # Add the copied cell to a Layout and save
     layout = Layout('LIBRARY')
     layout.add(TopCell)
-    layout.save('ContactsDoseTest.gds')
+    layout.save('NMDoseTest_v2.gds')

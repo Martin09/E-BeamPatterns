@@ -5,30 +5,36 @@ Created on Fri Dec 18 14:11:31 2015
 @author: Martin Friedl
 
 1.4.1 - Added cleaved cross section wires to quickly check the cross section of many wires by cleaving + SEM
+1.5 - Added thicker slits in cleaving X-section region and theory cell: see if we can grow single NWs using wider slits
+1.5.1 - Changed slit widths to (only) 20/35/50nm and got rid of other slits sizes to simplify
+1.5.1 - Got rid of 2um pitch field, as growth was not good here
+1.5.1 - Removed branched theory fields to reduce writing time as these were not being used
+1.5.1 - Changed all slits to path objects (instead of rectangles)
 """
 
 import itertools
+import json
+import os.path
 from datetime import date
 from random import choice as random_choice
 
 import numpy as np
 
 from Patterns.GrowthTheoryCell import make_theory_cell
-from Patterns.GrowthTheoryCell_100_3BranchDevices import make_theory_cell_3br
-from Patterns.GrowthTheoryCell_100_4BranchDevices import make_theory_cell_4br
+from Patterns.QuantumPlayground_100_v1 import make_qp
 from gdsCAD_py3.core import Cell, Boundary, CellArray, Layout, Path
 from gdsCAD_py3.shapes import Box, Rectangle, Label
 from gdsCAD_py3.templates100 import Wafer_GridStyle, dashed_line
 
-WAFER_ID = 'XXXXXXXX'  # CHANGE THIS FOR EACH DIFFERENT WAFER
-PATTERN = 'SQBR1.0'
+WAFER_ID = '000050254323'  # CHANGE THIS FOR EACH DIFFERENT WAFER
+PATTERN = 'SQ1.5.1'
 putOnWafer = True  # Output full wafer or just a single pattern?
 HighDensity = False  # High density of triangles?
 glbAlignmentMarks = False
 tDicingMarks = 10.  # Dicing mark line thickness (um)
 rotAngle = 0.  # Rotation angle of the membranes
 wafer_r = 25e3
-waferVer = '100 Membrane Branches v1.0'.format(int(wafer_r / 1000))
+waferVer = '100 Membranes SQ1.5.1'.format(int(wafer_r / 1000))
 
 waferLabel = waferVer + '\n' + date.today().strftime("%d%m%Y")
 # Layers
@@ -58,19 +64,15 @@ class MBE100Wafer(Wafer_GridStyle):
         self.wafer_r = 25e3
         self.block_size = np.array([10e3, 10e3])
         self._place_blocks(radius=self.wafer_r + 5e3)
-        # if glbAlignmentMarks:
-        #     self.add_aligment_marks(l_lgBeam)
-        #     self.add_orientation_text(l_lgBeam)
-        # self.add_dicing_marks()  # l_lgBeam, mkWidth=mkWidth Width of dicing marks
 
         self.add_blocks()
         self.add_wafer_outline(layers=l_drawing)
         self.add_dashed_dicing_marks(layers=[l_lgBeam])
         self.add_subdicing_marks(200, 5, layers=[l_lgBeam])
-        self.add_block_labels(l_lgBeam, quasi_unique_labels=True)
+        self.add_block_labels(l_lgBeam, unique_ids=True, load_ids=True)
 
         self.add_prealignment_markers(layers=[l_lgBeam])
-        self.add_tem_membranes([0.02, 0.04, 0.06, 0.08], 500, 1, l_smBeam)
+        self.add_tem_membranes([0.02, 0.035, 0.050], 1000, 1, l_smBeam)
         self.add_theory_cells()
         self.add_chip_labels()
         self.add_cleave_xsection_nws()
@@ -82,45 +84,69 @@ class MBE100Wafer(Wafer_GridStyle):
         # top = np.array([0, -1]) * bottom
         self.add_waferLabel(waferLabel, l_drawing, pos=bottom)
 
-    def add_block_labels(self, layers, quasi_unique_labels=False):
+    def add_block_labels(self, layers, unique_ids=False, save_ids=True, load_ids=True):
         if type(layers) is not list:
             layers = [layers]
 
-        txtSize = 800
+        txtSize = 1000
+        blockids = []
 
-        if quasi_unique_labels:
-            unique_label_string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
-            possible_labels = ["".join(x) for x in itertools.product(unique_label_string, repeat=2)]
-
-            blockids_set = set()
-            while len(blockids_set) < len(self.blocks):
-                blockids_set.add(random_choice(possible_labels))
-
-            blockids = list(blockids_set)
-            for i, block in enumerate(self.blocks):
-                blocklabel = Cell('LBL_B_' + blockids[i])
-                for l in layers:
-                    txt = Label(blockids[i], txtSize, layer=l)
-                    bbox = txt.bounding_box
-                    offset = (0, 0)
-                    txt.translate(-np.mean(bbox, 0))  # Center text around origin
-                    txt.translate(offset)  # Translate it to bottom of wafer
-                    blocklabel.add(txt)
-                    block.add(blocklabel, origin=(self.block_size[0] / 2., self.block_size[1] / 2.))
-
-        else:
+        if not unique_ids:
             for (i, pt) in enumerate(self.block_pts):
-                origin = (pt + np.array([0.5, 0.5])) * self.block_size
-                blk_lbl = self.blockcols[pt[0]] + self.blockrows[pt[1]]
-                for l in layers:
-                    txt = Label(blk_lbl, txtSize, layer=l_lgBeam)
-                    bbox = txt.bounding_box
-                    offset = np.array(pt)
-                    txt.translate(-np.mean(bbox, 0))  # Center text around origin
-                    lbl_cell = Cell("lbl_" + blk_lbl)
-                    lbl_cell.add(txt)
-                    origin += np.array([0, 2000])  # Translate it up by 2mm
-                    self.add(lbl_cell, origin=origin)
+                blockids.append(self.blockcols[pt[0]] + self.blockrows[pt[1]])
+        else:
+            existing_ids = {}
+            existing_id_set = set()
+            # Load the previously-used IDs from a JSON file
+            if load_ids:
+                master_db = '../../../ChipIDs_DB.json'
+                if os.path.isfile(master_db):
+                    with open(master_db, 'r') as f:
+                        try:
+                            existing_ids = json.load(f)
+                            existing_id_set = set([item for sublist in list(existing_ids.values()) for item in sublist])
+
+                            # Check if wafer is in the loaded database
+                            if load_ids and WAFER_ID in existing_ids:
+                                blockids = existing_ids[WAFER_ID]
+
+                        # If there is a reading error then proceed with a warning
+                        except json.decoder.JSONDecodeError:
+                            print("Json Error: Couldn't load chip IDs from database!")
+                            existing_id_set = set()
+
+            # If the IDs haven't already been set by loading them from the database
+            if not blockids:
+                # Generate some new IDs, but only use the ones that haven't previously been used
+                unique_label_string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+                possible_label_set = set(["".join(x) for x in itertools.product(unique_label_string, repeat=2)])
+                possible_label_set = possible_label_set - existing_id_set  # Remove chip lbls from the set of possible lbls
+
+                blockids_set = set()
+                while len(blockids_set) < len(self.blocks):
+                    blockids_set.add(random_choice(list(possible_label_set)))
+
+                blockids = list(blockids_set)
+
+        # Save the labels to a file
+        if save_ids:
+            existing_ids.update({WAFER_ID: blockids})
+            json_string = json.dumps(existing_ids)
+            json_string = json_string.replace("], ", "],\n")  # Make the file a bit easier to read in notepad
+            with open(master_db, 'w') as f:
+                f.write(json_string)
+
+        # Write the labels to the cells
+        for i, block in enumerate(self.blocks):
+            blocklabel = Cell('LBL_B_' + blockids[i])
+            for l in layers:
+                txt = Label(blockids[i], txtSize, layer=l)
+                bbox = txt.bounding_box
+                offset = (0, 0)
+                txt.translate(-np.mean(bbox, 0))  # Center text around origin
+                txt.translate(offset)  # Translate it to bottom of wafer
+                blocklabel.add(txt)
+                block.add(blocklabel, origin=(self.block_size[0] / 2., self.block_size[1] / 2. - 400))
 
     def add_dashed_dicing_marks(self, layers):
         if type(layers) is not list:
@@ -208,7 +234,7 @@ class MBE100Wafer(Wafer_GridStyle):
 
     def add_tem_membranes(self, widths, length, pitch, layer):
         tem_membranes = Cell('TEM_Membranes')
-        n = 4
+        n = 4  # Number of NMs in each width group (side-by-side)
         curr_y = 0
         for width in widths:
             membrane = Path([(-length / 2., 0), (length / 2., 0)], width=width, layer=layer)
@@ -220,7 +246,7 @@ class MBE100Wafer(Wafer_GridStyle):
             tem_membranes.add(membrane_array_cell, origin=(0, curr_y))
             curr_y += n * pitch
 
-        n2 = 3
+        n2 = 4  # Number of times to repeat each width group in the overall array
         tem_membranes2 = Cell('Many_TEM_Membranes')
         tem_membranes2.add(CellArray(tem_membranes, 1, n2, (0, n * len(widths) * pitch)))
 
@@ -232,13 +258,13 @@ class MBE100Wafer(Wafer_GridStyle):
     def add_theory_cells(self):
 
         theory_cells = Cell('TheoryCells')
-        theory_cells.add(make_theory_cell(wafer_orient='100'), origin=(-400, 0))
-        theory_cells.add(make_theory_cell_3br(), origin=(0, 0))
-        theory_cells.add(make_theory_cell_4br(), origin=(400, 0))
+        theory_cells.add(make_theory_cell(wafer_orient='100'), origin=(70, 0))
+        # theory_cells.add(make_theory_cell_3br(), origin=(0, 0))
+        # theory_cells.add(make_theory_cell_4br(), origin=(400, 0))
 
-        theory_cells.add(make_theory_cell(wafer_orient='100'), origin=(-500, -400), rotation=45)
-        theory_cells.add(make_theory_cell_3br(), origin=(-50, -400), rotation=45)
-        theory_cells.add(make_theory_cell_4br(), origin=(370, -400), rotation=45)
+        theory_cells.add(make_theory_cell(wafer_orient='100'), origin=(20, -400), rotation=45)
+        # theory_cells.add(make_theory_cell_3br(), origin=(-50, -400), rotation=45)
+        # theory_cells.add(make_theory_cell_4br(), origin=(370, -400), rotation=45)
 
         center_x, center_y = (5000, 5000)
         for block in self.blocks:
@@ -246,7 +272,7 @@ class MBE100Wafer(Wafer_GridStyle):
 
     def add_chip_labels(self):
         wafer_lbl = PATTERN + '\n' + WAFER_ID
-        text = Label(wafer_lbl, 10., layer=l_lgBeam)
+        text = Label(wafer_lbl, 20., layer=l_lgBeam)
         text.translate(tuple(np.array(-text.bounding_box.mean(0))))  # Center justify label
         chip_lbl_cell = Cell('chip_label')
         chip_lbl_cell.add(text)
@@ -256,8 +282,8 @@ class MBE100Wafer(Wafer_GridStyle):
             block.add(chip_lbl_cell, origin=(center_x, center_y - 2850))
 
     def add_cleave_xsection_nws(self):
-        pitches = [1., 2., 4.]
-        widths = [10., 15., 20., 30., 40., 50.]
+        pitches = [0.5, 1., 2., 4.]
+        widths = [10., 20., 40., 60., 100., 160., 240.]
         n_membranes = 10
         length = 50
         spacing = 10
@@ -275,13 +301,21 @@ class MBE100Wafer(Wafer_GridStyle):
                 nm_cell_array.add(tmp)
                 cleave_xsection_cell.add(nm_cell_array, origin=(0, y_offset + pitch * n_membranes))
                 y_offset += pitch * n_membranes + spacing
+
+                text = Label("P{:.1f}W{:.0f}".format(pitch, width), 1.0, layer=l_smBeam)
+                text.translate(tuple(np.array(-text.bounding_box.mean(0))))  # Center justify label
+                txt_cell = Cell("lbl_P{:.1f}W{:.0f}".format(pitch, width))
+                txt_cell.add(text)
+                cleave_xsection_cell.add(txt_cell, origin=(length * 0.75, y_offset - 8.0))
+                cleave_xsection_cell.add(txt_cell, origin=(-length * 0.75, y_offset - 8.0))
+
             y_offset += spacing * 3
 
         center_x, center_y = (5000, 5000)
         for block in self.blocks:
-            block.add(cleave_xsection_cell, origin=(center_x + 1150, center_y - 340))
-            block.add(cleave_xsection_cell, origin=(center_x - 500, center_y + 500), rotation=45.)
-            block.add(cleave_xsection_cell, origin=(center_x + 340, center_y - 1150), rotation=90.)
+            block.add(cleave_xsection_cell, origin=(center_x + 1150, center_y - 463))
+            block.add(cleave_xsection_cell, origin=(center_x - 350, center_y + 350), rotation=45.)
+            block.add(cleave_xsection_cell, origin=(center_x + 463, center_y - 1150), rotation=90.)
 
 
 class Frame(Cell):
@@ -373,12 +407,12 @@ class Frame(Cell):
                     nx = int(array_width / (length + spacing))
                     ny = int(array_height / pitch)
                     # Define the slits
-                    slit = Cell("Slits")
-                    rect = Rectangle((-length / 2., -width / 2.), (length / 2., width / 2.), layer=l)
-                    slit.add(rect)
+                    slit = Cell("Slit_w{:.0f}".format(width * 1000))
+                    slit_path = Path([(-length / 2., 0), (length / 2., 0)], width=width, layer=l)
+                    slit.add(slit_path)
                     slits = CellArray(slit, nx, ny, (length + spacing, pitch))
                     slits.translate((-(nx - 1) * (length + spacing) / 2., -(ny - 1) * pitch / 2.))
-                    slit_array = Cell("SlitArray")
+                    slit_array = Cell("SlitArray_w{:.0f}".format(width * 1000))
                     slit_array.add(slits)
                     text = Label('w/p/l\n%i/%i/%i' % (width * 1000, pitch, length), 5, layer=l)
                     lbl_vertical_offset = 1.35
@@ -410,111 +444,16 @@ class Frame(Cell):
                                     -(j + 1.5) * (array_height + array_spacing) / 2 + hacky_offset_y),
                  rotation=rot_angle)
 
-    def make_arm(self, width, length, layer, cell_name='branch'):
-        cell = Cell(cell_name)
-        rect = Rectangle((0, -width / 2.), (length, width / 2.), layer=layer)
-        cell.add(rect)
-        return cell
 
-    def make_branch_device(self, width, pitch, len_inner, len_outer, n_membranes, layer):
-        branch_device = Cell('branch_device')
-        inner_arm = self.make_arm(width, len_inner, layer, cell_name='inner_arm')
-        outer_arm = self.make_arm(width, len_outer, layer, cell_name='outer_arm')
-        outer_branch = Cell('outer_branch')
-        outer_branch.add(outer_arm)
-        outer_branch.add(outer_arm, rotation=90)
-
-        branch_quarter = Cell('branch_third')
-        branch_quarter.add(inner_arm)
-        for i in range(1, int(n_membranes) + 1):
-            branch_quarter.add(outer_branch, origin=((width + pitch) * i, (width + pitch) * i))
-
-        branch_device.add(branch_quarter, rotation=0)
-        branch_device.add(branch_quarter, rotation=90)
-        branch_device.add(branch_quarter, rotation=180)
-        branch_device.add(branch_quarter, rotation=270)
-
-        # self.add(branch_device)
-
-        return branch_device
-
-    def make_branch_array(self, _widths, _lengths, nx, ny, spacing_structs, spacing_arrays, rot_angle, layers):
-        if not (type(layers) == list):
-            layers = [layers]
-        if not (type(_lengths) == list):
-            _lengths = [_lengths]
-        if not (type(_widths) == list):
-            _widths = [_widths]
-        l = layers[0]
-        _length = _lengths[0]
-
-        manyslits = i = j = None
-
-        slits = []
-        for width in _widths:
-            slit = Cell("Slit_{:.0f}".format(width * 1000))
-            line = Path([[-_length / 2., 0], [_length / 2., 0]], width=width, layer=l)
-            slit.add(line)
-            slits.append(slit)
-
-        bd = self.make_branch_device(_widths[0], spacing_structs, _lengths[0], _lengths[0], 3, layers[0])
-
-        many_crosses = Cell("CrossArray")
-        x_pos = 0
-        y_pos = 0
-
-        array_pitch = ny * (length + spacing_structs) - spacing_structs + spacing_arrays
-
-        for j, width_vert in enumerate(_widths[::-1]):
-            for i, width_horiz in enumerate(_widths):
-                # # Define a single cross
-                # cross = Cell("Cross_{:.0f}_{:.0f}".format(width_horiz * 1000, width_vert * 1000))
-                # cross.add(slits[i])  # Horizontal slit
-                # cross.add(slits[j], rotation=90)  # Vertical slit
-
-                cross = bd
-                # Define the cross array
-                cross_array = Cell("CrossArray_{:.0f}_{:.0f}".format(width_horiz * 1000, width_vert * 1000))
-                slit_array = CellArray(cross, nx, ny, (_length + spacing_structs, _length + spacing_structs))
-                slit_array.translate(
-                    (-(nx - 1) * (_length + spacing_structs) / 2., (-(ny - 1) * (_length + spacing_structs) / 2.)))
-                cross_array.add(slit_array)
-                many_crosses.add(cross_array, origin=(x_pos, y_pos))
-                x_pos += array_pitch
-            y_pos += array_pitch
-            x_pos = 0
-
-        # Make the labels
-        lbl_cell = Cell("Lbl_Cell")
-        for i, width in enumerate(_widths):
-            text_string = 'W{:.0f}'.format(width * 1000)
-            text = Label(text_string, 5, layer=l)
-            text.translate(tuple(np.array(-text.bounding_box.mean(0))))
-            x_offset = - 1.5 * array_pitch + i * array_pitch
-            text.translate(np.array((x_offset, 0)))  # Center justify label
-            lbl_cell.add(text)
-
-        centered_cell = Cell('Centered_Cell')
-        bbox = np.mean(many_crosses.bounding_box, 0)  # Get center of cell
-
-        centered_cell.add(many_crosses, origin=tuple(-bbox))
-        lbl_vertical_offset = 1.5
-        centered_cell.add(lbl_cell, origin=(0, -bbox[1] * lbl_vertical_offset))
-        centered_cell.add(lbl_cell, origin=(-bbox[1] * lbl_vertical_offset, 0), rotation=90)
-
-        self.add(centered_cell, rotation=rot_angle)
-
-
-# Create the pattern that we want to write
+# %%Create the pattern that we want to write
 
 lgField = Frame("LargeField", (2000., 2000.), [])  # Create the large write field
-lgField.make_align_markers(20., 200., (850., 850.), l_lgBeam, joy_markers=True, camps_markers=True)
+lgField.make_align_markers(10., 200., (850., 850.), l_lgBeam, joy_markers=True, camps_markers=True)
 
 # Define parameters that we will use for the slits
-widths = [0.01, 0.020, 0.040, 0.060]
-length = 15.
-
-spacing = 10.
+widths = [0.020, 0.035, 0.050, 0.020, 0.035, 0.050]
+pitch = 1.0
+length = 20.
 
 smFrameSize = 400
 slitColumnSpacing = 3.
@@ -522,24 +461,32 @@ slitColumnSpacing = 3.
 # Create the smaller write field and corresponding markers
 smField1 = Frame("SmallField1", (smFrameSize, smFrameSize), [])
 smField1.make_align_markers(2., 20., (180., 180.), l_lgBeam, joy_markers=True)
-smField1.make_branch_array(widths, length, 1., 1., 5., 60., 0, l_smBeam)
+smField1.make_slit_array(pitch, slitColumnSpacing, widths, length, 0, 100, 100, 30, l_smBeam)
 
 smField2 = Frame("SmallField2", (smFrameSize, smFrameSize), [])
 smField2.make_align_markers(2., 20., (180., 180.), l_lgBeam, joy_markers=True)
-smField2.make_branch_array(widths, length, 1., 1., 5., 60., 45., l_smBeam)
+smField2.make_slit_array(pitch, slitColumnSpacing, widths, length, 45, 100, 100, 30, l_smBeam)
 
-# quantum_playground = make_qp()
+smField3 = Frame("SmallField3", (smFrameSize, smFrameSize), [])
+smField3.make_align_markers(2., 20., (180., 180.), l_lgBeam, joy_markers=True)
+smField3.make_slit_array(pitch, slitColumnSpacing, widths, length, 0, 100, 100, 30, l_smBeam)
 
-centerAlignField = Frame("CenterAlignField", (smFrameSize, smFrameSize), [])
-centerAlignField.make_align_markers(2., 20., (180., 180.), l_lgBeam, joy_markers=True)
+smField4 = Frame("SmallField4", (smFrameSize, smFrameSize), [])
+smField4.make_align_markers(2., 20., (180., 180.), l_lgBeam, joy_markers=True)
+smField4.make_slit_array(pitch, slitColumnSpacing, widths, length, 90, 100, 100, 30, l_smBeam)
+
+quantum_playground = make_qp()
+
+emptyAlignField = Frame("EmptyAlignField", (smFrameSize, smFrameSize), [])
+emptyAlignField.make_align_markers(2., 20., (180., 180.), l_lgBeam, joy_markers=True)
 
 centerLeftAlignField = Frame("CenterLeftAlignField", (smFrameSize, smFrameSize), [])
 centerLeftAlignField.make_align_markers(2., 20., (180., 180.), l_lgBeam, joy_markers=True)
-# centerLeftAlignField.add(quantum_playground)
-#
+centerLeftAlignField.add(quantum_playground)
+
 centerRightAlignField = Frame("CenterRightAlignField", (smFrameSize, smFrameSize), [])
 centerRightAlignField.make_align_markers(2., 20., (180., 180.), l_lgBeam, joy_markers=True)
-# centerRightAlignField.add(quantum_playground, rotation=45)
+centerRightAlignField.add(quantum_playground, rotation=45)
 
 # Add everything together to a top cell
 topCell = Cell("TopCell")
@@ -549,11 +496,13 @@ dx = smFrameSpacing + smFrameSize
 dy = smFrameSpacing + smFrameSize
 topCell.add(smField1, origin=(-dx / 2., dy / 2.))
 topCell.add(smField2, origin=(dx / 2., dy / 2.))
-topCell.add(smField1, origin=(-dx / 2., -dy / 2.))
-topCell.add(smField2, origin=(dx / 2., -dy / 2.))
+topCell.add(smField3, origin=(-dx / 2., -dy / 2.))
+topCell.add(smField4, origin=(dx / 2., -dy / 2.))
 topCell.add(centerLeftAlignField, origin=(-dx / 2, 0.))
 topCell.add(centerRightAlignField, origin=(dx / 2, 0.))
-topCell.add(centerAlignField, origin=(0., 0.))
+topCell.add(emptyAlignField, origin=(0., 0.))
+topCell.add(emptyAlignField, origin=(0., dy / 2.))
+topCell.add(emptyAlignField, origin=(0., -dy / 2.))
 topCell.spacing = np.array([4000., 4000.])
 
 # %%Create the layout and output GDS file
@@ -561,7 +510,7 @@ layout = Layout('LIBRARY')
 if putOnWafer:  # Fit as many patterns on a 2inch wafer as possible
     wafer = MBE100Wafer('MembranesWafer', cells=[topCell])
     layout.add(wafer)
-    # layout.show()
+# layout.show()
 else:  # Only output a single copy of the pattern (not on a wafer)
     layout.add(topCell)
     layout.show()

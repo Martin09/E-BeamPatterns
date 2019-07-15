@@ -240,11 +240,10 @@ def makeSlitArray(pitches, spacing, widths, lengths, rotAngle,
                 translation = (xlength + spacing + length / 2., 0)
                 xlength += length + spacing
 
-            pt1 = np.array((-length / 2., -width / 2.)) + translation
-            pt2 = np.array((length / 2., width / 2.)) + translation
-            rect = Rectangle(pt1, pt2, layer=l)
-            rect = rect.copy().rotate(rotAngle)
-            slit.add(rect)
+            membrane = Path([(-length / 2., 0), (length / 2., 0)], width=width, layer=l)
+            membrane_cell = Cell('Membrane_w{:.0f}'.format(width * 1000))
+            membrane_cell.add(membrane)
+            slit.add(membrane_cell, origin=translation, rotation=rotAngle)
         slits = CellArray(slit, 1, Ny, (0, pitchV))
         # slits.translate((-(Nx - 1) * (length + spacing) / 2., -(Ny - 1)* (pitchV) / 2.))
         slits.translate((-slits.bounding_box[1, 0] / 2., -slits.bounding_box[1, 1] / 2.))
@@ -293,10 +292,11 @@ def makeSlitArray2(pitches, spacing, widths, lengths, rotAngle, arrayHeight, arr
                 Nx = int(arrayWidth / (length + spacing))
                 Ny = int(arrayHeight / (pitchV))
                 # Define the slits
+                membrane = Path([(-length / 2., 0), (length / 2., 0)], width=width, layer=l)
+                membrane_cell = Cell('Membrane_w{:.0f}_l{:.0f}'.format(width * 1000, length * 1000))
+                membrane_cell.add(membrane)
                 slit = Cell("Slits")
-                rect = Rectangle((-length / 2., -width / 2.), (length / 2., width / 2.), layer=l)
-                rect = rect.copy().rotate(rotAngle)
-                slit.add(rect)
+                slit.add(membrane_cell, rotation=rotAngle)
                 if Nx <= 1:
                     slits = CellArray(slit, Nx, Ny, (length, pitchV))
                     slits.translate((0, -(Ny - 1) * (pitchV) / 2.))
@@ -359,15 +359,12 @@ def makeSlitArray3(pitches, spacing, widths, lengths, rotAngle,
                 Nx = int(arrayWidth / (length + spacing))
                 Ny = int(arrayHeight / (pitchV))
                 # Define the slits
-                slit = Cell("Slits")
-                rect = Rectangle(
-                    (-length / 2., -width / 2.),
-                    (length / 2., width / 2.),
-                    layer=l)
-                rect = rect.copy().rotate(rotAngle)
-                slit.add(rect)
-                slits = CellArray(slit, Nx, Ny,
-                                  (length + spacing, pitchV))
+                membrane = Path([(-length / 2., 0), (length / 2., 0)], width=width, layer=l)
+                membrane_cell = Cell('Membrane_w{:.0f}_l{:.0f}'.format(width * 1000, length * 1000))
+                membrane_cell.add(membrane)
+                slit = Cell('Slit_w{:.0f}_l{:.0f}_r{:.0f}'.format(width * 1000, length * 1000, rotAngle))
+                slit.add(membrane_cell, rotation=rotAngle)
+                slits = CellArray(membrane_cell, Nx, Ny, (length + spacing, pitchV))
                 slits.translate((-(Nx - 1) * (length + spacing) / 2., -(Ny - 1) * (pitchV) / 2.))
                 slitarray = Cell("SlitArray")
                 slitarray.add(slits)
@@ -410,14 +407,14 @@ def make_rotating_slits(length, width, N, radius, layers, angle_ref=None):
     angles = np.linspace(0, 360, N)
     #        radius = length*12.
     translation = (radius, 0)
-    pt1 = np.array((-length / 2., -width / 2.)) + translation
-    pt2 = np.array((length / 2., width / 2.)) + translation
-    slit = Cell("Slit")
     for l in layers:
-        rect = Rectangle(pt1, pt2, layer=l)
-        slit.add(rect)
+        membrane = Path([(-length / 2., 0), (length / 2., 0)], width=width, layer=l)
+        membrane_cell = Cell('Membrane_w{:.0f}'.format(width * 1000))
+        membrane_cell.add(membrane)
+        slit = Cell("Slit")
+        slit.add(membrane_cell, origin=translation)
         for angle in angles:
-            allslits.add(slit.copy(), rotation=angle)
+            allslits.add(slit, rotation=angle)
         cell.add(allslits)
 
         if angle_ref:
@@ -509,9 +506,9 @@ def make_many_shapes(array_size, shape_areas, pitch, shapes, layer):
 def make_theory_cell(wafer_orient='111'):
     ''' Makes the theory cell and returns ir as a cell'''
     # Growth Theory Slit Elongation
-    pitch = [0.500]
+    pitch = [1.0]
     lengths = list(np.logspace(-3, 0, 20) * 8.0)  # Logarithmic
-    widths = [0.044, 0.028, 0.016, 0.012, 0.008]
+    widths = [0.020, 0.040, 0.080, 0.140, 0.220]
     TheorySlitElong = Cell('LenWidthDependence')
     arrayHeight = 20.
     arraySpacing = 30.
@@ -531,7 +528,7 @@ def make_theory_cell(wafer_orient='111'):
     LenWidDep = Cell('LenWidDependence')
     pitch = [1.0]
     lengths = list(np.logspace(-3, 0, 10) * 8.0)  # Logarithmic
-    widths = [0.044, 0.016, 0.008]
+    widths = [0.040, 0.080, 0.140]
     arrayHeight = 20.
     arrayWidth = arrayHeight
     arraySpacing = 30.
@@ -545,20 +542,20 @@ def make_theory_cell(wafer_orient='111'):
 
     # Make rotating slits
     wheel1 = Cell('RotDependence_LongSlits')
-    wheel1.add(make_rotating_slits(5, 0.044, 361, 6. * 5, l_smBeam, angle_ref=wafer_orient))
-    wheel1.add(make_rotating_slits(5, 0.044, 433, 7.2 * 5, l_smBeam))
-    wheel1.add(make_rotating_slits(5, 0.044, 505, 8.4 * 5, l_smBeam))
+    wheel1.add(make_rotating_slits(5, 0.040, 361, 6. * 5, l_smBeam, angle_ref=wafer_orient))
+    wheel1.add(make_rotating_slits(5, 0.040, 433, 7.2 * 5, l_smBeam))
+    wheel1.add(make_rotating_slits(5, 0.040, 505, 8.4 * 5, l_smBeam))
 
     wheel2 = Cell('RotDependence_ShortSlits')
-    wheel2.add(make_rotating_slits(2, 0.044, 201, 6. * 2, l_smBeam, angle_ref=wafer_orient))
+    wheel2.add(make_rotating_slits(2, 0.040, 201, 6. * 2, l_smBeam, angle_ref=wafer_orient))
     for i in range(10):  # number of concentric rings to make
-        wheel2.add(make_rotating_slits(2, 0.044, 201, (7.2 + i * 1.2) * 2, l_smBeam))
+        wheel2.add(make_rotating_slits(2, 0.040, 201, (7.2 + i * 1.2) * 2, l_smBeam))
 
     # Pitch Dependence
     PitchDep = Cell('PitchDependence')
     # pitches = list(np.round(np.logspace(-1, 1, 10), 1))  # Logarithmic
-    pitches = [0.250, 0.500, 1.000, 2.000, 4.000]
-    widths = [0.020, 0.040, 0.060, 0.080, 0.100]
+    pitches = [0.500, 1.000, 2.000, 4.000]
+    widths = [0.020, 0.040, 0.080, 0.140, 0.220, 0.320]
     length = [20.]
     arrayHeight = 20.
     arrayWidth = arrayHeight
@@ -578,7 +575,7 @@ def make_theory_cell(wafer_orient='111'):
     TopCell = Cell('GrowthTheoryTopCell')
     TopCell.add(wheel1, origin=(-170., -50.))
     TopCell.add(wheel2, origin=(-70., -50.))
-    TopCell.add(PitchDep, origin=(-200., -310.))
+    TopCell.add(PitchDep, origin=(-200., -280.))
     TopCell.add(TheorySlitElong, origin=(-250., 75.))
     TopCell.add(LenWidDep, origin=(-200., -50.))
     TopCell.add(manyshapes, origin=(0, -30))

@@ -5,9 +5,12 @@ Created on Fri Dec 18 14:11:31 2015
 @author: Martin Friedl
 
 1.4.1 - Added cleaved cross section wires to quickly check the cross section of many wires by cleaving + SEM
+1.5 - Added thicker slits in cleaving X-section region and theory cell: see if we can grow single NWs using wider slits
 """
 
 import itertools
+import json
+import os.path
 from datetime import date
 from random import choice as random_choice
 
@@ -21,7 +24,7 @@ from gdsCAD_py3.core import Cell, Boundary, CellArray, Layout, Path
 from gdsCAD_py3.shapes import Box, Rectangle, Label
 from gdsCAD_py3.templates100 import Wafer_GridStyle, dashed_line
 
-WAFER_ID = 'XXXXX'  # CHANGE THIS FOR EACH DIFFERENT WAFER
+WAFER_ID = '000050254322'  # CHANGE THIS FOR EACH DIFFERENT WAFER
 PATTERN = 'SQ1.5'
 putOnWafer = True  # Output full wafer or just a single pattern?
 HighDensity = False  # High density of triangles?
@@ -68,7 +71,8 @@ class MBE100Wafer(Wafer_GridStyle):
         self.add_wafer_outline(layers=l_drawing)
         self.add_dashed_dicing_marks(layers=[l_lgBeam])
         self.add_subdicing_marks(200, 5, layers=[l_lgBeam])
-        self.add_block_labels(l_lgBeam, quasi_unique_labels=True)
+        self.add_block_labels(l_lgBeam, unique_ids=True, load_ids=True)
+
 
         self.add_prealignment_markers(layers=[l_lgBeam])
         self.add_tem_membranes([0.02, 0.04, 0.06, 0.08], 500, 1, l_smBeam)
@@ -83,45 +87,69 @@ class MBE100Wafer(Wafer_GridStyle):
         # top = np.array([0, -1]) * bottom
         self.add_waferLabel(waferLabel, l_drawing, pos=bottom)
 
-    def add_block_labels(self, layers, quasi_unique_labels=False):
+    def add_block_labels(self, layers, unique_ids=False, save_ids=True, load_ids=True):
         if type(layers) is not list:
             layers = [layers]
 
-        txtSize = 800
+        txtSize = 1000
+        blockids = []
 
-        if quasi_unique_labels:
-            unique_label_string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
-            possible_labels = ["".join(x) for x in itertools.product(unique_label_string, repeat=2)]
-
-            blockids_set = set()
-            while len(blockids_set) < len(self.blocks):
-                blockids_set.add(random_choice(possible_labels))
-
-            blockids = list(blockids_set)
-            for i, block in enumerate(self.blocks):
-                blocklabel = Cell('LBL_B_' + blockids[i])
-                for l in layers:
-                    txt = Label(blockids[i], txtSize, layer=l)
-                    bbox = txt.bounding_box
-                    offset = (0, 0)
-                    txt.translate(-np.mean(bbox, 0))  # Center text around origin
-                    txt.translate(offset)  # Translate it to bottom of wafer
-                    blocklabel.add(txt)
-                    block.add(blocklabel, origin=(self.block_size[0] / 2., self.block_size[1] / 2.))
-
-        else:
+        if not unique_ids:
             for (i, pt) in enumerate(self.block_pts):
-                origin = (pt + np.array([0.5, 0.5])) * self.block_size
-                blk_lbl = self.blockcols[pt[0]] + self.blockrows[pt[1]]
-                for l in layers:
-                    txt = Label(blk_lbl, txtSize, layer=l_lgBeam)
-                    bbox = txt.bounding_box
-                    offset = np.array(pt)
-                    txt.translate(-np.mean(bbox, 0))  # Center text around origin
-                    lbl_cell = Cell("lbl_" + blk_lbl)
-                    lbl_cell.add(txt)
-                    origin += np.array([0, 2000])  # Translate it up by 2mm
-                    self.add(lbl_cell, origin=origin)
+                blockids.append(self.blockcols[pt[0]] + self.blockrows[pt[1]])
+        else:
+            existing_ids = {}
+            existing_id_set = set()
+            # Load the previously-used IDs from a JSON file
+            if load_ids:
+                master_db = '../../../ChipIDs_DB.json'
+                if os.path.isfile(master_db):
+                    with open(master_db, 'r') as f:
+                        try:
+                            existing_ids = json.load(f)
+                            existing_id_set = set([item for sublist in list(existing_ids.values()) for item in sublist])
+
+                            # Check if wafer is in the loaded database
+                            if load_ids and WAFER_ID in existing_ids:
+                                blockids = existing_ids[WAFER_ID]
+
+                        # If there is a reading error then proceed with a warning
+                        except json.decoder.JSONDecodeError:
+                            print("Json Error: Couldn't load chip IDs from database!")
+                            existing_id_set = set()
+
+            # If the IDs haven't already been set by loading them from the database
+            if not blockids:
+                # Generate some new IDs, but only use the ones that haven't previously been used
+                unique_label_string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+                possible_label_set = set(["".join(x) for x in itertools.product(unique_label_string, repeat=2)])
+                possible_label_set = possible_label_set - existing_id_set  # Remove chip lbls from the set of possible lbls
+
+                blockids_set = set()
+                while len(blockids_set) < len(self.blocks):
+                    blockids_set.add(random_choice(list(possible_label_set)))
+
+                blockids = list(blockids_set)
+
+        # Save the labels to a file
+        if save_ids:
+            existing_ids.update({WAFER_ID: blockids})
+            json_string = json.dumps(existing_ids)
+            json_string = json_string.replace("], ", "],\n")  # Make the file a bit easier to read in notepad
+            with open(master_db, 'w') as f:
+                f.write(json_string)
+
+        # Write the labels to the cells
+        for i, block in enumerate(self.blocks):
+            blocklabel = Cell('LBL_B_' + blockids[i])
+            for l in layers:
+                txt = Label(blockids[i], txtSize, layer=l)
+                bbox = txt.bounding_box
+                offset = (0, 0)
+                txt.translate(-np.mean(bbox, 0))  # Center text around origin
+                txt.translate(offset)  # Translate it to bottom of wafer
+                blocklabel.add(txt)
+                block.add(blocklabel, origin=(self.block_size[0] / 2., self.block_size[1] / 2.-400))
 
     def add_dashed_dicing_marks(self, layers):
         if type(layers) is not list:
@@ -247,7 +275,7 @@ class MBE100Wafer(Wafer_GridStyle):
 
     def add_chip_labels(self):
         wafer_lbl = PATTERN + '\n' + WAFER_ID
-        text = Label(wafer_lbl, 10., layer=l_lgBeam)
+        text = Label(wafer_lbl, 20., layer=l_lgBeam)
         text.translate(tuple(np.array(-text.bounding_box.mean(0))))  # Center justify label
         chip_lbl_cell = Cell('chip_label')
         chip_lbl_cell.add(text)
@@ -427,7 +455,7 @@ lgField.make_align_markers(10., 200., (850., 850.), l_lgBeam, joy_markers=True, 
 
 # Define parameters that we will use for the slits
 widths = [0.01, 0.015, 0.020, 0.030, 0.040, 0.050]
-pitches = [2.0, 4.0]
+pitches = [1.0, 2.0]
 length = 20.
 
 smFrameSize = 400

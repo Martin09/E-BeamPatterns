@@ -96,85 +96,87 @@ class Frame(Cell):
 
     def makeYShapes(self, length, width, rotAngle, spacing, Nx, Ny, layers):
         if not (type(layers) == list): layers = [layers]
-        pt1 = np.array((0, -width / 2.))
-        pt2 = np.array((length, width / 2.))
         slit = Cell("Slit")
         for l in layers:
-            rect = Rectangle(pt1, pt2, layer=l)
-            slit.add(rect)
-            shape = Cell('Shapes')
-            shape.add(slit, rotation=0 + rotAngle)
-            shape.add(slit, rotation=120 + rotAngle)
-            shape.add(slit, rotation=240 + rotAngle)
+            membrane = Path([(-length / 2., 0), (length / 2., 0)], width=width, layer=l)
+            membrane_cell = Cell('Membrane_w{:.0f}'.format(width * 1000))
+            membrane_cell.add(membrane)
+            slit.add(membrane_cell)
+        shape = Cell('Shapes')
+        shape.add(slit, rotation=0 + rotAngle)
+        shape.add(slit, rotation=120 + rotAngle)
+        shape.add(slit, rotation=240 + rotAngle)
 
-            #            CellArray(slit, Nx, Ny,(length + spacing, pitchV))
-            xspacing = length + spacing
-            yspacing = (length + spacing) * np.sin(np.deg2rad(60))
-            shapearray = CellArray(shape, Nx, Ny / 2, (xspacing, yspacing * 2.), origin=(
-                -(Nx * xspacing - spacing) / 2., -(Ny * yspacing - spacing * np.sin(np.deg2rad(60))) / 2.))
-            shapearray2 = CellArray(shape, Nx, Ny / 2, (xspacing, yspacing * 2.), origin=(
-                xspacing / 2. - (Nx * xspacing - spacing) / 2.,
-                yspacing - (Ny * yspacing - spacing * np.sin(np.deg2rad(60))) / 2.))
+        #            CellArray(slit, Nx, Ny,(length + spacing, pitchV))
+        xspacing = length + spacing
+        yspacing = (length + spacing) * np.sin(np.deg2rad(60))
+        shapearray = CellArray(shape, Nx, Ny / 2, (xspacing, yspacing * 2.), origin=(
+            -(Nx * xspacing - spacing) / 2., -(Ny * yspacing - spacing * np.sin(np.deg2rad(60))) / 2.))
+        shapearray2 = CellArray(shape, Nx, Ny / 2, (xspacing, yspacing * 2.), origin=(
+            xspacing / 2. - (Nx * xspacing - spacing) / 2.,
+            yspacing - (Ny * yspacing - spacing * np.sin(np.deg2rad(60))) / 2.))
 
-            allshapes = Cell('All Shapes')
-            allshapes.add(shapearray)
-            allshapes.add(shapearray2)
-            self.add(allshapes)
+        allshapes = Cell('All Shapes')
+        allshapes.add(shapearray)
+        allshapes.add(shapearray2)
+        self.add(allshapes)
 
     def makeTriShapes(self, length, width, rotAngle, spacing, Nx, Ny, layers):
         if not (type(layers) == list): layers = [layers]
-        pt1 = np.array((-length / 2. - width / 4., -width / 2.)) + np.array([0, np.tan(np.deg2rad(30)) * length / 2.])
-        pt2 = np.array((length / 2. + width / 4., width / 2.)) + np.array([0, np.tan(np.deg2rad(30)) * length / 2.])
+        # pt1 = np.array((-length / 2. - width / 4., -width / 2.)) + np.array([0, np.tan(np.deg2rad(30)) * length / 2.])
+        # pt2 = np.array((length / 2. + width / 4., width / 2.)) + np.array([0, np.tan(np.deg2rad(30)) * length / 2.])
         slit = Cell("Slit")
         for l in layers:
-            rect = Rectangle(pt1, pt2, layer=l)
-            slit.add(rect)
-            shape = Cell('Shapes')
-            shape.add(slit, rotation=0 + rotAngle)
-            shape.add(slit, rotation=120 + rotAngle)
-            shape.add(slit, rotation=240 + rotAngle)
+            membrane = Path([(-length / 2., 0), (length / 2., 0)], width=width, layer=l)
+            membrane_cell = Cell('Membrane_w{:.0f}'.format(width * 1000))
+            membrane_cell.add(membrane)
+            slit.add(membrane_cell)
+        shape = Cell('Shapes')
+        shape.add(slit, rotation=0 + rotAngle)
+        shape.add(slit, rotation=120 + rotAngle)
+        shape.add(slit, rotation=240 + rotAngle)
 
-            #            CellArray(slit, Nx, Ny,(length + spacing, pitchV))
-            xspacing = length + spacing
-            yspacing = (length + spacing) * np.tan(np.deg2rad(60)) / 2.
-            shapearray = CellArray(shape, Nx, Ny / 2, (xspacing, yspacing * 2.), origin=(
-                -(Nx * xspacing - spacing) / 2., -(Ny * yspacing - spacing * np.tan(np.deg2rad(60))) / 2.))
-            shapearray2 = CellArray(shape, Nx, Ny / 2, (xspacing, yspacing * 2.), origin=(
-                xspacing / 2. - (Nx * xspacing - spacing) / 2.,
-                yspacing - (Ny * yspacing - spacing * np.tan(np.deg2rad(60))) / 2.))
+        #            CellArray(slit, Nx, Ny,(length + spacing, pitchV))
+        xspacing = length + spacing
+        yspacing = (length + spacing) * np.tan(np.deg2rad(60)) / 2.
+        shapearray = CellArray(shape, Nx, Ny / 2, (xspacing, yspacing * 2.), origin=(
+            -(Nx * xspacing - spacing) / 2., -(Ny * yspacing - spacing * np.tan(np.deg2rad(60))) / 2.))
+        shapearray2 = CellArray(shape, Nx, Ny / 2, (xspacing, yspacing * 2.), origin=(
+            xspacing / 2. - (Nx * xspacing - spacing) / 2.,
+            yspacing - (Ny * yspacing - spacing * np.tan(np.deg2rad(60))) / 2.))
 
-            allshapes = Cell('All Shapes')
-            allshapes.add(shapearray)
-            allshapes.add(shapearray2)
-            #            allshapes.add(shape)
-            self.add(allshapes)
+        allshapes = Cell('All Shapes')
+        allshapes.add(shapearray)
+        allshapes.add(shapearray2)
+        #            allshapes.add(shape)
+        self.add(allshapes)
 
     def makeXShape(self, length, width, rotAngle, spacing, Nx, Ny, layers):
         if not (type(layers) == list): layers = [layers]
-        pt1 = np.array((-length / 2., -width / 2.))
-        pt2 = np.array((length / 2., width / 2.))
         slit = Cell("Slit")
         for l in layers:
-            rect = Rectangle(pt1, pt2, layer=l)
-            slit.add(rect)
-            shape = Cell('Shapes')
-            shape.add(slit, rotation=60)
-            shape.add(slit, rotation=120)
+            membrane = Path([(-length / 2., 0), (length / 2., 0)], width=width, layer=l)
+            membrane_cell = Cell('Membrane_w{:.0f}'.format(width * 1000))
+            membrane_cell.add(membrane)
+            slit.add(membrane_cell)
+        shape = Cell('Shapes')
+        shape.add(slit, rotation=60)
+        shape.add(slit, rotation=120)
 
-            xspacing = (length + spacing) * np.cos(np.deg2rad(60))
-            yspacing = (length + spacing) * np.sin(np.deg2rad(60))
-            shapearray = CellArray(shape, Nx, Ny, (xspacing, yspacing),
-                                   origin=(-(Nx * xspacing - spacing) / 2., -(Ny * yspacing - spacing) / 2.))
-            #            shapearray2 = CellArray(shape, Nx, Ny/2,(xspacing,yspacing*2.),origin=(xspacing/2.-(Nx*xspacing-spacing)/2.,yspacing-(Ny*yspacing-spacing*np.tan(np.deg2rad(60)))/2.))
-            #            shapearray = CellArray(shape, Nx, Ny,(xspacing,yspacing))
-            #            shapearray.rotate(rotAngle)
-            #            shapearray.translate((-shapearray.bounding_box.mean(0)[0]/2.,-shapearray.bounding_box.mean(0)[1]/2.))
+        xspacing = (length + spacing) * np.cos(np.deg2rad(60))
+        yspacing = (length + spacing) * np.sin(np.deg2rad(60))
+        shapearray = CellArray(shape, Nx, Ny, (xspacing, yspacing),
+                               origin=(-(Nx * xspacing - spacing) / 2., -(Ny * yspacing - spacing) / 2.))
+        #            shapearray2 = CellArray(shape, Nx, Ny/2,(xspacing,yspacing*2.),origin=(xspacing/2.-(Nx*xspacing-spacing)/2.,yspacing-(Ny*yspacing-spacing*np.tan(np.deg2rad(60)))/2.))
+        #            shapearray = CellArray(shape, Nx, Ny,(xspacing,yspacing))
+        #            shapearray.rotate(rotAngle)
+        #            shapearray.translate((-shapearray.bounding_box.mean(0)[0]/2.,-shapearray.bounding_box.mean(0)[1]/2.))
 
-            allshapes = Cell('All Shapes')
-            allshapes.add(shapearray)
-            #            allshapes.add(shapearray2)
-            #            allshapes.add(shape)
-            self.add(allshapes)
+        allshapes = Cell('All Shapes')
+        allshapes.add(shapearray)
+        #            allshapes.add(shapearray2)
+        #            allshapes.add(shape)
+        self.add(allshapes)
 
     def makeArrowShape(self, length, width, rotAngle, spacing, Nx, Ny, layers):
         if not (type(layers) == list): layers = [layers]
@@ -403,7 +405,7 @@ def make_branch_array(x_vars, y_vars, stat_vars, var_names, spacing, rot_angle,
                 #     -(n_x * x_spacing - pitch * np.cos(np.deg2rad(array_angle))) / 2.,
                 #     -(n_y * y_spacing - pitch * np.sin(np.deg2rad(array_angle))) / 2.))
 
-                branch_array = Cell('BranchArray-{}/{}/{}-lwp'.format(length, width, spacing))
+                branch_array = Cell('BranchArray-{:.0f}/{:.0f}/{:.2f}-wpl'.format(width, spacing, length))
                 # branch_array.add(shape_array)
 
                 dir1 = pitch
@@ -413,7 +415,16 @@ def make_branch_array(x_vars, y_vars, stat_vars, var_names, spacing, rot_angle,
                     pt += np.array([-array_width / 2., -array_height / 2.])
                     branch_array.add(branch, origin=pt)
 
-                text = Label('w/p/l\n{:.0f}/{:.1f}/{:.1f}'.format(width * 1000, pitch, length), 2, layer=l_smBeam)
+                if length * 1000 % 1000 == 0:
+                    text = Label('w/p/l\n{:.0f}/{:.0f}/{:.0f}'.format(width * 1000, pitch * 1000, length), 2,
+                                 layer=l_smBeam)
+                elif length * 1000 % 100 == 0:
+                    text = Label('w/p/l\n{:.0f}/{:.0f}/{:.1f}'.format(width * 1000, pitch * 1000, length), 2,
+                                 layer=l_smBeam)
+                else:
+                    text = Label('w/p/l\n{:.0f}/{:.0f}/{:.2f}'.format(width * 1000, pitch * 1000, length), 2,
+                                 layer=l_smBeam)
+
                 lbl_vert_offset = 1.35
                 if j % 2 == 0:
                     text.translate(
@@ -447,14 +458,14 @@ def make_rotating_slits(length, width, N, radius, layers, angle_ref=None, angle_
     angles = np.linspace(0, angle_sweep, N)
     #        radius = length*12.
     translation = (radius, 0)
-    pt1 = np.array((-length / 2., -width / 2.)) + translation
-    pt2 = np.array((length / 2., width / 2.)) + translation
-    slit = Cell("Slit")
     for l in layers:
-        rect = Rectangle(pt1, pt2, layer=l)
-        slit.add(rect)
+        membrane = Path([(-length / 2., 0), (length / 2., 0)], width=width, layer=l)
+        membrane_cell = Cell('Membrane_w{:.0f}'.format(width * 1000))
+        membrane_cell.add(membrane)
+        slit = Cell("Slit")
+        slit.add(membrane_cell, origin=translation)
         for angle in angles:
-            allslits.add(slit.copy(), rotation=angle)
+            allslits.add(slit, rotation=angle)
         cell.add(allslits)
 
         if angle_ref:
@@ -482,24 +493,24 @@ def make_rotating_slits(length, width, N, radius, layers, angle_ref=None, angle_
         return cell
 
 
-
 def make_arm(width, length, layer, cell_name='branch'):
+    membrane = Path([(0, 0), (length, 0)], width=width, layer=layer)
+    membrane_cell = Cell('Membrane_w{:.0f}'.format(width * 1000))
+    membrane_cell.add(membrane)
     cell = Cell(cell_name)
-    rect = Rectangle((0, -width / 2.), (length, width / 2.), layer=layer)
-    cell.add(rect)
+    cell.add(membrane_cell)
     return cell
 
 
 def make_branch(length, width, layers, rot_angle=0):
-    pt1 = np.array((0, -width / 2.))
-    pt2 = np.array((length, width / 2.))
-
     slit = Cell("Slit")
     for l in layers:
-        rect = Rectangle(pt1, pt2, layer=l)
-        slit.add(rect)
+        membrane = Path([(0, 0), (length, 0)], width=width, layer=l)
+        membrane_cell = Cell('Membrane_w{:.0f}'.format(width * 1000))
+        membrane_cell.add(membrane)
+        slit.add(membrane_cell)
 
-    branch = Cell('Branch-{}/{}-lw'.format(length, width))
+    branch = Cell('Branch-{:.0f}/{:.2f}-wl'.format(width, length))
     branch.add(slit, rotation=0 + rot_angle)
     # branch.add(slit, rotation=90 + rot_angle)
     branch.add(slit, rotation=180 + rot_angle)
@@ -728,8 +739,8 @@ def make_theory_cell_3br():
     # Pitch Dependence
     PitchDep = Cell('PitchDependence')
     # pitches = list(np.round(np.logspace(-1, 1, 10), 1))  # Logarithmic
-    pitches = [0.250, 0.500, 1.000, 2.000, 4.000]
-    widths = [0.020, 0.040, 0.060, 0.080, 0.100]
+    pitches = [0.500, 1.000, 2.000, 4.000]
+    widths = [0.020, 0.040, 0.080, 0.140, 0.220, 0.320]
     length = [2.]
     arrayHeight = 20.
     arrayWidth = arrayHeight
@@ -766,7 +777,7 @@ def make_theory_cell_3br():
     TopCell = Cell('GrowthTheoryTopCell')
     TopCell.add(wheel1, origin=(-100., -60.))
     TopCell.add(wheel2, origin=(-100., -65.))
-    TopCell.add(PitchDep, origin=(-200., -310.))
+    TopCell.add(PitchDep, origin=(-200., -280.))
     # TopCell.add3(TheorySlitElong, origin=(-250., -50))
     TopCell.add(LenWidDep, origin=(-200., -50.))
     # TopCell.add(hexagon_array, origin=(-100., -50))

@@ -14,7 +14,6 @@ TODO: Add serial number of wafers that I will expose
 import os
 import sys
 
-
 PACKAGE_PARENT = 'gdsCAD_v045'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
@@ -32,7 +31,7 @@ from gdsCAD_py3.shapes import Box, Rectangle, Label, Disk, RegPolygon
 from gdsCAD_py3.templates111 import Wafer_TriangStyle
 from gdsCAD_py3.utils import scale
 
-WAFER_ID = '800002879883'  # CHANGE THIS FOR EACH DIFFERENT WAFER
+WAFER_ID = '800002879885'  # CHANGE THIS FOR EACH DIFFERENT WAFER
 PATTERN = 'BM4.9.1'
 CELL_GAP = 3000
 glbAlignmentMarks = False
@@ -507,7 +506,7 @@ class Frame(Cell):
                         j += 1  # Move to array to next line
                         i = 0  # Restart at left
 
-                    pitch_v = pitch / np.cos(np.deg2rad(rot_angle))
+                    pitch_v = pitch
                     #                    widthV = width / np.cos(np.deg2rad(rotAngle))
                     nx = int(array_width / (length + spacing))
                     ny = int(array_height / pitch_v)
@@ -517,7 +516,7 @@ class Frame(Cell):
                         (-length / 2., -width / 2.),
                         (length / 2., width / 2.),
                         layer=l)
-                    rect = rect.copy().rotate(rot_angle)
+                    # rect = rect.copy().rotate(rot_angle)
                     slit.add(rect)
                     slits = CellArray(slit, nx, ny,
                                       (length + spacing, pitch_v))
@@ -540,10 +539,20 @@ class Frame(Cell):
                                   origin=((array_width + array_spacing) * i, (
                                           array_height + 2. * array_spacing) * j - array_spacing / 2.))
 
-        self.add(manyslits,
-                 origin=(-i * (array_width + array_spacing) / 2, -(j + 1.5) * (
-                         array_height + array_spacing) / 2))
+        # This is an ugly hack to center rotated slits, should fix this properly...
+        if rot_angle == 60:  # TODO: fix this ugly thing
+            hacky_offset_x = 260
+            hacky_offset_y = -25
+        elif rot_angle == 120:
+            hacky_offset_x = 356
+            hacky_offset_y = 96.5
+        else:
+            hacky_offset_x = 0
+            hacky_offset_y = 0
 
+        self.add(manyslits, origin=(-i * (array_width + array_spacing) / 2 + hacky_offset_x,
+                                    -(j + 1.5) * (array_height + array_spacing) / 2 + hacky_offset_y),
+                 rotation=rot_angle)
 
 # %%Create the pattern that we want to write
 
@@ -569,7 +578,7 @@ lgField.add(smField1, origin=(-dx / 2., dy / 2.))
 
 smField2 = Frame("SmallField2", (smFrameSize, smFrameSize), [])
 smField2.make_align_markers(2., 20., (180., 180.), l_lgBeam, cross=True)
-smField2.make_slit_array(pitches[0], slitColumnSpacing, widths, lengths[1], rotAngle, 100, 100, 30, l_smBeam)
+smField2.make_slit_array(pitches[0], slitColumnSpacing, widths, lengths[1], 60., 100, 100, 30, l_smBeam)
 lgField.add(smField2, origin=(dx / 2., dy / 2.))
 
 smField3 = Frame("SmallField3", (smFrameSize, smFrameSize), [])

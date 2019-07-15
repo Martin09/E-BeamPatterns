@@ -194,7 +194,7 @@ class MBE100Wafer(Wafer_GridStyle):
 
     def add_chip_labels(self):
         wafer_lbl = PATTERN + '\n' + WAFER_ID
-        text = Label(wafer_lbl, 10., layer=l_lgBeam)
+        text = Label(wafer_lbl, 20., layer=l_lgBeam)
         text.translate(tuple(np.array(-text.bounding_box.mean(0))))  # Center justify label
         chip_lbl_cell = Cell('chip_label')
         chip_lbl_cell.add(text)
